@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef  Name="RuneBase" ParentName="ResourceBase" Abstract="True">
+        <!--
+        <graphicData>
+            <texPath>Things/Item/Resource/Rune_Power</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <costList>
+            <WoodLog>1</WoodLog>
+            <Cloth>1</Cloth>
+        </costList>
+    -->
+        <equippedAngleOffset>-20</equippedAngleOffset>
+        <soundInteract>Wood_Drop</soundInteract>
+        <soundDrop>Wood_Drop</soundDrop>
+        <stackLimit>75</stackLimit>
+        <statBases>
+            <!--
+            <MarketValue>75.0</MarketValue>
+            <WorkToMake>5000</WorkToMake>
+        -->
+            <MaxHitPoints>10</MaxHitPoints>
+            <Mass>0.1</Mass>
+            <Flammability>1.0</Flammability>
+            <DeteriorationRate>3.0</DeteriorationRate>
+        </statBases>
+        <thingCategories>
+            <li>Runes</li>
+        </thingCategories>
+        <recipeMaker>
+            <workSpeedStat>WizardSpeed</workSpeedStat>
+            <workSkill>Wizardry</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>TableArcaneAlcove</li>
+            </recipeUsers>
+            <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>1</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+
+    <ThingDef ParentName="RuneBase">
+        <defName>PowerRune</defName>
+        <label>power rune</label>
+        <description>An etched rune that eminates powerful magic, jus waiting to be tapped.</description>
+        <graphicData>
+            <texPath>Things/Item/Resource/Rune_Power</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>25.0</MarketValue>
+            <WorkToMake>1000</WorkToMake>
+        </statBases>
+        <costList>
+            <WoodLog>1</WoodLog>
+            <Cloth>1</Cloth>
+            <Steel>1</Steel>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>1</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+
+
+    <ThingDef ParentName="RuneBase">
+        <defName>BindingRune</defName>
+        <label>binding rune</label>
+        <description>An etched rune, calming, used to bind energies to items.</description>
+        <graphicData>
+            <texPath>Things/Item/Resource/Rune_Binding</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>50.0</MarketValue>
+            <WorkToMake>2000</WorkToMake>
+        </statBases>
+        <costList>
+            <WoodLog>3</WoodLog>
+            <Cloth>3</Cloth>
+            <Steel>3</Steel>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>2</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+
+
+    <ThingDef ParentName="RuneBase">
+        <defName>PulsingRune</defName>
+        <label>pulsing rune</label>
+        <description>An etched rune, eratic in appearance, used to create short bursts of energy.</description>
+        <graphicData>
+            <texPath>Things/Item/Resource/Rune_Pulsing</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>100.0</MarketValue>
+            <WorkToMake>3000</WorkToMake>
+        </statBases>
+        <costList>
+            <WoodLog>3</WoodLog>
+            <Cloth>3</Cloth>
+            <Steel>3</Steel>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>ArcaneArtificer</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>3</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+
+
+    <ThingDef ParentName="RuneBase">
+        <defName>ControlRune</defName>
+        <label>control rune</label>
+        <description>An etched rune with traces and lines across it's surface, all to control and direct the energies it connects.</description>
+        <graphicData>
+            <texPath>Things/Item/Resource/Rune_Control</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>150.0</MarketValue>
+            <WorkToMake>5000</WorkToMake>
+        </statBases>
+        <costList>
+            <WoodLog>3</WoodLog>
+            <Cloth>3</Cloth>
+            <Steel>3</Steel>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>InanimateImbuement</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>5</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+
+    <ThingDef ParentName="RuneBase">
+        <defName>AwarenessRune</defName>
+        <label>awareness rune</label>
+        <description>An etched rune that wavers as you move around it. It is aware of you and others. What is trapped in it to make it aware?</description>
+        <graphicData>
+            <texPath>Things/Item/Resource/Rune_Awareness</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>350.0</MarketValue>
+            <WorkToMake>8000</WorkToMake>
+        </statBases>
+        <costList>
+            <WoodLog>8</WoodLog>
+            <Cloth>8</Cloth>
+            <Steel>8</Steel>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>ArcaneScribe</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>8</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+
+
+    <ThingDef ParentName="RuneBase">
+        <defName>OldMagicRune</defName>
+        <label>old magic rune</label>
+        <description>An etched rune of the deepest black. It has timeless power from the dawn of time.</description>
+        <graphicData>
+            <texPath>Things/Item/Resource/Rune_OldMagic</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>750.0</MarketValue>
+            <WorkToMake>16000</WorkToMake>
+        </statBases>
+        <costList>
+            <DevilstrandCloth>10</DevilstrandCloth>
+            <Plasteel>5</Plasteel>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>OldMagic</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>12</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+
+</Defs>

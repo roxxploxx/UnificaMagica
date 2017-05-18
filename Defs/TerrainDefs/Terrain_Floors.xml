@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TerrainDefs>
+
+    <TerrainDef ParentName="FloorBase">
+        <DefName>ArcaneTile</DefName>
+        <label>arcane tile</label>
+        <RenderPrecedence>244</RenderPrecedence>
+        <Description>A wizards preferred footing. Expensive and slow to build, but very impressive. Reduces dirt and clutter magically as well as empowering Arcane Alcoves.</Description>
+        <texturePath>Terrain/Surfaces/GenericFloorTile</texturePath>
+        <color>(0.47, 0.42, 0.57)</color>
+        <holdSnow>false</holdSnow>
+        <takeFootprints>true</takeFootprints>
+        <acceptFilth>false</acceptFilth>
+        <statBases>
+            <Beauty>1</Beauty>
+            <!-- Cleanliness>0.6</Cleanliness -->
+            <WorkToBuild>2200</WorkToBuild>
+        </statBases>
+        <CostList>
+            <Steel>3</Steel>
+            <Silver>15</Silver>
+            <PowerRune>1</PowerRune>
+            <BindingRune>1</BindingRune>
+        </CostList>
+        <constructEffect>ConstructMetal</constructEffect>
+        <designationHotkey>Misc2</designationHotkey>
+        <researchPrerequisites><li>ArcaneArtificer</li></researchPrerequisites>
+    </TerrainDef>
+
+</TerrainDefs>

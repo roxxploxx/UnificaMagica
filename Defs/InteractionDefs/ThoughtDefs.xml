@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThoughtDefs>
+
+  <ThoughtDef>
+    <defName>NotWizardUsing</defName>
+    <workerClass>UnificaMagica.ThoughtWorker_NotWizardUsing</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <nullifyingTraits>
+      <li>WizardInclined</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>non wizard using wizard item</label>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+      <li>
+        <label>non wizard using wizard items</label>
+        <baseMoodEffect>-40</baseMoodEffect>
+      </li>
+      <li>
+        <label>wanna be wizard</label>
+        <baseMoodEffect>-60</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</ThoughtDefs>

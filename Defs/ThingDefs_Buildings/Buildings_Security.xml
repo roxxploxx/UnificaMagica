@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ThingDefs>
+
+    <ThingDef ParentName="BaseHumanGun">
+        <defName>ArcaneArcerGun</defName>
+        <label>arcane arcer gun</label>
+        <graphicData>
+          <texPath>Things/Item/Equipment/WeaponRanged/ChargeRifle</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <menuHidden>true</menuHidden>
+        <description>An archer defense pylon.</description>
+        <soundInteract>InteractRifle</soundInteract>
+        <canBeSpawningInventory>false</canBeSpawningInventory>
+        <tradeability>Never</tradeability>
+        <destroyOnDrop>true</destroyOnDrop>
+        <statBases>
+          <AccuracyTouch>0.80</AccuracyTouch>
+          <AccuracyShort>0.64</AccuracyShort>
+          <AccuracyMedium>0.41</AccuracyMedium>
+          <AccuracyLong>0.22</AccuracyLong>
+          <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+        </statBases>
+        <weaponTags>
+          <li>TurretGun</li>
+        </weaponTags>
+        <verbs>
+          <li>
+            <verbClass>UnificaMagica.Verb_FueledShot</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <projectileDef>Bullet_ArcaneArcer</projectileDef>
+            <warmupTime>5</warmupTime>
+            <range>2.9</range>
+            <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+            <burstShotCount>1</burstShotCount>
+            <soundCast>GunShotA</soundCast>
+            <soundCastTail>GunTail_Light</soundCastTail>
+            <muzzleFlashScale>9</muzzleFlashScale>
+          </li>
+        </verbs>
+      </ThingDef>
+
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>ArcaneArcer</defName>
+        <label>arcane arcer</label>
+        <description>A primitive yet sturdy arcane defense pylon for new wizards. It is effective at short ranges only and only moderately efficient.</description>
+        <!-- <thingClass>UnificaMagica.Building_WizardTurret</thingClass> -->
+        <thingClass>Building_TurretGun</thingClass>
+        <graphicData>
+            <texPath>Things/Building/Security/ArcaneArcer</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <damageData>
+                <rect>(0.2,0.2,0.6,0.6)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <altitudeLayer>Building</altitudeLayer>
+        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <statBases>
+            <MaxHitPoints>200</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <WorkToBuild>1500</WorkToBuild>
+            <Mass>100</Mass>
+            <Beauty>1</Beauty>
+        </statBases>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>3.9</explosiveRadius>
+                <explosiveDamageType>Bomb</explosiveDamageType>
+                <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+            </li>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerPlant</compClass>
+                <basePowerConsumption>-1</basePowerConsumption>
+                <transmitsPower>true</transmitsPower>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Breakdownable"/>
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>.03</fuelConsumptionRate>
+                <fuelCapacity>1.0</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>PowerRune</li>
+                    </thingDefs>
+                </fuelFilter>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+            </li>
+        </comps>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <castEdgeShadows>true</castEdgeShadows>
+        <hasTooltip>true</hasTooltip>
+        <stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+        <costStuffCount>75</costStuffCount>
+        <costList>
+            <Steel>100</Steel>
+            <Component>3</Component>
+            <PowerRune>5</PowerRune>
+            <BindingRune>1</BindingRune>
+            <PulsingRune>4</PulsingRune>
+            <ControlRune>1</ControlRune>
+            <AwarenessRune>2</AwarenessRune>
+        </costList>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <designationCategory>UnificaMagicaDesignation</designationCategory>
+        <specialDisplayRadius>4.9</specialDisplayRadius>
+        <building>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <turretGunDef>ArcaneArcerGun</turretGunDef>
+            <turretBurstCooldownTime>1.0</turretBurstCooldownTime>
+            <turretTopgraphicPath>Things/Building/Security/TurretTop_Empty</turretTopgraphicPath>
+        </building>
+        <designationHotKey>Misc2</designationHotKey>
+        <researchPrerequisites>
+            <li>ArcaneArtificer</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_ArcaneArcer</defName>
+        <label>arcane arcer bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>4</damageAmountBase>
+            <speed>50</speed>
+        </projectile>
+    </ThingDef>
+
+
+    <!-- Arcane Heavy Arcer -->
+
+    <ThingDef ParentName="BaseHumanGun">
+        <defName>ArcaneHeavyArcer</defName>
+        <label>arcane heavy arcer</label>
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponRanged/ChargeRifle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <menuHidden>true</menuHidden>
+        <description>A heavy archer defense pylon.</description>
+        <soundInteract>InteractRifle</soundInteract>
+        <canBeSpawningInventory>false</canBeSpawningInventory>
+        <tradeability>Never</tradeability>
+        <destroyOnDrop>true</destroyOnDrop>
+        <statBases>
+            <AccuracyTouch>0.80</AccuracyTouch>
+            <AccuracyShort>0.64</AccuracyShort>
+            <AccuracyMedium>0.41</AccuracyMedium>
+            <AccuracyLong>0.22</AccuracyLong>
+            <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+        </statBases>
+        <weaponTags>
+            <li>TurretGun</li>
+        </weaponTags>
+        <verbs>
+            <li>
+                <verbClass>UnificaMagica.Verb_FueledShot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <projectileDef>Bullet_ArcaneHeavyArcer</projectileDef>
+                <warmupTime>5</warmupTime>
+                <range>2.9</range>
+                <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>GunShotA</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>ArcaneHeavyArcerPylon</defName>
+        <label>arcane heavy arcer pylon</label>
+        <description>A heavier arcane defense pylon for wizards. It is effective at short ranges only and only moderately efficient.</description>
+        <thingClass>UnificaMagica.Building_WizardTurret</thingClass>
+        <graphicData>
+            <texPath>Things/Building/Security/ArcaneArcerHeavy</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <damageData>
+                <rect>(0.2,0.2,0.6,0.6)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <altitudeLayer>Building</altitudeLayer>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <statBases>
+            <MaxHitPoints>200</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <WorkToBuild>1500</WorkToBuild>
+            <Mass>100</Mass>
+            <Beauty>1</Beauty>
+        </statBases>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>3.9</explosiveRadius>
+                <explosiveDamageType>Bomb</explosiveDamageType>
+                <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+            </li>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerPlant</compClass>
+                <basePowerConsumption>-1</basePowerConsumption>
+                <transmitsPower>true</transmitsPower>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Breakdownable"/>
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>.1</fuelConsumptionRate>
+                <fuelCapacity>3.0</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>PowerRune</li>
+                    </thingDefs>
+                </fuelFilter>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+            </li>
+        </comps>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <castEdgeShadows>true</castEdgeShadows>
+        <hasTooltip>true</hasTooltip>
+        <costList>
+            <Steel>120</Steel>
+            <Component>3</Component>
+            <PowerRune>9</PowerRune>
+            <BindingRune>4</BindingRune>
+            <PulsingRune>8</PulsingRune>
+            <ControlRune>3</ControlRune>
+            <AwarenessRune>4</AwarenessRune>
+            <OldMagicRune>2</OldMagicRune>
+        </costList>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <designationCategory>UnificaMagicaDesignation</designationCategory>
+        <specialDisplayRadius>4.9</specialDisplayRadius>
+        <building>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <turretGunDef>ArcaneHeavyArcer</turretGunDef>
+            <turretBurstCooldownTime>1.0</turretBurstCooldownTime>
+            <turretTopgraphicPath>Things/Building/Security/TurretTop_Empty</turretTopgraphicPath>
+        </building>
+        <designationHotKey>Misc2</designationHotKey>
+        <researchPrerequisites>
+            <li>ArcaneChanneling</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_ArcaneHeavyArcer</defName>
+        <label>arcane heavy arcer bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>20</damageAmountBase>
+            <speed>50</speed>
+        </projectile>
+    </ThingDef>
+
+
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>ArcanePylon</defName>
+        <label>arcane pilon</label>
+        <description>A glowing pilon crackles with energy, ready to lash out at your foes. Not the most power pilon, but rapidly attacks enemies with painful spikes.</description>
+        <thingClass>UnificaMagica.Building_WizardTurret</thingClass>
+        <graphicData>
+            <texPath>Things/Building/Security/ArcanePylon</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <damageData>
+                <rect>(0.2,0.2,0.6,0.6)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <altitudeLayer>Building</altitudeLayer>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <WorkToBuild>2500</WorkToBuild>
+            <Mass>100</Mass>
+            <Beauty>10</Beauty>
+        </statBases>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>1.9</explosiveRadius>
+                <explosiveDamageType>Bomb</explosiveDamageType>
+                <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+            </li>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="CompProperties_Breakdownable"/>
+            <li Class="CompProperties_Glower">
+                <glowRadius>4</glowRadius>
+                <glowColor>(231,216,255,0)</glowColor>
+            </li>
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>0.01</fuelConsumptionRate>
+                <fuelCapacity>3.0</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>PowerRune</li>
+                    </thingDefs>
+                </fuelFilter>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+            </li>
+        </comps>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <castEdgeShadows>true</castEdgeShadows>
+        <hasTooltip>true</hasTooltip>
+        <costList>
+            <Steel>120</Steel>
+            <Component>3</Component>
+            <PowerRune>6</PowerRune>
+            <BindingRune>3</BindingRune>
+            <PulsingRune>3</PulsingRune>
+            <ControlRune>3</ControlRune>
+            <AwarenessRune>3</AwarenessRune>
+        </costList>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <designationCategory>UnificaMagicaDesignation</designationCategory>
+        <specialDisplayRadius>25.9</specialDisplayRadius>
+        <building>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <turretGunDef>Gun_TurretImprovised</turretGunDef>
+            <turretBurstCooldownTime>1.0</turretBurstCooldownTime>
+            <turretTopgraphicPath>Things/Building/Security/TurretTop_Empty</turretTopgraphicPath>
+        </building>
+        <designationHotKey>Misc2</designationHotKey>
+        <researchPrerequisites>
+            <li>EnchantingI</li>
+        </researchPrerequisites>
+
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <projectileDef>Bullet_ArcanePylon</projectileDef>
+                <warmupTime>1.5</warmupTime>
+                <range>25.9</range>
+                <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>GunShotA</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>12</muzzleFlashScale>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_ArcanePylon</defName>
+        <label>arcane pilon bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>1</damageAmountBase>
+            <speed>70</speed>
+        </projectile>
+    </ThingDef>
+
+
+    <!-- Mortar -->
+    <ThingDef ParentName="BaseArtilleryBuilding">
+        <defName>Turret_ArcaneMortarBomb</defName>
+        <label>arcane mortar bomb</label>
+        <description>An arcane mortar that launches arcane energy. Must be manned. Explodes when damaged.</description>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>4.9</explosiveRadius>
+                <explosiveDamageType>Bomb</explosiveDamageType>
+            </li>
+        </comps>
+        <costStuffCount>100</costStuffCount>
+        <costList>
+            <Steel>150</Steel>
+            <Component>4</Component>
+            <PowerRune>50</PowerRune>
+            <BindingRune>5</BindingRune>
+            <PulsingRune>5</PulsingRune>
+            <ControlRune>2</ControlRune>
+            <OldMagicRune>10</OldMagicRune>
+        </costList>
+        <designationHotKey>Misc3</designationHotKey>
+        <building>
+            <turretGunDef>Artillery_ArcaneMortarBomb</turretGunDef>
+            <turretTopgraphicPath>Things/Building/Security/TurretMortarBomb_Top</turretTopgraphicPath>
+            <buildingTags>
+                <li>Artillery_BaseDestroyer</li>
+            </buildingTags>
+            <turretShellDef>MortarShell</turretShellDef>
+            <turretBurstwarmupTime>0.1</turretBurstwarmupTime>
+            <turretBurstCooldownTime>10.0</turretBurstCooldownTime>
+        </building>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BaseArtilleryWeapon">
+        <defName>Artillery_ArcaneMortarBomb</defName>
+        <label>arcane explosive mortar</label>
+        <description>Arcane mortar launcher. Lobs bombs over walls. Very inaccurate but long-ranged.</description>
+        <weaponTags>
+            <li>Artillery_BaseDestroyer</li>
+        </weaponTags>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+                <hasStandardCommand>true</hasStandardCommand>
+                <projectileDef>Bullet_ArcaneMortarBomb</projectileDef>
+                <forcedMissRadius>4</forcedMissRadius>
+                <warmupTime>0.1</warmupTime>
+                <minRange>20</minRange>
+                <range>500</range>
+                <burstShotCount>5</burstShotCount>
+                <soundCast>Mortar_LaunchA</soundCast>
+                <muzzleFlashScale>16</muzzleFlashScale>
+            </li>
+        </verbs>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_ArcaneMortarBomb</defName>
+        <label>explosive arcane mortar shell</label>
+        <graphicData>
+            <texPath>Things/Projectile/ShellBomb</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>Projectile_Explosive</thingClass>
+        <projectile>
+            <damageDef>Bomb</damageDef>
+            <damageAmountBase>20</damageAmountBase>
+            <speed>300</speed>
+            <explosionRadius>2.5</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <soundHitThickRoof>ArtilleryHitThickRoof</soundHitThickRoof>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+        </projectile>
+    </ThingDef>
+
+
+
+</ThingDefs>

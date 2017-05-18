@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+    <ThingDef ParentName="FurnitureBase">
+        <defName>ArcaneChessTable</defName>
+        <label>arcane chess table</label>
+        <description>The ancient game of wizards. More complicated than traditional chess, with different dimensions and rules. Fun for a few hours here and there, even playing alone.</description>
+        <graphicData>
+            <texPath>Things/Building/Joy/ChessTable</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shadowData>
+                <volume>(0.3, 0.6, 0.3)</volume>
+            </shadowData>
+            <damageData>
+                <rect>(0.09375,0.296875,0.796875,0.703125)</rect>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <rotatable>false</rotatable>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <fillPercent>0.40</fillPercent>
+        <building>
+            <isJoySource>true</isJoySource>
+        </building>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <WorkToBuild>15000</WorkToBuild>
+            <Mass>5</Mass>
+            <Flammability>1.0</Flammability>
+            <Beauty>20</Beauty>
+            <EntertainmentStrengthFactor>2</EntertainmentStrengthFactor>
+        </statBases>
+        <stuffCategories>
+            <li>Metallic</li>
+            <li>Stony</li>
+        </stuffCategories>
+        <costStuffCount>70</costStuffCount>
+        <costList>
+            <PowerRune>1</PowerRune>
+            <BindingRune>1</BindingRune>
+            <ControlRune>1</ControlRune>
+            <AwarenessRune>1</AwarenessRune>
+        </costList>
+        <pathCost>70</pathCost>
+        <passability>PassThroughOnly</passability>
+        <designationCategory>UnificaMagicaDesignation</designationCategory>
+        <designationHotKey>Misc2</designationHotKey>
+        <comps>
+            <li Class="CompProperties_RoomIdentifier">
+                <roomStat>Impressiveness</roomStat>
+            </li>
+        </comps>
+        <researchPrerequisites>
+            <li>EnchantingI</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+
+</ThingDefs>

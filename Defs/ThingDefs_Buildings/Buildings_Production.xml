@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>ArcaneResearchCabinet</defName>
+        <label>arcane research cabint</label>
+        <graphicData>
+            <texPath>Things/Building/Misc/ArcaneResearchCabinet</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shadowData>
+                <offset>(0,0,-0.3)</offset>
+                <volume>(0.3, 0.3, 0.4)</volume>
+            </shadowData>
+            <damageData>
+                <rectN>(0.078125,0.46875,0.859375,0.53125)</rectN>
+                <rectS>(0.078125,0.46875,0.859375,0.53125)</rectS>
+                <rectE>(0.125,0.46875,0.625,0.296875)</rectE>
+                <rectW>(0.25,0.46875,0.625,0.296875)</rectW>
+                <cornerTR>Damage/Corner</cornerTR>
+            </damageData>
+        </graphicData>
+        <rotatable>false</rotatable>
+        <!--
+        <defaultPlacingRot>South</defaultPlacingRot>
+        -->
+        <researchPrerequisites><li>ArcaneScribe</li></researchPrerequisites>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.2</fillPercent>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <WorkToBuild>10000</WorkToBuild>
+            <Mass>20</Mass>
+            <Flammability>1.0</Flammability>
+        </statBases>
+        <description>Stores past notes and experiences with the arcane.</description>
+        <size>(1,1)</size>
+        <costList>
+            <Steel>180</Steel>
+            <PowerRune>6</PowerRune>
+            <BindingRune>5</BindingRune>
+            <PulsingRune>1</PulsingRune>
+            <ControlRune>5</ControlRune>
+            <AwarenessRune>7</AwarenessRune>
+        </costList>
+        <designationCategory>UnificaMagicaDesignation</designationCategory>
+        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <building>
+            <ai_chillDestination>false</ai_chillDestination>
+        </building>
+        <comps>
+            <li Class="CompProperties_Facility">
+                <statOffsets>
+                    <WorkTableWorkSpeedFactor>0.05</WorkTableWorkSpeedFactor>
+                </statOffsets>
+                <maxSimultaneous>11</maxSimultaneous>
+                <mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+            </li>
+        </comps>
+        <designationHotkey>Misc5</designationHotkey>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BenchBase">
+        <DefName>TableArcaneAlcove</DefName>
+        <label>arcane alcove</label>
+        <ThingClass>Building_WorkTable</ThingClass>
+        <Description>A desk covered in papers and books, used to generate runes for wizards.</Description>
+        <graphicData>
+            <texPath>Things/Building/Production/TableArcaneAlcove</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3.5,1.5)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <costStuffCount>75</costStuffCount>
+        <CostList>
+            <WoodLog>20</WoodLog>
+        </CostList>
+        <stuffCategories>
+            <li>Metallic</li>
+            <li>Woody</li>
+            <li>Stony</li>
+        </stuffCategories>
+        <AltitudeLayer>Building</AltitudeLayer>
+        <fillPercent>0.5</fillPercent>
+        <useHitPoints>True</useHitPoints>
+        <statBases>
+            <WorkToBuild>2000</WorkToBuild>
+            <MaxHitPoints>180</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <Cleanliness>-5</Cleanliness>
+        </statBases>
+        <Size>(3,1)</Size>
+        <designationCategory>UnificaMagicaDesignation</designationCategory>
+        <Passability>PassThroughOnly</Passability>
+        <pathCost>60</pathCost>
+        <hasInteractionCell>True</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <surfaceType>Item</surfaceType>
+        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <recipes />
+        <inspectorTabs>
+            <li>ITab_Bills</li>
+        </inspectorTabs>
+        <building>
+            <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+        </building>
+        <researchPrerequisites><li>Wizardry</li></researchPrerequisites>
+        <comps>
+            <li Class="CompProperties_AffectedByFacilities">
+                <linkableFacilities>
+                    <li>ArcaneResearchCabinet</li>
+                </linkableFacilities>
+            </li>
+        </comps>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BenchBase">
+        <DefName>TableArcaneWorkbench</DefName>
+        <label>arcane workbench</label>
+        <ThingClass>Building_WorkTable</ThingClass>
+        <Description>A bench with simple tools of wizardry, capable of producing the simplest of items and artifacts.</Description>
+        <graphicData>
+            <texPath>Things/Building/Production/TableButcher</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3.5,1.5)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <costStuffCount>75</costStuffCount>
+        <CostList>
+            <WoodLog>20</WoodLog>
+            <PowerRune>2</PowerRune>
+            <BindingRune>1</BindingRune>
+            <PulsingRune>1</PulsingRune>
+            <ControlRune>1</ControlRune>
+        </CostList>
+        <stuffCategories>
+            <li>Metallic</li>
+            <li>Woody</li>
+            <li>Stony</li>
+        </stuffCategories>
+        <AltitudeLayer>Building</AltitudeLayer>
+        <fillPercent>0.5</fillPercent>
+        <useHitPoints>True</useHitPoints>
+        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <statBases>
+            <WorkToBuild>2000</WorkToBuild>
+            <MaxHitPoints>180</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <Cleanliness>-5</Cleanliness>
+        </statBases>
+        <Size>(3,1)</Size>
+        <designationCategory>UnificaMagicaDesignation</designationCategory>
+        <Passability>PassThroughOnly</Passability>
+        <pathCost>60</pathCost>
+        <hasInteractionCell>True</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <surfaceType>Item</surfaceType>
+        <recipes>
+            <li>ButcherCorpseMechanoid</li>
+            <li>MakeMortarShell</li>
+            <!--
+            <li>ConvertRingOfWarmthLToR</li>
+            <li>ConvertRingOfWarmthRToL</li>
+        -->
+        </recipes>
+        <inspectorTabs>
+            <li>ITab_Bills</li>
+        </inspectorTabs>
+        <building>
+            <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+        </building>
+        <comps>
+            <li Class="CompProperties_AffectedByFacilities">
+                <linkableFacilities>
+                    <li>ToolCabinet</li>
+                </linkableFacilities>
+            </li>
+        </comps>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+        </placeWorkers>
+        <researchPrerequisites><li>ArcaneArtificer</li></researchPrerequisites>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>ArcaneGrowVat</defName>
+        <label>arcane grow vat</label>
+        <description>Grows plants quickly in an artificial nutrient bath and glowing light, enriched by an influx of arcane energy.</description>
+        <thingClass>UnificaMagica.Building_ArcaneGrowVat</thingClass>
+        <graphicData>
+            <texPath>Things/Building/Production/HydroponicsBasin</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <altitudeLayer>FloorEmplacement</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <pathCost>60</pathCost>
+        <castEdgeShadows>true</castEdgeShadows>
+        <constructEffect>ConstructMetal</constructEffect>
+        <fillPercent>0.30</fillPercent>
+        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <statBases>
+            <WorkToBuild>2800</WorkToBuild>
+            <MaxHitPoints>180</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <Cleanliness>-3</Cleanliness>
+        </statBases>
+        <size>(1,1)</size>
+        <costList>
+            <Steel>25</Steel>
+            <Component>1</Component>
+            <PowerRune>2</PowerRune>
+            <BindingRune>2</BindingRune>
+            <ControlRune>3</ControlRune>
+        </costList>
+        <fertility>5.0</fertility>
+        <building>
+            <defaultPlantToGrow>PlantPotato</defaultPlantToGrow>
+            <sowTag>Hydroponic</sowTag>
+        </building>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Breakdownable"/>
+            <li Class="CompProperties_Glower">
+                <glowRadius>1</glowRadius>
+                <overlightRadius>3.0</overlightRadius>
+                <glowColor>(197,209,229,0)</glowColor>
+            </li>
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>.2</fuelConsumptionRate>
+                <fuelCapacity>4.0</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>PowerRune</li>
+                    </thingDefs>
+                </fuelFilter>
+            </li>
+        </comps>
+        <researchPrerequisites><li>Elementalism</li></researchPrerequisites>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <designationCategory>UnificaMagicaDesignation</designationCategory>
+    </ThingDef>
+
+</Defs>

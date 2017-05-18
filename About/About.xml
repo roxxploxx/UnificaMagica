@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Unifica Magica</name>
+  <author>Roxxploxx</author>
+  <url></url>
+  <targetVersion>0.17.0</targetVersion>
+  <description>Unifica Magica adds several types of magic (eventually) as a pathway to advance and sustain a Rimworld colony, in competition with the current technological approach in Rimworld. Each magical path will have it’s own feel and in order to advance in that path, your strategy and base will evolve in support of that path.
+
+      REQUIRES: HugsLib (load it before this mod)
+  </description>
+</ModMetaData>

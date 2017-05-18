@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--=============================== Wizardry ===================================-->
+
+	<ResearchProjectDef>
+		<defName>Wizardry</defName>
+		<label>wizardry</label>
+		<description>You start to gain an understanding of matters relating to Wizardry.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Neolithic</techLevel>
+		<tags>
+			<li>TribalStart</li>
+		</tags>
+		<researchViewX>13</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+
+
+    <ResearchProjectDef>
+        <defName>ArcaneWizardry</defName>
+        <label>arcane wizardry</label>
+        <description>You learn the language of arcane magic.</description>
+        <baseCost>500</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <prerequisites>
+            <li>Wizardry</li>
+        </prerequisites>
+        <researchViewX>14</researchViewX>
+        <researchViewY>0</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>ArcaneArtificer</defName>
+        <label>arcane artificer</label>
+        <description>Learning to craft arcane items using arcane magic.</description>
+        <baseCost>1000</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <prerequisites>
+            <li>ArcaneWizardry</li>
+        </prerequisites>
+		<requiredResearchBuilding>TableArcaneAlcove</requiredResearchBuilding>
+        <researchViewX>15</researchViewX>
+        <researchViewY>0</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>EnchantingI</defName>
+        <label>enchanting I</label>
+        <description>Empower common items with arcane energy.</description>
+        <baseCost>2000</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <prerequisites>
+            <li>ArcaneArtificer</li>
+        </prerequisites>
+        <researchViewX>15.5</researchViewX>
+        <researchViewY>1</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>Elementalism</defName>
+        <label>elementalism</label>
+        <description>An understanding of the raw elements of cold and heat.</description>
+        <baseCost>2000</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <prerequisites>
+            <li>ArcaneArtificer</li>
+        </prerequisites>
+        <researchViewX>15.5</researchViewX>
+        <researchViewY>2</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>ArcaneScribe</defName>
+        <label>arcane scribe</label>
+        <description>You learn how to archive your research activities.</description>
+        <baseCost>2000</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <prerequisites>
+            <li>ArcaneArtificer</li>
+        </prerequisites>
+        <researchViewX>15.5</researchViewX>
+        <researchViewY>3</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>InanimateImbuement</defName>
+        <label>inanimateimbuement</label>
+        <description>An ability to force large amount of energy into items.</description>
+        <baseCost>2000</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <prerequisites>
+            <li>ArcaneArtificer</li>
+        </prerequisites>
+		<requiredResearchBuilding>TableArcaneWorkbench</requiredResearchBuilding>
+        <researchViewX>16</researchViewX>
+        <researchViewY>0</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>OldMagic</defName>
+        <label>old magic</label>
+        <description>You've discovered powerful old magic. It enables new and powerful scirpts to empower your base.</description>
+        <baseCost>3000</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <prerequisites>
+            <li>InanimateImbuement</li>
+        </prerequisites>
+        <researchViewX>17</researchViewX>
+        <researchViewY>0</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>OldMagicArtificer</defName>
+        <label>old magic artificer</label>
+        <description>You can now apply the old power to your creations.</description>
+        <baseCost>3000</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <prerequisites>
+            <li>OldMagic</li>
+        </prerequisites>
+        <researchViewX>17.5</researchViewX>
+        <researchViewY>1</researchViewY>
+    </ResearchProjectDef>
+
+
+    <ResearchProjectDef>
+        <defName>ArcaneControl</defName>
+        <label>arcane control</label>
+        <description>With the power of the arcane growing in your mind, you learn ways to manage the power to a finer level of control.</description>
+        <baseCost>3000</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <prerequisites>
+            <li>OldMagic</li>
+        </prerequisites>
+        <researchViewX>17.5</researchViewX>
+        <researchViewY>2</researchViewY>
+    </ResearchProjectDef>
+
+
+
+    <ResearchProjectDef>
+        <defName>ArcaneChanneling</defName>
+        <label>arcane channeling</label>
+        <description>You learn to pipe efficient streams of controlled power from imbued items.</description>
+        <baseCost>3000</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <prerequisites>
+            <li>OldMagic</li>
+        </prerequisites>
+        <researchViewX>17.5</researchViewX>
+        <researchViewY>3</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>EnchantingII</defName>
+        <label>enchanting II</label>
+        <description>You learn to enchant items with old magic.</description>
+        <baseCost>4000</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <prerequisites>
+            <li>OldMagicArtificer</li>
+        </prerequisites>
+        <researchViewX>18</researchViewX>
+        <researchViewY>0</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

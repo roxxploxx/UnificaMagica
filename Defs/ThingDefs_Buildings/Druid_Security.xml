@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ThingDefs>
+
+    <ThingDef ParentName="BaseZap">
+        <defName>Zap_EntanglingVine</defName>
+        <label>entangling vine bullet</label>
+        <thingClass>UnificaMagica.ZapProjectile</thingClass>
+        <graphicData>
+            <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>EntanglingBomb</damageDef>
+            <!-- damageDef>Entangling</damageDef -->
+            <damageAmountBase>2</damageAmountBase>
+            <speed>50</speed>
+        </projectile>
+    </ThingDef>
+
+
+
+    <!-- Entangling Vine Wand -->
+    <ThingDef ParentName="BaseWand">
+        <defName>EntanglingVineWand</defName>
+        <label>entangling vine wand</label>
+        <description>An entangling vine wand. Druid.</description>
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponRanged/ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>InteractPistol</soundInteract>
+        <statBases>
+            <WorkToMake>15000</WorkToMake>
+            <Mass>1.2</Mass>
+            <AccuracyTouch>0.95</AccuracyTouch>
+            <AccuracyShort>0.75</AccuracyShort>
+            <AccuracyMedium>0.60</AccuracyMedium>
+            <AccuracyLong>0.42</AccuracyLong>
+            <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <WoodLog>30</WoodLog>
+            <Steel>5</Steel>
+            <Component>1</Component>
+        </costList>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <projectileDef>Zap_EntanglingVine</projectileDef>
+                <warmupTime>1.3</warmupTime>
+                <range>24</range>
+                <soundCast>ShotPistol</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <recipeMaker>
+            <workSpeedStat>SmithingSpeed</workSpeedStat>
+            <workSkill>Wizardry</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>TableArcaneWorkbench</li>
+            </recipeUsers>
+            <researchPrerequisite>ArcaneArtificer</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>1</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+
+
+
+    <!-- for turret -->
+    <!--
+    <ThingDef ParentName="BaseWand">
+        <defName>EntanglingVine</defName>
+        <label>entangling vine</label>
+        <description>An vine that extends and grabs. Druid.</description>
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponRanged/ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>InteractPistol</soundInteract>
+        <statBases>
+            <WorkToMake>15000</WorkToMake>
+            <Mass>1.2</Mass>
+            <AccuracyTouch>0.95</AccuracyTouch>
+            <AccuracyShort>0.75</AccuracyShort>
+            <AccuracyMedium>0.60</AccuracyMedium>
+            <AccuracyLong>0.42</AccuracyLong>
+            <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <WoodLog>30</WoodLog>
+            <Steel>5</Steel>
+            <Component>1</Component>
+        </costList>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <projectileDef>Zap_EntanglingVine</projectileDef>
+                <warmupTime>1.3</warmupTime>
+                <range>1.9</range>
+                <soundCast>ShotPistol</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+    </ThingDef>
+-->
+
+
+
+
+</ThingDefs>

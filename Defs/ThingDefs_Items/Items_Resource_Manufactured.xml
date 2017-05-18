@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>WizardMedicinalPowder</defName>
+        <label>wizard medicinal powder</label>
+        <description>A pack of white powder, with silvery flecks, that glows slightly. When spread on a wound, the body heals and regenerates.</description>
+        <thingClass>Medicine</thingClass>
+        <graphicData>
+            <texPath>Things/Item/Resource/MedicineHerbal</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Standard_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <MarketValue>15</MarketValue>
+            <Mass>0.35</Mass>
+            <Flammability>1.0</Flammability>
+            <MedicalPotency>0.50</MedicalPotency>
+        </statBases>
+        <thingCategories>
+            <li>Medicine</li>
+        </thingCategories>
+        <tickerType>Rare</tickerType>
+        <comps>
+        </comps>
+        <costList>
+            <Steel>1</Steel>
+            <PowerRune>1</PowerRune>
+            <BindingRune>1</BindingRune>
+        </costList>
+        <researchPrerequisites>
+            <li>InanimateImbuement</li>
+        </researchPrerequisites>
+        <recipeMaker>
+            <workSpeedStat>SmithingSpeed</workSpeedStat>
+            <workSkill>Wizardry</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>TableArcaneAlcove</li>
+            </recipeUsers>
+            <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>1</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedPowder</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+
+</Defs>

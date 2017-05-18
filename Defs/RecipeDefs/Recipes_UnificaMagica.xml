@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RecipeDefs>
+
+<!--
+NOTE: this changes quality of the ring
+    <RecipeDef>
+        <defName>ConvertRingOfWarmthLToR</defName>
+        <label>convert ring of warmth (L to R)</label>
+        <description>Converts ring handedness</description>
+        <jobString>Converting ring.</jobString>
+        <workAmount>1</workAmount>
+        <workSpeedStat>SmithingSpeed</workSpeedStat>
+        <effectWorking>Smith</effectWorking>
+        <soundWorking>Recipe_Smith</soundWorking>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Apparel_RingOfWarmthL</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <Apparel_RingOfWarmthR>1</Apparel_RingOfWarmthR>
+        </products>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Apparel_RingOfWarmthL</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+    </RecipeDef>
+
+    <RecipeDef>
+        <defName>ConvertRingOfWarmthRToL</defName>
+        <label>convert ring of warmth (R to L)</label>
+        <description>Converts ring handedness</description>
+        <jobString>Converting ring.</jobString>
+        <workAmount>1</workAmount>
+        <workSpeedStat>WizardSpeed</workSpeedStat>
+        <effectWorking>Smith</effectWorking>
+        <soundWorking>Recipe_Smith</soundWorking>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Apparel_RingOfWarmthR</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <Apparel_RingOfWarmthL>1</Apparel_RingOfWarmthL>
+        </products>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Apparel_RingOfWarmthR</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+    </RecipeDef>
+    -->
+
+
+</RecipeDefs>

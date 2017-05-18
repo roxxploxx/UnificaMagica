@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>WizardPill</defName>
+        <label>wizard pill</label>
+        <description>A pill to create wizardry. Once ingested, you gain an inclination to be a wizard and start down the path to Wizardry.</description>
+        <thingClass>UnificaMagica.WizardPill</thingClass>
+        <graphicData>
+            <texPath>Things/Plant/StrawberryPlant</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+        </graphicData>
+        <soundInteract>Standard_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <MarketValue>6</MarketValue>
+            <Mass>0.075</Mass>
+            <Flammability>1.0</Flammability>
+            <DeteriorationRate>10</DeteriorationRate>
+        </statBases>
+        <thingCategories>
+            <li>Foods</li>
+        </thingCategories>
+        <ingestible>
+            <preferability>DesperateOnly</preferability>
+            <foodType>Processed</foodType>
+            <nutrition>0.10</nutrition>
+            <joy>0.10</joy>
+            <joyKind>Gluttonous</joyKind>
+            <maxNumToIngestAtOnce>4</maxNumToIngestAtOnce>
+            <ingestSound>Meal_Eat</ingestSound>
+        </ingestible>
+        <costList>
+            <WoodLog>1</WoodLog>
+        </costList>
+        <recipeMaker>
+            <workSpeedStat>SmithingSpeed</workSpeedStat>
+            <workSkill>Wizardry</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>TableArcaneAlcove</li>
+                <li>CraftingSpot</li>
+                <li>ElectricSmithy</li>
+                <li>FueledSmithy</li>
+            </recipeUsers>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>1</minLevel>
+                </li>
+            </skillRequirements>
+        </recipeMaker>
+    </ThingDef>
+
+<!--
+    <ThingDef ParentName="ResourceBase">
+        <defName>ArcaneScript</defName>
+        <label>arcane script</label>
+        <description>A pile of sagely notes regarding arcane energy and matters. The text seems to swirl and move when you stare at them.</description>
+        <graphicData>
+            <texPath>Things/Item/Resource/ArcaneScript</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <equippedAngleOffset>-20</equippedAngleOffset>
+        <soundInteract>Wood_Drop</soundInteract>
+        <soundDrop>Wood_Drop</soundDrop>
+        <stackLimit>75</stackLimit>
+        <statBases>
+            <MarketValue>75.0</MarketValue>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Mass>0.1</Mass>
+            <Flammability>1.0</Flammability>
+            <DeteriorationRate>3.0</DeteriorationRate>
+            <WorkToMake>9000</WorkToMake>
+        </statBases>
+        <thingCategories>
+            <li>Manufactured</li>
+        </thingCategories>
+        <costList>
+            <WoodLog>1</WoodLog>
+            <Cloth>1</Cloth>
+        </costList>
+        <recipeMaker>
+            <workSpeedStat>SmithingSpeed</workSpeedStat>
+            <workSkill>Wizardry</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>TableArcaneAlcove</li>
+            </recipeUsers>
+            <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>1</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>OldMagicScript</defName>
+        <label>old magic script</label>
+        <description>A pile of old magic sagely notes regarding arcane energy and matters. The text seems to swirl and move when you stare at them.</description>
+        <graphicData>
+            <texPath>Things/Item/Resource/OldMagicScript</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <equippedAngleOffset>-20</equippedAngleOffset>
+        <soundInteract>Wood_Drop</soundInteract>
+        <soundDrop>Wood_Drop</soundDrop>
+        <stackLimit>75</stackLimit>
+        <statBases>
+            <MarketValue>150.0</MarketValue>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Mass>0.1</Mass>
+            <Flammability>1.0</Flammability>
+            <DeteriorationRate>3.0</DeteriorationRate>
+            <WorkToMake>15000</WorkToMake>
+        </statBases>
+        <thingCategories>
+            <li>Manufactured</li>
+        </thingCategories>
+        <costList>
+            <WoodLog>1</WoodLog>
+            <Cloth>1</Cloth>
+            <ArcaneScript>3</ArcaneScript>
+        </costList>
+        <recipeMaker>
+            <workSpeedStat>SmithingSpeed</workSpeedStat>
+            <workSkill>Wizardry</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>TableArcaneAlcove</li>
+            </recipeUsers>
+            <researchPrerequisite>OldMagic</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>10</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+-->
+
+</Defs>

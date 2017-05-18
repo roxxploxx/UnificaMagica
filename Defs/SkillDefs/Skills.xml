@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<SkillDefs>
+
+    <SkillDef>
+        <defName>Wizardry</defName>
+        <description>Arcane knowledge of wizardry.</description>
+        <skillLabel>Wizardry</skillLabel>
+        <!-- pawnLabel>Wizard</pawnLabel -->
+    </SkillDef>
+
+</SkillDefs>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>UnfinishedRune</defName>
+        <label>unfinished script a</label>
+        <graphicData>
+            <texPath>Things/Item/Resource/UnfinishedRune</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <stuffCategories />
+    </ThingDef>
+
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>UnfinishedWand</defName>
+        <label>unfinished wand</label>
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponRanged/ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <stuffCategories />
+    </ThingDef>
+
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>UnfinishedArtifact</defName>
+        <label>unfinished artifact</label>
+        <graphicData>
+            <texPath>Things/Item/Unfinished/UnfinishedGun</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <stuffCategories />
+    </ThingDef>
+
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>UnfinishedRobe</defName>
+        <label>unfinished robe</label>
+        <graphicData>
+            <texPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <stuffCategories>
+            <li>Fabric</li>
+        </stuffCategories>
+    </ThingDef>
+
+
+
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>UnfinishedWizardShield</defName>
+        <label>unfinished wizard shield</label>
+        <graphicData>
+            <texPath>Things/Item/Unfinished/UnfinishedTechArmor</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <stuffCategories>
+            <li>Fabric</li>
+        </stuffCategories>
+    </ThingDef>
+
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>UnfinishedPylon</defName>
+        <label>unfinished pylon</label>
+        <graphicData>
+            <texPath>Things/Item/Unfinished/UnfinishedGun</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <stuffCategories />
+    </ThingDef>
+
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>UnfinishedPowder</defName>
+        <label>unfinished powder</label>
+        <graphicData>
+            <texPath>Things/Item/Unfinished/UnfinishedGun</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <stuffCategories />
+    </ThingDef>
+
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>UnfinishedRing</defName>
+        <label>unfinished ring</label>
+        <graphicData>
+            <texPath>Things/Item/Unfinished/UnfinishedGun</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <stuffCategories />
+    </ThingDef>
+
+</Defs>

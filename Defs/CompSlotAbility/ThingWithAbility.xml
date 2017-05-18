@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+
+    <ThingDef Class="AbilityUser.AbilityDef" Name="BaseAbility" Abstract="True">
+      <category>None</category>
+      <uiIconPath>UI/Glow_Corrupt</uiIconPath>
+      <thingClass>ThingWithComps</thingClass>
+      <pathCost>0</pathCost>
+      <useHitPoints>False</useHitPoints>
+      <selectable>False</selectable>
+      <tickerType>Normal</tickerType>
+      <comps>
+        <li>
+          <compClass>CompEquippable</compClass>
+        </li>
+      </comps>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BaseAbility">
+        <defName>ArcaneArtifactOfSmiting</defName>
+        <label>arcane artifact of smiting cccccccccccccccc</label>
+        <description>An ability being added to a Pawn on equip.</description>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <!-- <li Class="AbilityUser.CompAbilityUser">
+        </li> -->
+        </comps>
+    </ThingDef>
+
+
+</ThingDefs>

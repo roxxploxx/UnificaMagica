@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef Abstract="True" Name="WizardLampBase" ParentName="BuildingBase">
+        <thingClass>Building</thingClass>
+        <category>Building</category>
+        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <selectable>true</selectable>
+        <fillPercent>0.20</fillPercent>
+        <pathCost>8</pathCost>
+        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+        <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+        <designationCategory>UnificaMagicaDesignation</designationCategory>
+        <rotatable>false</rotatable>
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shadowData>
+                <volume>(0.3, 0.6, 0.3)</volume>
+                <offset>(0,0,-0.1)</offset>
+            </shadowData>
+            <damageData>
+                <rect>(0.2,0.2,0.6,0.6)</rect>
+            </damageData>
+        </graphicData>
+        <comps>
+            <li Class="CompProperties_Flickable"/>
+        </comps>
+        <statBases>
+            <MaxHitPoints>50</MaxHitPoints>
+            <WorkToBuild>170</WorkToBuild>
+            <Flammability>1.0</Flammability>
+        </statBases>
+    </ThingDef>
+
+
+    <ThingDef ParentName="WizardLampBase" >
+        <defName>WizardLamp</defName>
+        <label>wizard lamp</label>
+        <description>Oh my gosh. I can’t believe I didn’t figure out how to turn up the power. This is a much better lamp.</description>
+        <graphicData>
+            <texPath>Things/Building/Furniture/WizardLamp</texPath>
+        </graphicData>
+        <costList>
+            <Steel>15</Steel>
+            <PowerRune>3</PowerRune>
+            <ControlRune>1</ControlRune>
+        </costList>
+        <statBases>
+            <Mass>4</Mass>
+            <WorkToMake>35000</WorkToMake>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>20</glowRadius>
+                <glowColor>(230,247,255,0)</glowColor>
+            </li>
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>0.02</fuelConsumptionRate>
+                <fuelCapacity>3.0</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>PowerRune</li>
+                    </thingDefs>
+                </fuelFilter>
+            </li>
+        </comps>
+        <researchPrerequisites>
+            <li>InanimateImbuement</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+
+    <ThingDef ParentName="WizardLampBase" >
+        <defName>SmallWizardLamp</defName>
+        <label>small wizard lamp</label>
+        <description>The wizard lamp glows and lights the area through an arcane power source.</description>
+        <graphicData>
+            <texPath>Things/Building/Furniture/SmallWizardLamp</texPath>
+        </graphicData>
+        <costList>
+            <Steel>15</Steel>
+            <PowerRune>2</PowerRune>
+        </costList>
+        <statBases>
+            <Mass>4</Mass>
+            <WorkToMake>25000</WorkToMake>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_Glower">
+                <glowRadius>10</glowRadius>
+                <!-- glowColor>(0,102,255,0)</glowColor -->
+                <glowColor>(230,247,255,0)</glowColor>
+            </li>
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>0.01</fuelConsumptionRate>
+                <fuelCapacity>3.0</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>PowerRune</li>
+                    </thingDefs>
+                </fuelFilter>
+            </li>
+        </comps>
+        <researchPrerequisites>
+            <li>ArcaneWizardry</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+
+
+<!--
+    <ThingDef ParentName="BuildingBase">
+        <defName>WizardHeaterSmall</defName>
+        <label>wizard heater small</label>
+        <thingClass>Building_Heater</thingClass>
+        <description>Radiates a warm and calming, somewhat smokey, heat into the viscinity.</description>
+        <graphicData>
+            <texPath>Things/Building/Misc/Campfire</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawRotated>false</drawRotated>
+            <allowFlip>false</allowFlip>
+            <damageData>
+                <rect>(0.2,0,0.6,0.1)</rect>
+            </damageData>
+        </graphicData>
+        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <blockWind>true</blockWind>
+        <rotatable>false</rotatable>
+        <fillPercent>0.4</fillPercent>
+        <statBases>
+            <WorkToBuild>2000</WorkToBuild>
+            <MaxHitPoints>80</MaxHitPoints>
+            <Mass>6</Mass>
+            <Flammability>.5</Flammability>
+        </statBases>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <costList>
+            <Steel>40</Steel>
+            <WoodLog>20</WoodLog>
+            <Component>1</Component>
+            <PowerRune>5</PowerRune>
+        </costList>
+        <placeWorkers>
+            <li>PlaceWorker_Heater</li>
+        </placeWorkers>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+        <comps>
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>.1</fuelConsumptionRate>
+                <fuelCapacity>3.0</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>PowerRune</li>
+                    </thingDefs>
+                </fuelFilter>
+                <destroyOnNoFuel>false</destroyOnNoFuel>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Glower">
+                <glowRadius>4</glowRadius>
+                <glowColor>(252,187,113,0)</glowColor>
+            </li>
+            <li Class="CompProperties_HeatPusher">
+                <heatPerSecond>21</heatPerSecond>
+                <heatPushMaxTemperature>28</heatPushMaxTemperature>
+            </li>
+            <li Class="CompProperties_FireOverlay">
+                <fireSize>1</fireSize>
+            </li>
+        </comps>
+        <designationCategory>Temperature</designationCategory>
+        <designationHotKey>Misc3</designationHotKey>
+        <researchPrerequisites>
+            <li>InanimateImbuement</li>
+        </researchPrerequisites>
+        <recipeMaker>
+            <workSpeedStat>SmithingSpeed</workSpeedStat>
+            <workSkill>Wizardry</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>TableArcaneWorkbench</li>
+            </recipeUsers>
+            <researchPrerequisite>ArcaneArtificer</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>3</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedArtifact</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+-->
+
+
+
+
+</Defs>

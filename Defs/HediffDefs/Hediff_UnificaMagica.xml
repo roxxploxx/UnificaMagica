@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <HediffDef ParentName="DiseaseBase">
+        <defName>SuperFoodPoisoning</defName>
+        <label>super food poisoning</label>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>
+                    <min>600</min>
+                    <max>600</max>
+                </disappearsAfterTicks>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <vomitMtbDays>.01</vomitMtbDays>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0.5</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef ParentName="DiseaseBase">
+        <defName>EntangledByVine</defName>
+        <label>entangled by vine</label>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>
+                    <min>6000</min>
+                    <max>6000</max>
+                </disappearsAfterTicks>
+            </li>
+        </comps>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0.8</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+</Defs>

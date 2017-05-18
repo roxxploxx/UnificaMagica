@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <DamageDef ParentName="LocalInjuryBase">
+        <defName>Crippling</defName>
+        <label>crippling</label>
+        <externalViolence>true</externalViolence>
+        <!--
+        <incapChanceMultiplier>5.5</incapChanceMultiplier>
+        <battleWound>true</battleWound>
+    -->
+        <deathMessage>{0} has been sickened to death.</deathMessage>
+        <hediff>Crush</hediff>
+        <hediffSkin>Bruise</hediffSkin>
+        <hediffSolid>Crack</hediffSolid>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <hasChanceToAdditionallyDamageInnerSolidParts>true</hasChanceToAdditionallyDamageInnerSolidParts>
+        <impactSoundType>Blunt</impactSoundType>
+        <armorCategory>Blunt</armorCategory>
+        <additionalHediffs>
+            <li>
+                <hediff>SuperFoodPoisoning</hediff>
+                <severityPerDamageDealt>.01</severityPerDamageDealt>
+            </li>
+        </additionalHediffs>
+    </DamageDef>
+
+
+    <DamageDef ParentName="LocalInjuryBase">
+        <defName>Entangling</defName>
+        <label>entangling</label>
+        <externalViolence>true</externalViolence>
+        <!--
+        <battleWound>true</battleWound>
+    -->
+        <deathMessage>{0} has been smothered to death.</deathMessage>
+        <hediff>Crush</hediff>
+        <hediffSkin>Bruise</hediffSkin>
+        <hediffSolid>Crack</hediffSolid>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <hasChanceToAdditionallyDamageInnerSolidParts>true</hasChanceToAdditionallyDamageInnerSolidParts>
+        <impactSoundType>Blunt</impactSoundType>
+        <armorCategory>Blunt</armorCategory>
+        <additionalHediffs>
+            <li>
+                <hediff>EntangledByVine</hediff>
+                <severityPerDamageDealt>.01</severityPerDamageDealt>
+            </li>
+        </additionalHediffs>
+    </DamageDef>
+
+    <DamageDef ParentName="LocalInjuryBase">
+        <defName>EntanglingBomb</defName>
+        <label>entangling bomb</label>
+        <deathMessage>{0} has been smothered to death.</deathMessage>
+        <explosionDamage>0</explosionDamage>
+        <additionalHediffs>
+            <li>
+                <hediff>EntangledByVine</hediff>
+                <severityPerDamageDealt>.01</severityPerDamageDealt>
+            </li>
+        </additionalHediffs>
+
+        <externalViolence>true</externalViolence>
+        <isExplosive>true</isExplosive>
+        <!--
+        <battleWound>true</battleWound>
+    -->
+        <hediff>Shredded</hediff>
+        <hediffSolid>Crack</hediffSolid>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <impactSoundType>Blunt</impactSoundType>
+        <armorCategory>Blunt</armorCategory>
+        <spreadOut>true</spreadOut>
+        <explosionBuildingDamageFactor>2</explosionBuildingDamageFactor>
+        <explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+        <explosionHeatEnergyPerCell>0</explosionHeatEnergyPerCell>
+        <explosionCellMote>Mote_BlastDry</explosionCellMote>
+        <explosionColorCenter>(1, 0.55, 0.3)</explosionColorCenter>
+        <explosionColorEdge>(0.6, 0.55, 0.4)</explosionColorEdge>
+        <soundExplosion>Explosion_Bomb</soundExplosion>
+    </DamageDef>
+
+</Defs>

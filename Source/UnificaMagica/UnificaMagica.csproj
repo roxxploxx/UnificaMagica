@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A34E6F7-E001-49BE-A7CB-956773E231A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnificaMagica</RootNamespace>
+    <AssemblyName>UnificaMagica</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\Assemblies\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="HugsLib">
+      <HintPath>..\HugsLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Building_ArcaneCooler.cs" />
+    <Compile Include="Building_ArcaneDoor.cs" />
+    <Compile Include="Building_ArcaneGrowVat.cs" />
+    <Compile Include="Building_ArcaneHeater.cs" />
+    <Compile Include="Building_PlantGrower.cs" />
+    <Compile Include="Building_WizardTurret.cs" />
+    <Compile Include="CompProperties_WizardTech.cs" />
+    <Compile Include="CompWizardTech.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Injector.cs" />
+    <Compile Include="ModBeamMeshMaker.cs" />
+    <Compile Include="PlantTrapProperties.cs" />
+    <Compile Include="Plant_Trap.cs" />
+    <Compile Include="Projectile_Zap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThoughtWorker_NotWizardUsing.cs" />
+    <Compile Include="UMCompFacility.cs" />
+    <Compile Include="UMCompProperties_Facility.cs" />
+    <Compile Include="uminterfaces.cs" />
+    <Compile Include="Verb_FueledShot.cs" />
+    <Compile Include="WizardPill.cs" />
+    <Compile Include="WizardShield.cs" />
+    <Compile Include="WorkGiver_GrowSow.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
