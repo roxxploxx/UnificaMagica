@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<BodyPartGroupDefs>
+
+    <BodyPartGroupDef>
+        <defName>RightHandIndexFinger</defName>
+        <label>right hand index finger</label>
+        <listOrder>301</listOrder>
+    </BodyPartGroupDef>
+    <BodyPartGroupDef>
+        <defName>RightHandMiddleFinger</defName>
+        <label>right hand middle finger</label>
+        <listOrder>302</listOrder>
+    </BodyPartGroupDef>
+    <BodyPartGroupDef>
+        <defName>RightHandRingFinger</defName>
+        <label>right hand ring finger</label>
+        <listOrder>303</listOrder>
+    </BodyPartGroupDef>
+    <BodyPartGroupDef>
+        <defName>RightHandPinky</defName>
+        <label>right hand pinky finger</label>
+        <listOrder>304</listOrder>
+    </BodyPartGroupDef>
+    <BodyPartGroupDef>
+        <defName>RightHandThumb</defName>
+        <label>right hand thumb</label>
+        <listOrder>305</listOrder>
+    </BodyPartGroupDef>
+
+
+    <BodyPartGroupDef>
+        <defName>LeftHandIndexFinger</defName>
+        <label>left hand index finger</label>
+        <listOrder>306</listOrder>
+    </BodyPartGroupDef>
+    <BodyPartGroupDef>
+        <defName>LeftHandMiddleFinger</defName>
+        <label>left hand middle finger</label>
+        <listOrder>307</listOrder>
+    </BodyPartGroupDef>
+    <BodyPartGroupDef>
+        <defName>LeftHandRingFinger</defName>
+        <label>left hand ring finger</label>
+        <listOrder>308</listOrder>
+    </BodyPartGroupDef>
+    <BodyPartGroupDef>
+        <defName>LeftHandPinky</defName>
+        <label>left hand pinky finger</label>
+        <listOrder>309</listOrder>
+    </BodyPartGroupDef>
+    <BodyPartGroupDef>
+        <defName>LeftHandThumb</defName>
+        <label>left hand thumb</label>
+        <listOrder>310</listOrder>
+    </BodyPartGroupDef>
+
+
+</BodyPartGroupDefs>

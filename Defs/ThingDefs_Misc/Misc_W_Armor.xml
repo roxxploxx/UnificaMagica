@@ -259,6 +259,8 @@
 
     <!-- Ring of Warmth-->
     <ThingDef Name="Apparel_RingOfWarmth" Abstract="True" ParentName="WizardArmorMakeableBase">
+        <thingClass>UnificaMagica.RingThing</thingClass>
+        <selectable>true</selectable>
         <description>Infused with arcane energy, this ring radiates a warmth throughouth your body.</description>
         <techLevel>Neolithic</techLevel>
         <recipeMaker>
@@ -282,7 +284,28 @@
         <thingCategories>
             <li>Apparel</li>
         </thingCategories>
+        <inspectorTabs>
+            <li>UnificaMagica.ITab_ToggleDef</li>
+        </inspectorTabs>
         <comps>
+            <li Class="UnificaMagica.CompProperties_ToggleDef">
+                <labelKey>UM_Tab_ToggleDef_Rings</labelKey>
+                <!--
+                look for all defName_TOGGLEDEF_X
+                <bodyparts>
+                    <li>RightHandPinkyFinger</li>
+                    <li>RightHandRingFinger</li>
+                    <li>RightHandMiddleFinger</li>
+                    <li>RightHandIndexFinger</li>
+                    <li>RightHandThumb</li>
+                    <li>LeftHandPinkyFinger</li>
+                    <li>LeftHandRingFinger</li>
+                    <li>LeftHandMiddleFinger</li>
+                    <li>LeftHandIndexFinger</li>
+                    <li>LeftHandThumb</li>
+                </bodyparts>
+            -->
+            </li>
             <li Class="CompSlotLoadable.CompProperties_SlotLoadable">
                 <slots>
                     <li>SlotTest</li>
@@ -303,20 +326,77 @@
         </apparel>
     </ThingDef>
     <ThingDef ParentName="Apparel_RingOfWarmth">
-        <defName>Apparel_RingOfWarmthR</defName>
-        <label>ring of warmth (R)</label>
+        <defName>Apparel_RingOfWarmth_TOGGLEDEF_RP</defName>
+        <label>ring of warmth (RPinky)</label>
         <apparel>
+            <layers>
+                <li>Belt</li>
+            </layers>
             <bodyPartGroups>
-                <li>RightHand</li>
+                <li>RightHandPinky</li>
             </bodyPartGroups>
         </apparel>
     </ThingDef>
     <ThingDef ParentName="Apparel_RingOfWarmth">
-        <defName>Apparel_RingOfWarmthL</defName>
-        <label>ring of warmth (L)</label>
+        <defName>Apparel_RingOfWarmth_TOGGLEDEF_RR</defName>
+        <label>ring of warmth (RRing)</label>
         <apparel>
             <bodyPartGroups>
-                <li>LeftHand</li>
+                <li>RightHandRingFinger</li>
+            </bodyPartGroups>
+        </apparel>
+    </ThingDef>
+    <ThingDef ParentName="Apparel_RingOfWarmth">
+        <defName>Apparel_RingOfWarmth_TOGGLEDEF_RM</defName>
+        <label>ring of warmth (RMiddle)</label>
+        <apparel>
+            <bodyPartGroups>
+                <li>RightHandMiddleFinger</li>
+            </bodyPartGroups>
+        </apparel>
+    </ThingDef>
+    <ThingDef ParentName="Apparel_RingOfWarmth">
+        <defName>Apparel_RingOfWarmth_TOGGLEDEF_RI</defName>
+        <label>ring of warmth (RIndex)</label>
+        <apparel>
+            <bodyPartGroups>
+                <li>RightHandIndexFinger</li>
+            </bodyPartGroups>
+        </apparel>
+    </ThingDef>
+    <ThingDef ParentName="Apparel_RingOfWarmth">
+        <defName>Apparel_RingOfWarmth_TOGGLEDEF_LP</defName>
+        <label>ring of warmth (LPinky)</label>
+        <apparel>
+            <bodyPartGroups>
+                <li>LeftHandPinky</li>
+            </bodyPartGroups>
+        </apparel>
+    </ThingDef>
+    <ThingDef ParentName="Apparel_RingOfWarmth">
+        <defName>Apparel_RingOfWarmth_TOGGLEDEF_LR</defName>
+        <label>ring of warmth (LRing)</label>
+        <apparel>
+            <bodyPartGroups>
+                <li>LeftHandRingFinger</li>
+            </bodyPartGroups>
+        </apparel>
+    </ThingDef>
+    <ThingDef ParentName="Apparel_RingOfWarmth">
+        <defName>Apparel_RingOfWarmth_TOGGLEDEF_LM</defName>
+        <label>ring of warmth (LMiddle)</label>
+        <apparel>
+            <bodyPartGroups>
+                <li>LeftHandMiddleFinger</li>
+            </bodyPartGroups>
+        </apparel>
+    </ThingDef>
+    <ThingDef ParentName="Apparel_RingOfWarmth">
+        <defName>Apparel_RingOfWarmth_TOGGLEDEF_LI</defName>
+        <label>ring of warmth (LIndex)</label>
+        <apparel>
+            <bodyPartGroups>
+                <li>LeftHandIndexFinger</li>
             </bodyPartGroups>
         </apparel>
     </ThingDef>
@@ -362,6 +442,7 @@
     </ThingDef>
     <ThingDef ParentName="Apparel_RingOfCooling">
         <defName>Apparel_RingOfCoolingR</defName>
+        <!-- <thingClass>UnificaMagica.RingThing</thingClass> -->
         <label>ring of cooling (R)</label>
         <apparel>
             <bodyPartGroups>
@@ -371,6 +452,7 @@
     </ThingDef>
     <ThingDef ParentName="Apparel_RingOfCooling">
         <defName>Apparel_RingOfCoolingL</defName>
+        <thingClass>UnificaMagica.RingThing</thingClass>
         <label>ring of cooling (L)</label>
         <apparel>
             <bodyPartGroups>

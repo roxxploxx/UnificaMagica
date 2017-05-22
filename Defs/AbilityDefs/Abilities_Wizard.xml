@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+    <ThingDef ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_AbilityLaser">
+        <thingClass>AbilityUser.Projectile_AbilityLaser</thingClass>
+        <defName>Projectile_WizardBolt</defName>
+        <label>wizard bolt projectile</label>
+        <graphicData>
+            <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <flyOverhead>false</flyOverhead>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>60</damageAmountBase>
+            <speed>125</speed>
+        </projectile>
+        <preFiringInitialIntensity>0</preFiringInitialIntensity>
+        <preFiringFinalIntensity>20</preFiringFinalIntensity>
+        <postFiringInitialIntensity>20</postFiringInitialIntensity>
+        <postFiringFinalIntensity>0</postFiringFinalIntensity>
+        <preFiringDuration>10</preFiringDuration>
+        <postFiringDuration>83</postFiringDuration>
+        <StartFireChance>0.000</StartFireChance>
+    </ThingDef>
+
+
+    <ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility">
+        <defName>WizardBoltAbility</defName>
+        <label>wizard bolt</label>
+        <uiIconPath>UI/Glow_Corrupt</uiIconPath>
+        <description>Drain another entity of lifeforce.</description>
+        <MainVerb Class="AbilityUser.VerbProperties_Ability">
+            <verbClass>AbilityUser.Verb_UseAbility</verbClass>
+            <tooltipShowProjectileDamage>true</tooltipShowProjectileDamage>
+            <tooltipShowExtraDamages>false</tooltipShowExtraDamages>
+            <tooltipShowHediffsToApply>false</tooltipShowHediffsToApply>
+            <tooltipShowMentalStatesToApply>false</tooltipShowMentalStatesToApply>
+            <hasStandardCommand>true</hasStandardCommand>
+            <projectileDef>Projectile_WizardBolt</projectileDef>
+            <abilityDef>WizardBoltAbility</abilityDef>
+            <warmupTime>1</warmupTime>
+            <SecondsToRecharge>10.0</SecondsToRecharge>
+            <range>24</range>
+            <burstShotCount>1</burstShotCount>
+            <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+            <soundCast>MessageBenefit</soundCast>
+            <muzzleFlashScale>20</muzzleFlashScale>
+            <isPrimary>false</isPrimary>
+        </MainVerb>
+    </ThingDef>
+</ThingDefs>

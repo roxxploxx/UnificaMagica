@@ -31,13 +31,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\GlobalAssemblies\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="AbilityUser">
+      <HintPath>..\..\..\AbilityUser\Assemblies\AbilityUser.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\Assemblies\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="HugsLib">
-      <HintPath>..\HugsLib.dll</HintPath>
+      <HintPath>..\..\..\GlobalAssemblies\HugsLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,7 +49,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\AbilityUser\Assemblies\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -56,19 +59,27 @@
     <Compile Include="Building_ArcaneHeater.cs" />
     <Compile Include="Building_PlantGrower.cs" />
     <Compile Include="Building_WizardTurret.cs" />
+    <Compile Include="CompAbilityUserWizard.cs" />
+    <Compile Include="CompProperties_ToggleDef.cs" />
     <Compile Include="CompProperties_WizardTech.cs" />
+    <Compile Include="CompToggleDef.cs" />
     <Compile Include="CompWizardTech.cs" />
+    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Helpers.cs" />
-    <Compile Include="Injector.cs" />
+    <Compile Include="ITab_ToggleDef.cs" />
     <Compile Include="ModBeamMeshMaker.cs" />
     <Compile Include="PlantTrapProperties.cs" />
     <Compile Include="Plant_Trap.cs" />
     <Compile Include="Projectile_Zap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RingThing.cs" />
     <Compile Include="ThoughtWorker_NotWizardUsing.cs" />
+    <Compile Include="ToggleDefCardUtility.cs" />
+    <Compile Include="UMAbilityDef.cs" />
     <Compile Include="UMCompFacility.cs" />
     <Compile Include="UMCompProperties_Facility.cs" />
     <Compile Include="uminterfaces.cs" />
+    <Compile Include="UnificaMagicaDefOf.cs" />
     <Compile Include="Verb_FueledShot.cs" />
     <Compile Include="WizardPill.cs" />
     <Compile Include="WizardShield.cs" />
