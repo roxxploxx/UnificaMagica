@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-    <UM_Tab_ToggleDef_Rings>Worn At</UM_Tab_ToggleDef_Rings>
+    <UM_Tab_ToggleDef_Rings>Worn On</UM_Tab_ToggleDef_Rings>
     <TOGGLEDEF>TOGGLE</TOGGLEDEF>
 
 </LanguageData>
-

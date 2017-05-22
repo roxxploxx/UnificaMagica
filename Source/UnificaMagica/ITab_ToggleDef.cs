@@ -11,8 +11,15 @@ namespace UnificaMagica
         {
             get
             {
-                ThingWithComps selected = Find.Selector.SingleSelectedThing as ThingWithComps;
-                if ( selected != null && selected.GetComp<CompToggleDef>() != null ) { return true; }
+                ThingWithComps selected = this.SelThing as ThingWithComps;
+                if ( selected != null ) {
+                    CompToggleDef td = selected.GetComp<CompToggleDef>();
+                    if (  td != null ) {
+//                        Log.Message("ITab_isvisible");
+                        this.labelKey = td.LabelKey; // defined by the Comp
+                        return true;
+                    }
+                }
                 return false;
             }
         }
@@ -34,8 +41,6 @@ namespace UnificaMagica
             if ( this.labelKey == null ) this.labelKey = "TOGGLEDEF";
             Log.Message("ITab_ToggleDef 7");
             */
-            this.labelKey = "TOGGLEDEF";
-            //Log.Message("ITab_ToggleDef 7");
         }
 
         protected override void FillTab()

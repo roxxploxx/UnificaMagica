@@ -110,47 +110,48 @@
 
 
 
-<!--
+
     <ThingDef ParentName="BuildingBase">
-        <defName>WizardHeaterSmall</defName>
-        <label>wizard heater small</label>
-        <thingClass>Building_Heater</thingClass>
-        <description>Radiates a warm and calming, somewhat smokey, heat into the viscinity.</description>
+        <defName>UM_CrylstalBall</defName>
+        <label>crystal ball</label>
+        <thingClass>Building_CommsConsole</thingClass>
         <graphicData>
-            <texPath>Things/Building/Misc/Campfire</texPath>
+            <texPath>Things/Building/Misc/CrystalBall</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <drawRotated>false</drawRotated>
-            <allowFlip>false</allowFlip>
-            <damageData>
-                <rect>(0.2,0,0.6,0.1)</rect>
-            </damageData>
+            <drawSize>(1,1)</drawSize>
         </graphicData>
-        <minifiedDef>MinifiedFurniture</minifiedDef>
-        <tickerType>Normal</tickerType>
         <altitudeLayer>Building</altitudeLayer>
-        <passability>PassThroughOnly</passability>
-        <pathCost>50</pathCost>
+        <passability>Impassable</passability>
         <blockWind>true</blockWind>
-        <rotatable>false</rotatable>
-        <fillPercent>0.4</fillPercent>
+        <castEdgeShadows>true</castEdgeShadows>
+        <fillPercent>1</fillPercent>
+        <canOverlapZones>false</canOverlapZones>
         <statBases>
-            <WorkToBuild>2000</WorkToBuild>
-            <MaxHitPoints>80</MaxHitPoints>
-            <Mass>6</Mass>
-            <Flammability>.5</Flammability>
+            <MaxHitPoints>50</MaxHitPoints>
+            <WorkToBuild>2200</WorkToBuild>
+            <Flammability>1.0</Flammability>
         </statBases>
-        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <description>Allows contact with remote traders as well as other factions for trade and diplomacy.</description>
+        <size>(1,1)</size>
         <costList>
-            <Steel>40</Steel>
-            <WoodLog>20</WoodLog>
-            <Component>1</Component>
-            <PowerRune>5</PowerRune>
+            <WoodLog>10</WoodLog>
+            <Component>4</Component>
+            <PowerRune>6</PowerRune>
+            <ControlRune>6</ControlRune>
+            <AwarenessRune>8</AwarenessRune>
         </costList>
-        <placeWorkers>
-            <li>PlaceWorker_Heater</li>
-        </placeWorkers>
-        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <hasInteractionCell>true</hasInteractionCell>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <building>
+            <ai_chillDestination>false</ai_chillDestination>
+        </building>
         <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerPlant</compClass>
+                <basePowerConsumption>-1</basePowerConsumption>
+                <transmitsPower>true</transmitsPower>
+            </li>
             <li Class="CompProperties_Refuelable">
                 <fuelConsumptionRate>.1</fuelConsumptionRate>
                 <fuelCapacity>3.0</fuelCapacity>
@@ -159,45 +160,15 @@
                         <li>PowerRune</li>
                     </thingDefs>
                 </fuelFilter>
-                <destroyOnNoFuel>false</destroyOnNoFuel>
-            </li>
-            <li Class="CompProperties_Flickable"/>
-            <li Class="CompProperties_Glower">
-                <glowRadius>4</glowRadius>
-                <glowColor>(252,187,113,0)</glowColor>
-            </li>
-            <li Class="CompProperties_HeatPusher">
-                <heatPerSecond>21</heatPerSecond>
-                <heatPushMaxTemperature>28</heatPushMaxTemperature>
-            </li>
-            <li Class="CompProperties_FireOverlay">
-                <fireSize>1</fireSize>
             </li>
         </comps>
-        <designationCategory>Temperature</designationCategory>
-        <designationHotKey>Misc3</designationHotKey>
+        <staticSunShadowHeight>0.5</staticSunShadowHeight>
+        <designationHotkey>Misc3</designationHotkey>
+        <designationCategory>UnificaMagicaDesignation</designationCategory>
         <researchPrerequisites>
             <li>InanimateImbuement</li>
         </researchPrerequisites>
-        <recipeMaker>
-            <workSpeedStat>SmithingSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
-            <effectWorking>Smith</effectWorking>
-            <soundWorking>Recipe_Smith</soundWorking>
-            <recipeUsers>
-                <li>TableArcaneWorkbench</li>
-            </recipeUsers>
-            <researchPrerequisite>ArcaneArtificer</researchPrerequisite>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>3</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedArtifact</unfinishedThingDef>
-        </recipeMaker>
     </ThingDef>
--->
 
 
 

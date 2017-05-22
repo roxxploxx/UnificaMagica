@@ -15,10 +15,16 @@ namespace UnificaMagica
 		public List<ThingDef> toggleDefs = null;
         protected string TDTag = "_TOGGLEDEF_";
 
+		public string LabelKey {
+			get { return ((CompProperties_ToggleDef)this.props).labelKey; }
+		}
+
         public override void Initialize(CompProperties props) {
             base.Initialize(props);
             string tdbase;
             string tdkey;
+//			Log.Message("CompToggleDef  labelkey "+((CompProperties_ToggleDef)this.props).labelKey);
+
 
 
 /*
@@ -74,25 +80,29 @@ namespace UnificaMagica
 
 
             // return true on success
-            public bool parseToggleDef(out string tdbase, out string tdkey ) {
-                string[] thematch = null;
-                bool retval = false;
-                if ( this.parent != null ) {
-                    if ( this.parent.def != null ) {
-                        if ( this.parent.def.defName != null ) {
-                            thematch = this.parent.def.defName.Split(new string[] { this.TDTag }, StringSplitOptions.None);
-                            if ( thematch.Length == 2 ) {
-                                retval = true;
-                                } else Log.Warning("parsed defname of '"+this.parent.def.defName+"' failed to split on tag '"+this.TDTag+"'.");
-                                } else Log.Warning("Unable to parse defName because no this.parent.def.defName");
-                                } else Log.Warning("Unable to parse defName because no this.parent.def");
-                                } else Log.Warning("Unable to parse defName because no this.parent");
+			public bool parseToggleDef(out string tdbase, out string tdkey ) {
+				string[] thematch = null;
+				bool retval = false;
+				if ( this.parent != null ) {
+					if ( this.parent.def != null ) {
+						if ( this.parent.def.defName != null ) {
+							thematch = this.parent.def.defName.Split(new string[] { this.TDTag }, StringSplitOptions.None);
+							if ( thematch.Length == 2 ) {
+								retval = true;
+							}
+							else Log.Warning("parsed defname of '"+this.parent.def.defName+"' failed to split on tag '"+this.TDTag+"'.");
+						}
+						else Log.Warning("Unable to parse defName because no this.parent.def.defName");
+					}
+					else Log.Warning("Unable to parse defName because no this.parent.def");
+				}
+				else Log.Warning("Unable to parse defName because no this.parent");
 
-                                if ( retval == true) { tdbase = thematch[0]; tdkey = thematch[1]; }
-                                else { tdbase = null; tdkey = null; }
-                                return retval;
-                            }
+				if ( retval == true) { tdbase = thematch[0]; tdkey = thematch[1]; }
+				else { tdbase = null; tdkey = null; }
+				return retval;
+			}
 
 
-                        }
-                    }
+		}
+	}

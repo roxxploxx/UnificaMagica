@@ -259,7 +259,7 @@
 
     <!-- Ring of Warmth-->
     <ThingDef Name="Apparel_RingOfWarmth" Abstract="True" ParentName="WizardArmorMakeableBase">
-        <thingClass>UnificaMagica.RingThing</thingClass>
+        <!--<thingClass>UnificaMagica.RingThing</thingClass>-->
         <selectable>true</selectable>
         <description>Infused with arcane energy, this ring radiates a warmth throughouth your body.</description>
         <techLevel>Neolithic</techLevel>
@@ -273,7 +273,7 @@
             <researchPrerequisite>Elementalism</researchPrerequisite>
         </recipeMaker>
         <graphicData>
-            <texPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</texPath>
+            <texPath>Things/Pawn/Humanlike/Apparel/Wizardry/Ring</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <statBases>
@@ -290,21 +290,6 @@
         <comps>
             <li Class="UnificaMagica.CompProperties_ToggleDef">
                 <labelKey>UM_Tab_ToggleDef_Rings</labelKey>
-                <!--
-                look for all defName_TOGGLEDEF_X
-                <bodyparts>
-                    <li>RightHandPinkyFinger</li>
-                    <li>RightHandRingFinger</li>
-                    <li>RightHandMiddleFinger</li>
-                    <li>RightHandIndexFinger</li>
-                    <li>RightHandThumb</li>
-                    <li>LeftHandPinkyFinger</li>
-                    <li>LeftHandRingFinger</li>
-                    <li>LeftHandMiddleFinger</li>
-                    <li>LeftHandIndexFinger</li>
-                    <li>LeftHandThumb</li>
-                </bodyparts>
-            -->
             </li>
             <li Class="CompSlotLoadable.CompProperties_SlotLoadable">
                 <slots>
@@ -416,7 +401,7 @@
             <researchPrerequisite>Elementalism</researchPrerequisite>
         </recipeMaker>
         <graphicData>
-            <texPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</texPath>
+            <texPath>Things/Pawn/Humanlike/Apparel/Wizardry/Ring</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <statBases>
@@ -452,7 +437,7 @@
     </ThingDef>
     <ThingDef ParentName="Apparel_RingOfCooling">
         <defName>Apparel_RingOfCoolingL</defName>
-        <thingClass>UnificaMagica.RingThing</thingClass>
+        <!--<thingClass>UnificaMagica.RingThing</thingClass>-->
         <label>ring of cooling (L)</label>
         <apparel>
             <bodyPartGroups>

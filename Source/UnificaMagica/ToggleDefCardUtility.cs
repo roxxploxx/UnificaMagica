@@ -78,11 +78,12 @@ namespace UnificaMagica
                         // CHange def then give it a new id. Hopefully nothing index on the id
                         Map map = selectedThing.Map;
                         IntVec3 loc = selectedThing.Position;
+                        Rot4 rot = selectedThing.Rotation;
                         selectedThing.DeSpawn();
                         selectedThing.def = td;
                         selectedThing.thingIDNumber = -1;
                         ThingIDMaker.GiveIDTo(selectedThing); // necessary
-                        GenSpawn.Spawn(selectedThing,loc,map);
+                        GenSpawn.Spawn(selectedThing,loc,map,rot);
                         //Log.Message("id is now "+selectedThing.thingIDNumber+" so hopefully not -1");
                         //works but:
                         //JobDriver threw exception in initAction. Pawn=Jon, Job=Wear A=Thing_Apparel_RingOfWarmth_TOGGLEDEF_L23077, Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.

@@ -10,13 +10,9 @@ namespace UnificaMagica
 
         public string labelKey;
 
-//        public List<string> bodyparts = new List<string>();
-
         public CompProperties_ToggleDef()
         {
             this.compClass = typeof(CompToggleDef);
-
-
         }
 
     }
