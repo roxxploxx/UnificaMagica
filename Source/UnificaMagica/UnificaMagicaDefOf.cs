@@ -2,6 +2,7 @@ using System;
 using Verse;
 using RimWorld;
 using AbilityUser;
+using UnityEngine;
 
 namespace UnificaMagica
 {
@@ -10,7 +11,14 @@ namespace UnificaMagica
     {
         public static TraitDef WizardInclined;
 
-        public static AbilityDef WizardBoltAbility;
+        public static SkillDef Wizardry;
+
+        public static UMAbilityDef UM_WizardBolt;
+        public static UMAbilityDef UM_FearPerson;
+        public static UMAbilityDef UM_FearBomb;
+
+
+
 
     }
 }

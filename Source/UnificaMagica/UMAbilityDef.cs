@@ -24,6 +24,9 @@ namespace UnificaMagica
         public float changedAlignmentRate = 0.0f;
         */
 
+        // Used to restrict powerful spells to most powerful wizards.
+        public int abilityLevel;
+
 
         public string GetPointDesc()
         {

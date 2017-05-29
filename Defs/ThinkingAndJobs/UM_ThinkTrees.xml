@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThinkTrees>
+
+
+    <!-- does not work -->
+  <ThinkTreeDef>
+    <defName>UM_WizardFear</defName>
+    <insertTag>Humanlike_PostMental</insertTag>
+	<insertPriority>1</insertPriority>
+    <thinkRoot Class="ThinkNode_Tagger">
+        <tagToGive>InMentalState</tagToGive>
+			<subNodes>
+
+                <!-- Panic flee -->
+                <li Class="ThinkNode_ConditionalMentalState">
+                    <state>UM_WizardFear</state>
+                    <subNodes>
+                        <li Class="JobGiver_WanderAnywhere">
+                            <!-- Can happen if there is no way to exit the map -->
+                            <maxDanger>Some</maxDanger>
+                            <locomotionUrgency>Jog</locomotionUrgency>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+
+        </thinkRoot>
+    </ThinkTreeDef>
+
+</ThinkTrees>

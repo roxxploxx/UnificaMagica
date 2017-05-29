@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+    <ThingDef ParentName="BaseMeleeTestWeapon_Sharp">
+        <defName>MeleeWeapon_Knife_Ability_WizardBolt</defName>
+        <label>knife of bolts ababababababaababababababa</label>
+        <description>A knife with a slot in it for warrior gems and hey, look, I can shoot Wizard Bolts!</description>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompSlotLoadable.CompProperties_SlotLoadable">
+                <slots>
+                    <li>SlotWarriorGem</li>
+                </slots>
+            </li>
+            <li Class="AbilityUser.CompProperties_AbilityItem">
+                <!-- <AbilityUserClass>UnificaMagica.CompAbilityUserWizard</AbilityUserClass> -->
+                <Abilities>
+                    <li>UM_WizardBolt</li>
+                </Abilities>
+            </li>
+        </comps>
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponMelee/Knife</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>InteractPistol</soundInteract>
+        <costStuffCount>40</costStuffCount>
+        <statBases>
+            <WorkToMake>4000</WorkToMake>
+            <Mass>0.5</Mass>
+            <MeleeWeapon_DamageAmount>8</MeleeWeapon_DamageAmount>
+            <MeleeWeapon_Cooldown>1.66</MeleeWeapon_Cooldown>
+        </statBases>
+        <equippedAngleOffset>-65</equippedAngleOffset>
+        <stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+        <verbs>
+            <li>
+                <verbClass>Verb_MeleeAttack</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <meleeDamageDef>Cut</meleeDamageDef>
+            </li>
+        </verbs>
+    </ThingDef>
+
+
+    <ThingDef ParentName="WizardArmorMakeableBase">
+        <defName>UM_Pants_of_Fear</defName>
+        <label>pants of fear</label>
+        <description>Your pants are truly scary.</description>
+        <recipeMaker>
+            <researchPrerequisite>EnchantingI</researchPrerequisite>
+        </recipeMaker>
+        <graphicData>
+            <texPath>Things/Pawn/Humanlike/Apparel/Various/Pants_OnMap</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <costStuffCount>50</costStuffCount>
+        <stuffCategories>
+            <li>Fabric</li>
+            <li>Leathery</li>
+        </stuffCategories>
+        <thingCategories>
+            <li>Apparel</li>
+        </thingCategories>
+        <statBases>
+            <MaxHitPoints>200</MaxHitPoints>
+            <WorkToMake>10000</WorkToMake>
+            <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+            <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
+            <Insulation_Cold>-3</Insulation_Cold>
+        </statBases>
+        <apparel>
+            <bodyPartGroups>
+                <li>Legs</li>
+            </bodyPartGroups>
+            <layers>
+                <li>OnSkin</li>
+            </layers>
+            <tags>
+                <li>Outlander</li>
+                <li>Spacer</li>
+            </tags>
+            <defaultOutfitTags>
+                <li>Worker</li>
+                <li>Soldier</li>
+            </defaultOutfitTags>
+        </apparel>
+        <comps>
+            <li Class="AbilityUser.CompProperties_AbilityItem">
+                <!-- <AbilityUserClass>UnificaMagica.CompAbilityUserWizard</AbilityUserClass> -->
+                <Abilities>
+                    <li>UM_FearPerson</li>
+                </Abilities>
+            </li>
+        </comps>
+        <colorGenerator Class="ColorGenerator_StandardApparel" />
+    </ThingDef>
+
+
+</ThingDefs>

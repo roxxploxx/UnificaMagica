@@ -34,13 +34,13 @@
       <HintPath>..\..\..\GlobalAssemblies\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="AbilityUser">
-      <HintPath>..\..\..\AbilityUser\Assemblies\AbilityUser.dll</HintPath>
+      <HintPath>..\..\..\JecsTools\Assemblies\AbilityUser.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\Assemblies\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\GlobalAssemblies\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="HugsLib">
-      <HintPath>..\..\..\GlobalAssemblies\HugsLib.dll</HintPath>
+    <Reference Include="CompSlotLoadable">
+      <HintPath>..\..\..\JecsTools\Assemblies\CompSlotLoadable.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,11 +48,13 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\AbilityUser\Assemblies\UnityEngine.dll</HintPath>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\GlobalAssemblies\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Building_ArcaneAlcove.cs" />
     <Compile Include="Building_ArcaneCooler.cs" />
     <Compile Include="Building_ArcaneDoor.cs" />
     <Compile Include="Building_ArcaneGrowVat.cs" />
@@ -67,6 +69,8 @@
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="ITab_ToggleDef.cs" />
+    <Compile Include="ITab_Wizard.cs" />
+    <Compile Include="JobDriver_StudyWizardry.cs" />
     <Compile Include="ModBeamMeshMaker.cs" />
     <Compile Include="PlantTrapProperties.cs" />
     <Compile Include="Plant_Trap.cs" />
@@ -79,7 +83,9 @@
     <Compile Include="UMCompProperties_Facility.cs" />
     <Compile Include="uminterfaces.cs" />
     <Compile Include="UnificaMagicaDefOf.cs" />
+    <Compile Include="UnificaMagicaUI.cs" />
     <Compile Include="Verb_FueledShot.cs" />
+    <Compile Include="WizardCardUtility.cs" />
     <Compile Include="WizardPill.cs" />
     <Compile Include="WizardShield.cs" />
     <Compile Include="WorkGiver_GrowSow.cs" />

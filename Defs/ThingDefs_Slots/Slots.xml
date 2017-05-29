@@ -13,8 +13,35 @@
     </ThingDef>
 
 
+    <ThingDef Abstract="True" Name="SlottableKnife" ParentName="BaseMeleeTestWeapon_Sharp">
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponMelee/Knife</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>InteractPistol</soundInteract>
+        <costStuffCount>40</costStuffCount>
+        <statBases>
+            <WorkToMake>4000</WorkToMake>
+            <Mass>0.5</Mass>
+            <MeleeWeapon_DamageAmount>8</MeleeWeapon_DamageAmount>
+            <MeleeWeapon_Cooldown>1.66</MeleeWeapon_Cooldown>
+        </statBases>
+        <equippedAngleOffset>-65</equippedAngleOffset>
+        <stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+        <verbs>
+            <li>
+                <verbClass>Verb_MeleeAttack</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <meleeDamageDef>Cut</meleeDamageDef>
+            </li>
+        </verbs>
+    </ThingDef>
 
-    <ThingDef ParentName="SlottableTestBase">
+
+
+    <ThingDef ParentName="SlottableKnife">
         <defName>MeleeWeapon_Knife_Warrior_Slotted</defName>
         <label>slotted warrior knife ababababababaababababababa</label>
         <description>A knife with a slot in it for warrior gems.</description>
@@ -25,28 +52,11 @@
                     <li>SlotWarriorGem</li>
                 </slots>
             </li>
-            <!--
-            <li Class="CompSlotLoadable.CompProperties_SlottedBonus">
-                <statModifiers>
-                    <MoveSpeed>2.0</MoveSpeed>
-                </statModifiers>
-                <defensiveHealChance>
-                    <chance>1.0</chance>
-                    <woundLimit>7</woundLimit>
-                </defensiveHealChance>
-            </li>
-        -->
         </comps>
-        <!--
-        works here
-        <equippedStatOffsets>
-            <MoveSpeed>3.00</MoveSpeed>
-        </equippedStatOffsets>
-    -->
     </ThingDef>
 
 
-    <ThingDef ParentName="SlottableTestBase">
+    <ThingDef ParentName="SlottableKnife">
         <defName>MeleeWeapon_Gem_Berserker</defName>
         <label>warrior berserker gem ababababababababababa</label>
         <description>A gem that heals, increases movement and does damage.</description>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <JobDef>
+        <defName>UM_StudyWizardryJob</defName>
+	    <driverClass>UnificaMagica.JobDriver_StudyWizardry</driverClass>
+	    <reportString>studying wizardry.</reportString>
+    </JobDef>
+</Defs>

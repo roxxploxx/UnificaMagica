@@ -1,5 +1,6 @@
 using Harmony;
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -23,6 +24,10 @@ namespace UnificaMagica
 
             // patch the targetmethod, by calling prefixmethod before it runs, with no postfixmethod
             harmony.Patch( targetmethod, prefixmethod, null ) ;
+
+            HarmonyPatches.AddTab(typeof(ITab_Wizard), def => def.race != null && def.race.Humanlike);
+
+
         }
 
         // So, before the ITab_Pawn_Character is instantiated, reset the height of the dialog window
@@ -57,6 +62,25 @@ namespace UnificaMagica
             }
         }
         */
+
+
+
+        // From Hospitality Mod ...
+        public static void AddTab(Type tabType, Func<ThingDef, bool> qualifier)
+        {
+            var defs = DefDatabase<ThingDef>.AllDefs.Where(qualifier).ToList();
+            defs.RemoveDuplicates();
+
+            foreach (var def in defs)
+            {
+                if (!def.inspectorTabs.Contains(tabType))
+                {
+                    def.inspectorTabs.Add(tabType);
+                    def.inspectorTabsResolved.Add(InspectTabManager.GetSharedInstance(tabType));
+                    //Log.Message(def.defName+": "+def.inspectorTabsResolved.Select(d=>d.GetType().Name).Aggregate((a,b)=>a+", "+b));
+                }
+            }
+        }
 
 
     }

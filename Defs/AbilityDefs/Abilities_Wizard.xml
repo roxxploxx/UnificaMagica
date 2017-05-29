@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
 
+
+    <!-- Wizard Bolt start-->
     <ThingDef ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_AbilityLaser">
         <thingClass>AbilityUser.Projectile_AbilityLaser</thingClass>
         <defName>Projectile_WizardBolt</defName>
@@ -26,10 +28,11 @@
 
 
     <ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility">
-        <defName>WizardBoltAbility</defName>
+        <defName>UM_WizardBolt</defName>
         <label>wizard bolt</label>
-        <uiIconPath>UI/Glow_Corrupt</uiIconPath>
-        <description>Drain another entity of lifeforce.</description>
+        <uiIconPath>UI/Zap</uiIconPath>
+        <description>Zap an enemy.</description>
+        <abilityLevel>1</abilityLevel>
         <MainVerb Class="AbilityUser.VerbProperties_Ability">
             <verbClass>AbilityUser.Verb_UseAbility</verbClass>
             <tooltipShowProjectileDamage>true</tooltipShowProjectileDamage>
@@ -38,7 +41,7 @@
             <tooltipShowMentalStatesToApply>false</tooltipShowMentalStatesToApply>
             <hasStandardCommand>true</hasStandardCommand>
             <projectileDef>Projectile_WizardBolt</projectileDef>
-            <abilityDef>WizardBoltAbility</abilityDef>
+            <abilityDef>UM_WizardBolt</abilityDef>
             <warmupTime>1</warmupTime>
             <SecondsToRecharge>10.0</SecondsToRecharge>
             <range>24</range>
@@ -49,4 +52,129 @@
             <isPrimary>false</isPrimary>
         </MainVerb>
     </ThingDef>
+
+    <!-- Wizard Bolt end-->
+
+
+    <!-- Fear Person start -->
+
+    <ThingDef ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_Ability">
+        <thingClass>AbilityUser.Projectile_Ability</thingClass>
+        <defName>Projectile_FearPerson</defName>
+        <label>fear person</label>
+        <graphicData>
+            <texPath>UI/ForceUser/MindTrick</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <flyOverhead>false</flyOverhead>
+            <damageDef>Stun</damageDef>
+            <damageAmountBase>1</damageAmountBase>
+            <speed>105</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility">
+        <defName>UM_FearPerson</defName>
+        <label>fear person</label>
+        <uiIconPath>UI/ForceUser/MindTrick</uiIconPath>
+        <description>Raise feelings of fear in the pawn.</description>
+        <abilityLevel>2</abilityLevel>
+        <MainVerb Class="AbilityUser.VerbProperties_Ability">
+            <verbClass>AbilityUser.Verb_UseAbility</verbClass>
+            <tooltipShowProjectileDamage>false</tooltipShowProjectileDamage>
+            <tooltipShowExtraDamages>false</tooltipShowExtraDamages>
+            <tooltipShowHediffsToApply>true</tooltipShowHediffsToApply>
+            <tooltipShowMentalStatesToApply>true</tooltipShowMentalStatesToApply>
+            <hasStandardCommand>true</hasStandardCommand>
+            <projectileDef>Projectile_FearPerson</projectileDef>
+            <abilityDef>UM_FearPerson</abilityDef>
+            <warmupTime>1</warmupTime>
+            <SecondsToRecharge>70.0</SecondsToRecharge>
+            <range>34</range>
+            <soundCast>MessageBenefit</soundCast>
+            <muzzleFlashScale>20</muzzleFlashScale>
+            <isPrimary>false</isPrimary>
+            <isViolent>false</isViolent>
+            <mentalStatesToApply>
+                <li>
+                    <mentalStateDef>WanderConfused</mentalStateDef>
+                    <applyChance>0.7</applyChance>
+                </li>
+            </mentalStatesToApply>
+        </MainVerb>
+    </ThingDef>
+
+    <!-- End Fear Person -->
+
+
+    <!-- Fear Bomb start -->
+
+    <ThingDef ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_Ability">
+        <thingClass>AbilityUser.Projectile_Ability</thingClass>
+        <defName>Projectile_FearBomb</defName>
+        <label>fear bomb</label>
+        <graphicData>
+            <texPath>UI/ForceUser/MindTrick</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <flyOverhead>false</flyOverhead>
+            <damageDef>Stun</damageDef>
+            <damageAmountBase>1</damageAmountBase>
+            <speed>105</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility">
+        <defName>UM_FearBomb</defName>
+        <label>fear bomb</label>
+        <uiIconPath>UI/ForceUser/MindTrick</uiIconPath>
+        <description>Raise feelings of fear in the pawn.</description>
+        <abilityLevel>3</abilityLevel>
+        <MainVerb Class="AbilityUser.VerbProperties_Ability">
+            <verbClass>AbilityUser.Verb_UseAbility</verbClass>
+            <tooltipShowProjectileDamage>false</tooltipShowProjectileDamage>
+            <tooltipShowExtraDamages>false</tooltipShowExtraDamages>
+            <tooltipShowHediffsToApply>true</tooltipShowHediffsToApply>
+            <tooltipShowMentalStatesToApply>true</tooltipShowMentalStatesToApply>
+            <hasStandardCommand>true</hasStandardCommand>
+            <projectileDef>Projectile_FearPerson</projectileDef>
+            <abilityDef>UM_FearBomb</abilityDef>
+            <warmupTime>1</warmupTime>
+            <SecondsToRecharge>10.0</SecondsToRecharge>
+            <range>34</range>
+            <isViolent>false</isViolent>
+            <soundCast>MessageBenefit</soundCast>
+            <muzzleFlashScale>20</muzzleFlashScale>
+            <AbilityTargetCategory>TargetAoE</AbilityTargetCategory>
+            <TargetAoEProperties>
+                <targetClass>Pawn</targetClass>
+                <showRangeOnSelect>true</showRangeOnSelect>
+                <friendlyFire>true</friendlyFire>
+                <startsFromCaster>false</startsFromCaster>
+                <maxTargets>99</maxTargets>
+                <range>7</range>
+            </TargetAoEProperties>
+            <burstShotCount>1</burstShotCount>
+            <isPrimary>false</isPrimary>
+            <targetParams>
+                <canTargetPawns>true</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetSelf>false</canTargetSelf>
+                <canTargetLocations>true</canTargetLocations>
+            </targetParams>
+            <mentalStatesToApply>
+                <li>
+                    <mentalStateDef>WanderConfused</mentalStateDef>
+                    <!-- <mentalStateDef>UM_WizardFear</mentalStateDef> -->
+                    <applyChance>0.6</applyChance>
+                </li>
+            </mentalStatesToApply>
+        </MainVerb>
+    </ThingDef>
+
+    <!-- End Fear Bomb-->
+
+
 </ThingDefs>

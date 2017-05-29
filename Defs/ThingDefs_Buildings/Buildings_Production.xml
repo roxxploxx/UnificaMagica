@@ -67,7 +67,7 @@
     <ThingDef ParentName="BenchBase">
         <DefName>TableArcaneAlcove</DefName>
         <label>arcane alcove</label>
-        <ThingClass>Building_WorkTable</ThingClass>
+        <ThingClass>UnificaMagica.Building_ArcaneAlcove</ThingClass>
         <Description>A desk covered in papers and books, used to generate runes for wizards.</Description>
         <graphicData>
             <texPath>Things/Building/Production/TableArcaneAlcove</texPath>
