@@ -143,10 +143,8 @@
         <costStuffCount>75</costStuffCount>
         <CostList>
             <WoodLog>20</WoodLog>
-            <PowerRune>2</PowerRune>
-            <BindingRune>1</BindingRune>
-            <PulsingRune>1</PulsingRune>
-            <ControlRune>1</ControlRune>
+            <PowerRune>5</PowerRune>
+            <BindingRune>5</BindingRune>
         </CostList>
         <stuffCategories>
             <li>Metallic</li>

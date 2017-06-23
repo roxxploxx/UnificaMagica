@@ -3,8 +3,8 @@
 
     <ThingDef ParentName="BaseMeleeTestWeapon_Sharp">
         <defName>MeleeWeapon_Knife_Ability_WizardBolt</defName>
-        <label>knife of bolts ababababababaababababababa</label>
-        <description>A knife with a slot in it for warrior gems and hey, look, I can shoot Wizard Bolts!</description>
+        <label>knife of bolts</label>
+        <description>A knife with a slot in it for warrior gems and hey, look, I can shoot Wizard Bolts! (Debugging item. Not balanced.)</description>
         <tickerType>Normal</tickerType>
         <comps>
             <li Class="CompSlotLoadable.CompProperties_SlotLoadable">

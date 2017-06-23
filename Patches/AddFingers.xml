@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
     <Operation Class="PatchOperationAdd">
-        <xpath>//BodyDef[defName = "Human"]/corePart/parts/li[def="RightShoulder"]/parts/li[def="RightArm"]/parts/li[def="RightHand"]/parts/li[def="RightHandPinky"]/groups</xpath>
+        <xpath>//Defs/BodyDef[defName = "Human"]/corePart/parts/li[def="RightShoulder"]/parts/li[def="RightArm"]/parts/li[def="RightHand"]/parts/li[def="RightHandPinky"]/groups</xpath>
         <value> <li>RightHandPinky</li> </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>//BodyDef[defName = "Human"]/corePart/parts/li[def="RightShoulder"]/parts/li[def="RightArm"]/parts/li[def="RightHand"]/parts/li[def="RightHandRingFinger"]/groups</xpath>
+        <xpath>//Defs/BodyDef[defName = "Human"]/corePart/parts/li[def="RightShoulder"]/parts/li[def="RightArm"]/parts/li[def="RightHand"]/parts/li[def="RightHandRingFinger"]/groups</xpath>
         <value> <li>RightHandRingFinger</li> </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>//BodyDef[defName = "Human"]/corePart/parts/li[def="RightShoulder"]/parts/li[def="RightArm"]/parts/li[def="RightHand"]/parts/li[def="RightHandMiddleFinger"]/groups</xpath>
+        <xpath>//Defs/BodyDef[defName = "Human"]/corePart/parts/li[def="RightShoulder"]/parts/li[def="RightArm"]/parts/li[def="RightHand"]/parts/li[def="RightHandMiddleFinger"]/groups</xpath>
         <value> <li>RightHandMiddleFinger</li> </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>//BodyDef[defName = "Human"]/corePart/parts/li[def="RightShoulder"]/parts/li[def="RightArm"]/parts/li[def="RightHand"]/parts/li[def="RightHandIndexFinger"]/groups</xpath>
+        <xpath>//Defs/BodyDef[defName = "Human"]/corePart/parts/li[def="RightShoulder"]/parts/li[def="RightArm"]/parts/li[def="RightHand"]/parts/li[def="RightHandIndexFinger"]/groups</xpath>
         <value> <li>RightHandIndexFinger</li> </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>//BodyDef[defName = "Human"]/corePart/parts/li[def="RightShoulder"]/parts/li[def="RightArm"]/parts/li[def="RightHand"]/parts/li[def="RightHandThumb"]/groups</xpath>
+        <xpath>//Defs/BodyDef[defName = "Human"]/corePart/parts/li[def="RightShoulder"]/parts/li[def="RightArm"]/parts/li[def="RightHand"]/parts/li[def="RightHandThumb"]/groups</xpath>
         <value> <li>RightHandThumb</li> </value>
     </Operation>
 
 
     <Operation Class="PatchOperationAdd">
-        <xpath>//BodyDef[defName = "Human"]/corePart/parts/li[def="LeftShoulder"]/parts/li[def="LeftArm"]/parts/li[def="LeftHand"]/parts/li[def="LeftHandPinky"]/groups</xpath>
+        <xpath>//Defs/BodyDef[defName = "Human"]/corePart/parts/li[def="LeftShoulder"]/parts/li[def="LeftArm"]/parts/li[def="LeftHand"]/parts/li[def="LeftHandPinky"]/groups</xpath>
         <value> <li>LeftHandPinky</li> </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>//BodyDef[defName = "Human"]/corePart/parts/li[def="LeftShoulder"]/parts/li[def="LeftArm"]/parts/li[def="LeftHand"]/parts/li[def="LeftHandRingFinger"]/groups</xpath>
+        <xpath>//Defs/BodyDef[defName = "Human"]/corePart/parts/li[def="LeftShoulder"]/parts/li[def="LeftArm"]/parts/li[def="LeftHand"]/parts/li[def="LeftHandRingFinger"]/groups</xpath>
         <value> <li>LeftHandRingFinger</li> </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>//BodyDef[defName = "Human"]/corePart/parts/li[def="LeftShoulder"]/parts/li[def="LeftArm"]/parts/li[def="LeftHand"]/parts/li[def="LeftHandMiddleFinger"]/groups</xpath>
+        <xpath>//Defs/BodyDef[defName = "Human"]/corePart/parts/li[def="LeftShoulder"]/parts/li[def="LeftArm"]/parts/li[def="LeftHand"]/parts/li[def="LeftHandMiddleFinger"]/groups</xpath>
         <value> <li>LeftHandMiddleFinger</li> </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>//BodyDef[defName = "Human"]/corePart/parts/li[def="LeftShoulder"]/parts/li[def="LeftArm"]/parts/li[def="LeftHand"]/parts/li[def="LeftHandIndexFinger"]/groups</xpath>
+        <xpath>//Defs/BodyDef[defName = "Human"]/corePart/parts/li[def="LeftShoulder"]/parts/li[def="LeftArm"]/parts/li[def="LeftHand"]/parts/li[def="LeftHandIndexFinger"]/groups</xpath>
         <value> <li>LeftHandIndexFinger</li> </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
-        <xpath>//BodyDef[defName = "Human"]/corePart/parts/li[def="LeftShoulder"]/parts/li[def="LeftArm"]/parts/li[def="LeftHand"]/parts/li[def="LeftHandThumb"]/groups</xpath>
+        <xpath>//Defs/BodyDef[defName = "Human"]/corePart/parts/li[def="LeftShoulder"]/parts/li[def="LeftArm"]/parts/li[def="LeftHand"]/parts/li[def="LeftHandThumb"]/groups</xpath>
         <value> <li>LeftHandThumb</li> </value>
     </Operation>
 

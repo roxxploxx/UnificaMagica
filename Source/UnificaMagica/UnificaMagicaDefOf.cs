@@ -13,8 +13,15 @@ namespace UnificaMagica
 
         public static SkillDef Wizardry;
 
+        // Level 1
         public static UMAbilityDef UM_WizardBolt;
+        public static UMAbilityDef UM_WizardSparks;
+
+        // Level 2
         public static UMAbilityDef UM_FearPerson;
+        public static UMAbilityDef UM_WizardBlink;
+
+        // Level 3
         public static UMAbilityDef UM_FearBomb;
 
 

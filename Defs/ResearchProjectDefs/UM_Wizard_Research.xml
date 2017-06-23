@@ -41,7 +41,7 @@
         <prerequisites>
             <li>ArcaneWizardry</li>
         </prerequisites>
-		<requiredResearchBuilding>TableArcaneAlcove</requiredResearchBuilding>
+		<!--requiredResearchBuilding>TableArcaneAlcove</requiredResearchBuilding -->
         <researchViewX>3</researchViewX>
         <researchViewY>0</researchViewY>
 		<tab>UM_WizardTab</tab>
@@ -98,7 +98,7 @@
         <prerequisites>
             <li>ArcaneArtificer</li>
         </prerequisites>
-		<requiredResearchBuilding>TableArcaneWorkbench</requiredResearchBuilding>
+		<!--requiredResearchBuilding>TableArcaneWorkbench</requiredResearchBuilding-->
         <researchViewX>4</researchViewX>
         <researchViewY>0</researchViewY>
 		<tab>UM_WizardTab</tab>
@@ -161,7 +161,7 @@
         <researchViewY>3</researchViewY>
 		<tab>UM_WizardTab</tab>
     </ResearchProjectDef>
-	
+
 
     <ResearchProjectDef>
         <defName>EnchantingII</defName>

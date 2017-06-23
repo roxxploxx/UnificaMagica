@@ -33,16 +33,11 @@ namespace UnificaMagica
                     if (this.pawn.TryGetComp<CompAbilityUserWizard>() != null)
                     {
                         CompAbilityUserWizard wizardComp = this.pawn.GetComp<CompAbilityUserWizard>();
-                        int lvl = this.pawn.skills.GetSkill(UnificaMagicaDefOf.Wizardry).Level;
+                        //int lvl = this.pawn.skills.GetSkill(UnificaMagicaDefOf.Wizardry).Level;
 
 //                        Log.Message("found Powers " +wizardComp.Powers.Count);
-                        bool flag = false; // true if finds one to work on
-                        foreach ( AbilityUser.PawnAbility pa in wizardComp.Powers ) {
-                            if ( pa.TicksUntilCasting > 0 ) {
-                                pa.TicksUntilCasting -= lvl;
-                                flag = true;
-                                break; } // only do 1
-                        }
+                        bool flag = wizardComp.StudyForATick(); // true if finds one to work on
+
                         this.pawn.skills.Learn(UnificaMagicaDefOf.Wizardry, LearnRates.XpPerTickDefault , false);
                         if ( !flag ) { this.EndJobWith(JobCondition.Succeeded); }
                     }

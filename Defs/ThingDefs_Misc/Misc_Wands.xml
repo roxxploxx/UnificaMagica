@@ -20,8 +20,27 @@
     </ThingDef>
 
     <ThingDef ParentName="BaseZap">
+        <defName>Zap_NoviceWand</defName>
+        <label>wand novice zap</label>
+        <graphicData>
+            <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <flyOverhead>false</flyOverhead>
+            <damageDef>Bullet</damageDef>
+            <DamageAmountBase>4</DamageAmountBase>
+            <DamageSkillModifier>
+                <Skill>Wizardry</Skill>
+                <fraction>.333</fraction>
+            </DamageSkillModifier>
+            <Speed>45</Speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseZap">
         <defName>Zap_ArcaneWand</defName>
-        <label>wand a zap</label>
+        <label>wand arcane zap</label>
         <graphicData>
             <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -195,6 +214,62 @@
     </ThingDef>
 
 
+    <!-- Wand Arcane -->
+    <ThingDef ParentName="BaseWand">
+        <defName>NoviceWand</defName>
+        <label>novice wand</label>
+        <description>A novice wand. It focuses your budding Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
+        <graphicData>
+            <texPath>Things/Item/Equipment/WeaponRanged/ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>InteractPistol</soundInteract>
+        <statBases>
+            <WorkToMake>5000</WorkToMake>
+            <Mass>1.2</Mass>
+            <AccuracyTouch>0.90</AccuracyTouch>
+            <AccuracyShort>0.70</AccuracyShort>
+            <AccuracyMedium>0.50</AccuracyMedium>
+            <AccuracyLong>0.40</AccuracyLong>
+            <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <WoodLog>30</WoodLog>
+            <Steel>5</Steel>
+            <Component>1</Component>
+            <PowerRune>2</PowerRune>
+            <BindingRune>2</BindingRune>
+        </costList>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <projectileDef>Zap_NoviceWand</projectileDef>
+                <warmupTime>0.3</warmupTime>
+                <range>24</range>
+                <soundCast>ShotPistol</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+            </li>
+        </verbs>
+        <recipeMaker>
+            <workSpeedStat>WizardSpeed</workSpeedStat>
+            <workSkill>Wizardry</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>TableArcaneWorkbench</li>
+            </recipeUsers>
+            <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
+            <skillRequirements>
+                <li>
+                    <skill>Wizardry</skill>
+                    <minLevel>1</minLevel>
+                </li>
+            </skillRequirements>
+            <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
 
 
     <!-- Wand Arcane -->

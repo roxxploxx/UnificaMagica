@@ -43,7 +43,7 @@
 
     <ThingDef ParentName="SlottableKnife">
         <defName>MeleeWeapon_Knife_Warrior_Slotted</defName>
-        <label>slotted warrior knife ababababababaababababababa</label>
+        <label>slotted warrior knife</label>
         <description>A knife with a slot in it for warrior gems.</description>
         <tickerType>Normal</tickerType>
         <comps>
@@ -58,7 +58,7 @@
 
     <ThingDef ParentName="SlottableKnife">
         <defName>MeleeWeapon_Gem_Berserker</defName>
-        <label>warrior berserker gem ababababababababababa</label>
+        <label>warrior berserker gem</label>
         <description>A gem that heals, increases movement and does damage.</description>
         <tickerType>Normal</tickerType>
         <comps>

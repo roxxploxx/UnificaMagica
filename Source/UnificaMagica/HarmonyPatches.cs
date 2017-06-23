@@ -25,10 +25,38 @@ namespace UnificaMagica
             // patch the targetmethod, by calling prefixmethod before it runs, with no postfixmethod
             harmony.Patch( targetmethod, prefixmethod, null ) ;
 
+
+/*
+            harmony.Patch(
+                AccessTools.Method(typeof(UnificaMagica.Verb_UseAbility_TrueBurst),"VerbTick"),
+                null,
+                new HarmonyMethod(typeof(UnificaMagica.HarmonyPatches).GetMethod("VerbTick_Postfix"))
+                );
+            harmony.Patch(
+                AccessTools.Method(typeof(Verse.Verb),"Reset"),
+                null,
+                new HarmonyMethod(typeof(UnificaMagica.HarmonyPatches).GetMethod("Verb_Reset_Postfix"))
+                );
+                */
+
+
             HarmonyPatches.AddTab(typeof(ITab_Wizard), def => def.race != null && def.race.Humanlike);
 
 
         }
+
+//        public static void Verb_Reset_Postfix(Verb __instance) { Log.Message("Verb_Reset_Postfix:   bursting?:"+__instance.Bursting); }
+
+/*
+        public static void VerbTick_Postfix(Verb __instance) {
+            UnificaMagica.Verb_UseAbility_TrueBurst tb = __instance as UnificaMagica.Verb_UseAbility_TrueBurst;
+            //Log.Message("Verb_UseAbility_TrueBurst.VerbTick_Postfix "+(tb!= null) +" " + __instance.GetType());
+            if ( tb != null ) {
+                Log.Message("Verb_UseAbility_TrueBurst.VerbTick_Postfix    Bursting?:"+__instance.Bursting+"  stateisbursting:"+(__instance.state == VerbState.Bursting) );//ticksToNextBurstShot:"+ __instance.ticksToNextBurstShot);
+                ((UnificaMagica.Verb_UseAbility_TrueBurst)__instance).DebugVerbForBurst();
+            }
+        }
+        */
 
         // So, before the ITab_Pawn_Character is instantiated, reset the height of the dialog window
         public static void FillTab_Prefix() {

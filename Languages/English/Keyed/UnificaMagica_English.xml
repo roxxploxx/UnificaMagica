@@ -2,7 +2,7 @@
 <LanguageData>
 
     <UM_Tab_ToggleDef_Rings>Worn On</UM_Tab_ToggleDef_Rings>
-    <TOGGLEDEF>TOGGLE</TOGGLEDEF>
+    <OLDTOGGLEDEF>TOGGLE</OLDTOGGLEDEF>
 
     <UM_Wizard>Wizard</UM_Wizard>
     <UM_StudyWizardryJob>Study Wizardry</UM_StudyWizardryJob>

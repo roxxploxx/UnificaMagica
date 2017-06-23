@@ -2,7 +2,7 @@
 <ThingDefs>
 
 
-    
+
 
     <ThingDef Name="WizardArmorMakeableBase" ParentName="ApparelBase" Abstract="True">
         <recipeMaker>
@@ -342,10 +342,10 @@
             <li>Apparel</li>
         </thingCategories>
         <inspectorTabs>
-            <li>UnificaMagica.ITab_ToggleDef</li>
+            <li>CompToggleDef.ITab_ToggleDef</li>
         </inspectorTabs>
         <comps>
-            <li Class="UnificaMagica.CompProperties_ToggleDef">
+            <li Class="CompToggleDef.CompProperties_ToggleDef">
                 <labelKey>UM_Tab_ToggleDef_Rings</labelKey>
             </li>
             <li Class="CompSlotLoadable.CompProperties_SlotLoadable">

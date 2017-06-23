@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
 
+    <!-- NOTE: TO add new spells, add entry in UnificaMagicaDefOf and
+            CompAbilityUserWizard.PostInitialize -->
+
 
     <!-- Wizard Bolt start-->
     <ThingDef ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_AbilityLaser">
@@ -43,7 +46,7 @@
             <projectileDef>Projectile_WizardBolt</projectileDef>
             <abilityDef>UM_WizardBolt</abilityDef>
             <warmupTime>1</warmupTime>
-            <SecondsToRecharge>10.0</SecondsToRecharge>
+            <SecondsToRecharge>180.0</SecondsToRecharge>
             <range>24</range>
             <burstShotCount>1</burstShotCount>
             <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
@@ -54,6 +57,120 @@
     </ThingDef>
 
     <!-- Wizard Bolt end-->
+
+
+    <!-- Wizard Sparks start-->
+    <ThingDef ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_AbilityLaser">
+        <thingClass>AbilityUser.Projectile_AbilityLaser</thingClass>
+        <defName>UMProjectile_WizardSpark</defName>
+        <label>wizard spark projectile</label>
+        <graphicData>
+            <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <flyOverhead>false</flyOverhead>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>9</damageAmountBase>
+            <!--DamageSkillModifier>
+                <Skill>Wizardry</Skill>
+                <fraction>.333</fraction>
+            </DamageSkillModifier -->
+            <speed>55</speed>
+        </projectile>
+        <preFiringInitialIntensity>0</preFiringInitialIntensity>
+        <preFiringFinalIntensity>20</preFiringFinalIntensity>
+        <postFiringInitialIntensity>20</postFiringInitialIntensity>
+        <postFiringFinalIntensity>0</postFiringFinalIntensity>
+        <preFiringDuration>10</preFiringDuration>
+        <postFiringDuration>83</postFiringDuration>
+        <StartFireChance>0.020</StartFireChance>
+        <CanStartFire>true</CanStartFire>
+    </ThingDef>
+
+
+    <ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility">
+        <defName>UM_WizardSparks</defName>
+        <label>sparks</label>
+        <uiIconPath>UI/Zap</uiIconPath>
+        <description>Spew a wave of sparks at enemies, that can catch fire.</description>
+        <abilityLevel>1</abilityLevel>
+        <MainVerb Class="AbilityUser.VerbProperties_Ability">
+            <verbClass>AbilityUser.Verb_UseAbility_TrueBurst</verbClass>
+            <tooltipShowProjectileDamage>true</tooltipShowProjectileDamage>
+            <tooltipShowExtraDamages>false</tooltipShowExtraDamages>
+            <tooltipShowHediffsToApply>false</tooltipShowHediffsToApply>
+            <tooltipShowMentalStatesToApply>false</tooltipShowMentalStatesToApply>
+            <hasStandardCommand>true</hasStandardCommand>
+            <projectileDef>UMProjectile_WizardSpark</projectileDef>
+            <abilityDef>UM_WizardSparks</abilityDef>
+            <warmupTime>1.0</warmupTime>
+            <SecondsToRecharge>180.0</SecondsToRecharge>
+            <range>32</range>
+            <forcedMissRadius>2.4</forcedMissRadius>
+            <burstShotCount>120</burstShotCount>
+            <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+            <isPrimary>false</isPrimary>
+            <soundCast>ShotMinigun</soundCast>
+            <soundCastTail>GunTail_Medium</soundCastTail>
+            <muzzleFlashScale>9</muzzleFlashScale>
+            <AlwaysHits>false</AlwaysHits>
+        </MainVerb>
+    </ThingDef>
+    <!-- Wizard Sparks end-->
+
+
+
+    <!-- Blink start -->
+    <ThingDef ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_AbilityLaser">
+        <thingClass>AbilityUser.Projectile_AbilityLaser</thingClass>
+        <defName>UMProjectile_WizardBlink</defName>
+        <label>wizard blink projectile</label>
+        <graphicData>
+            <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <flyOverhead>true</flyOverhead>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>0</damageAmountBase>
+            <speed>125</speed>
+        </projectile>
+        <preFiringInitialIntensity>0</preFiringInitialIntensity>
+        <preFiringFinalIntensity>20</preFiringFinalIntensity>
+        <postFiringInitialIntensity>20</postFiringInitialIntensity>
+        <postFiringFinalIntensity>0</postFiringFinalIntensity>
+        <preFiringDuration>10</preFiringDuration>
+        <postFiringDuration>83</postFiringDuration>
+        <StartFireChance>0.000</StartFireChance>
+    </ThingDef>
+
+    <ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility">
+        <defName>UM_WizardBlink</defName>
+        <label>blink</label>
+        <uiIconPath>UI/Zap</uiIconPath>
+        <description>Short range teleportation.</description>
+        <abilityLevel>2</abilityLevel>
+        <MainVerb Class="AbilityUser.VerbProperties_Ability">
+            <verbClass>UnificaMagica.Verb_Blink</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <projectileDef>UMProjectile_WizardBlink</projectileDef>
+            <abilityDef>UM_WizardBlink</abilityDef>
+            <AbilityTargetCategory>TargetLocation</AbilityTargetCategory>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+            </targetParams>
+            <warmupTime>1</warmupTime>
+            <SecondsToRecharge>180.0</SecondsToRecharge>
+            <range>45</range>
+            <burstShotCount>1</burstShotCount>
+            <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+            <soundCast>MessageBenefit</soundCast>
+            <muzzleFlashScale>20</muzzleFlashScale>
+            <isPrimary>false</isPrimary>
+        </MainVerb>
+    </ThingDef>
+    <!-- Blink end-->
 
 
     <!-- Fear Person start -->
@@ -90,7 +207,7 @@
             <projectileDef>Projectile_FearPerson</projectileDef>
             <abilityDef>UM_FearPerson</abilityDef>
             <warmupTime>1</warmupTime>
-            <SecondsToRecharge>70.0</SecondsToRecharge>
+            <SecondsToRecharge>180.0</SecondsToRecharge>
             <range>34</range>
             <soundCast>MessageBenefit</soundCast>
             <muzzleFlashScale>20</muzzleFlashScale>
@@ -142,7 +259,7 @@
             <projectileDef>Projectile_FearPerson</projectileDef>
             <abilityDef>UM_FearBomb</abilityDef>
             <warmupTime>1</warmupTime>
-            <SecondsToRecharge>10.0</SecondsToRecharge>
+            <SecondsToRecharge>180.0</SecondsToRecharge>
             <range>34</range>
             <isViolent>false</isViolent>
             <soundCast>MessageBenefit</soundCast>

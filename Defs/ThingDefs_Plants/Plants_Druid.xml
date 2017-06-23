@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Plants>
 
+    <!--
+    Removed druid plants 
     <ThingDef ParentName="PlantWithExtComps" Name="TreeWithExtCompsBase" Abstract="True">
         <statBases>
             <MaxHitPoints>300</MaxHitPoints>
@@ -77,5 +79,6 @@
             </sowTags>
         </plant>
     </ThingDef>
+-->
 
 </Plants>

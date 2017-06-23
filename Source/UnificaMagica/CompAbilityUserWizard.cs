@@ -31,7 +31,7 @@ namespace UnificaMagica
 
         public int WizardryLevel {
             get {
-                return this.abilityUser.skills.GetSkill(UnificaMagicaDefOf.Wizardry).Level;
+                return this.AbilityUser.skills.GetSkill(UnificaMagicaDefOf.Wizardry).Level;
             }
         }
 
@@ -88,6 +88,21 @@ namespace UnificaMagica
             return retval;
         }
 
+        // Reduces one power's cooldown by their level. if lvl is not provided, look it up
+        public bool StudyForATick(int lvl = -1) {
+            bool retval = false;
+            if ( lvl == -1 ) lvl = this.AbilityUser.skills.GetSkill(UnificaMagicaDefOf.Wizardry).Level;
+
+            foreach ( AbilityUser.PawnAbility pa in this.Powers ) {
+                if ( pa.TicksUntilCasting > 0 ) {
+                    pa.TicksUntilCasting -= lvl;
+                    retval = true;
+                    break;
+                } // only do 1
+            }
+            return retval;
+        }
+
 
         // Ordered by level, list of all abilities
         public static List<UMAbilityDef> WizardAbilities= null;
@@ -106,7 +121,7 @@ namespace UnificaMagica
             bool retval = false;
 
             int curselectedinlevel = this.NumAvailableAtLevel(ability.abilityLevel);
-//            Log.Message("TryAddPawnAbilty "+curselectedinlevel+" " + this.NumAvailableAtLevel(ability.abilityLevel));
+            //            Log.Message("TryAddPawnAbilty "+curselectedinlevel+" " + this.NumAvailableAtLevel(ability.abilityLevel));
             if ( curselectedinlevel < this.NumAvailableAtLevel(ability.abilityLevel) ) {
                 this.AddPawnAbility(ability);
                 retval = true;
@@ -127,22 +142,30 @@ namespace UnificaMagica
             base.PostInitialize();
 
             // populate this at start
-//            Log.Message("CompAbilityUserWizard.PostInitialize 1");
+            //            Log.Message("CompAbilityUserWizard.PostInitialize 1");
             if ( CompAbilityUserWizard.WizardAbilities == null ) {
                 CompAbilityUserWizard.WizardAbilities = new List<UMAbilityDef>();
                 CompAbilityUserWizard.wizardAbilitiesByLevel = new List<UMAbilityDef>[CompAbilityUserWizard.MaxWizardSpellLevel];
                 for(int i =0;i<CompAbilityUserWizard.MaxWizardSpellLevel;i++) {
                     CompAbilityUserWizard.wizardAbilitiesByLevel[i] = new List<UMAbilityDef>();
                 }
+
+                // Level 1
                 CompAbilityUserWizard.InitWizardAbility( UnificaMagicaDefOf.UM_WizardBolt );
+                CompAbilityUserWizard.InitWizardAbility( UnificaMagicaDefOf.UM_WizardSparks);
+
+                // Level 2
+                CompAbilityUserWizard.InitWizardAbility( UnificaMagicaDefOf.UM_WizardBlink);
                 CompAbilityUserWizard.InitWizardAbility( UnificaMagicaDefOf.UM_FearPerson );
+
+                // Level 3
                 CompAbilityUserWizard.InitWizardAbility( UnificaMagicaDefOf.UM_FearBomb );
             }
             this.UpdateAbilities();
         }
 
         public override bool TryTransformPawn() {
-            Pawn p = this.abilityUser;
+            Pawn p = this.AbilityUser;
             //            Log.Message("CompAblityUserWizard.TryTransformPawn "+p.ThingID+" "+(p.Name != null ? p.Name.ToStringFull:" unnamed"));
             bool retval = false;
 
@@ -152,6 +175,9 @@ namespace UnificaMagica
                     retval = true;
                 }
             }
+
+            //Log.Warning("CompAbilityUserWizard.TryTransformPawn is true alwasy for debugging");
+            //retval = true;
 
             return retval;
         }
