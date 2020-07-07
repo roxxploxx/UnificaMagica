@@ -1,8 +1,5 @@
 using RimWorld;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System;
 using Verse;
 
@@ -181,8 +178,8 @@ public class ExtInstComp_PlantTrap_Explosive : ExtInstComp_PlantTrap {
     public override void SpringPlantTrap( Pawn p, PlantExtended pt)
     {
         base.SpringPlantTrap(p,pt);
-        // public static void DoExplosion (IntVec3 center, Map map, float radius, DamageDef damType, Thing instigator, SoundDef explosionSound = null, ThingDef projectile = null, ThingDef source = null, ThingDef postExplosionSpawnThingDef = null, float postExplosionSpawnChance = 0f, int postExplosionSpawnThingCount = 1, bool applyDamageToExplosionCellsNeighbors = false, ThingDef preExplosionSpawnThingDef = null, float preExplosionSpawnChance = 0f, int preExplosionSpawnThingCount = 1)
-        GenExplosion.DoExplosion (pt.Position, pt.Map, pt.thepot.def.specialDisplayRadius, DamageDefOf.Bomb, pt, this.Props.soundExplode);
+            // public static void DoExplosion (IntVec3 center, Map map, float radius, DamageDef damType, Thing instigator, SoundDef explosionSound = null, ThingDef projectile = null, ThingDef source = null, ThingDef postExplosionSpawnThingDef = null, float postExplosionSpawnChance = 0f, int postExplosionSpawnThingCount = 1, bool applyDamageToExplosionCellsNeighbors = false, ThingDef preExplosionSpawnThingDef = null, float preExplosionSpawnChance = 0f, int preExplosionSpawnThingCount = 1)
+            GenExplosion.DoExplosion(pt.Position, pt.Map, pt.thepot.def.specialDisplayRadius, DamageDefOf.Bomb, pt);// , this.Props.soundExplode);
     }
 
     public override void PostExposeData() {

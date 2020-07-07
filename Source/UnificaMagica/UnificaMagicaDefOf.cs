@@ -13,6 +13,7 @@ namespace UnificaMagica
 
         public static SkillDef Wizardry;
 
+        //CompAbilityUserWizard uncomment there too
         // Level 1
         public static UMAbilityDef UM_WizardBolt;
         public static UMAbilityDef UM_WizardSparks;

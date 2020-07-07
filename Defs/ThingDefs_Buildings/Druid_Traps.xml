@@ -30,16 +30,12 @@
             <harvestWork>190</harvestWork>
             <sowWork>260</sowWork>
             <topWindExposure>0.1</topWindExposure>
-            <visualSizeRange>
-                <min>0.3</min>
-                <max>1.00</max>
-            </visualSizeRange>
+            <visualSizeRange>0.3~1.05</visualSizeRange>
         </plant>
-        <extcomps>
-        </extcomps>
     </ThingDef>
 
-    <ThingDef ParentName="PlantWithExtComps">
+    <!-- was PlantWithExtComps -->
+    <ThingDef ParentName="BushBase">
         <defName>DruidHerbs</defName>
         <label>druid herbs</label>
         <description>A beautiful collection of herbs in this pot. You feel slight magic wafting through them.</description>
@@ -47,6 +43,7 @@
         <statBases>
             <MaxHitPoints>85</MaxHitPoints>
             <Beauty>34</Beauty>
+            <Nutrition>0.03</Nutrition>
         </statBases>
         <graphicData>
             <texPath>Things/Plant/Daylily</texPath>
@@ -54,13 +51,10 @@
         </graphicData>
         <altitudeLayer>Item</altitudeLayer>
         <selectable>true</selectable>
-        <ingestible>
-            <nutrition>0.03</nutrition>
-        </ingestible>
         <plant>
             <fertilitySensitivity>1</fertilitySensitivity>
             <dieIfLeafless>true</dieIfLeafless>
-            <reproduces>false</reproduces>
+            <!-- reproduces>false</reproduces -->
             <harvestTag>Standard</harvestTag>
             <harvestAfterGrowth>0</harvestAfterGrowth>
             <sowWork>400</sowWork>
@@ -71,19 +65,15 @@
             <growMinGlow>0.3</growMinGlow>
             <topWindExposure>0.1</topWindExposure>
             <growDays>1.5</growDays>
-            <lifespanFraction>5</lifespanFraction>
-            <visualSizeRange>
-                <min>0.3</min>
-                <max>1.05</max>
-            </visualSizeRange>
+            <!-- lifespanFraction>5</lifespanFraction -->
+            <visualSizeRange>0.3~1.05</visualSizeRange>
         </plant>
-        <extcomps>
-        </extcomps>
     </ThingDef>
 
 
 
-    <ThingDef ParentName="PlantWithExtComps">
+    <!-- was PlantWithExtComps -->
+    <ThingDef ParentName="BushBase">
         <defName>EntanglingVinePlant</defName>
         <label>entangling vine plant</label>
         <description>This wirey plant seems to move and sway on its own. You feel like it's watching you, and that makes you nervous.</description>
@@ -91,6 +81,7 @@
         <statBases>
             <MaxHitPoints>85</MaxHitPoints>
             <Beauty>34</Beauty>
+            <Nutrition>0.03</Nutrition>
         </statBases>
         <graphicData>
             <texPath>Things/Plant/Daylily</texPath>
@@ -98,13 +89,10 @@
         </graphicData>
         <altitudeLayer>Item</altitudeLayer>
         <selectable>true</selectable>
-        <ingestible>
-            <nutrition>0.03</nutrition>
-        </ingestible>
         <plant>
             <fertilitySensitivity>1</fertilitySensitivity>
             <dieIfLeafless>true</dieIfLeafless>
-            <reproduces>false</reproduces>
+            <!-- reproduces>false</reproduces -->
             <harvestTag>Standard</harvestTag>
             <harvestAfterGrowth>0</harvestAfterGrowth>
             <sowWork>400</sowWork>
@@ -114,13 +102,11 @@
             <growMinGlow>0.3</growMinGlow>
             <topWindExposure>0.1</topWindExposure>
             <growDays>1.5</growDays>
-            <lifespanFraction>5</lifespanFraction>
-            <visualSizeRange>
-                <min>0.3</min>
-                <max>1.05</max>
-            </visualSizeRange>
+            <!-- lifespanFraction>5</lifespanFraction -->
+            <visualSizeRange>0.3~1.05</visualSizeRange>
         </plant>
-        <extcomps>
+        <!-- extcomps -->
+        <!--
             <li Class="UnificaMagica.ExtComp_PlantTrap_Generator">
                 <ArmedLabel>Entangling Vines ready</ArmedLabel>
                 <numGen>6</numGen>
@@ -129,7 +115,8 @@
                 <TrapSpringChance>0.8</TrapSpringChance>
                 <isAoE>true</isAoE>
             </li>
-        </extcomps>
+            -->
+        <!-- /extcomps -->
     </ThingDef>
 
     <ThingDef>
@@ -164,7 +151,7 @@
         <designateHaulable>true</designateHaulable>
         <saveCompressible>true</saveCompressible>
         <stackLimit>1</stackLimit>
-        <tradeability>Never</tradeability>
+        <tradeability>None</tradeability>
         <thingCategories>
             <li>Chunks</li>
         </thingCategories>
@@ -178,7 +165,7 @@
 
 
 
-    <ThingDef ParentName="PlantWithExtComps">
+    <ThingDef ParentName="BushBase">
         <defName>PoppingFernPlant</defName>
         <label>popping fern plant</label>
         <description>A typical fern in most aspects until you see the large central pod. It is covered in downy fur and seems to breath slightly under stress.</description>
@@ -186,6 +173,7 @@
         <statBases>
             <MaxHitPoints>15</MaxHitPoints>
             <Beauty>34</Beauty>
+            <Nutrition>0.03</Nutrition>
         </statBases>
         <graphicData>
             <texPath>Things/Plant/Daylily</texPath>
@@ -193,13 +181,10 @@
         </graphicData>
         <altitudeLayer>Item</altitudeLayer>
         <selectable>true</selectable>
-        <ingestible>
-            <nutrition>0.03</nutrition>
-        </ingestible>
         <plant>
             <fertilitySensitivity>1</fertilitySensitivity>
             <dieIfLeafless>true</dieIfLeafless>
-            <reproduces>false</reproduces>
+            <!-- reproduces>false</reproduces -->
             <harvestTag>Standard</harvestTag>
             <harvestAfterGrowth>0</harvestAfterGrowth>
             <sowWork>400</sowWork>
@@ -209,13 +194,11 @@
             <growMinGlow>0.3</growMinGlow>
             <topWindExposure>0.1</topWindExposure>
             <growDays>1.5</growDays>
-            <lifespanFraction>5</lifespanFraction>
-            <visualSizeRange>
-                <min>0.3</min>
-                <max>1.05</max>
-            </visualSizeRange>
+            <!-- lifespanFraction>5</lifespanFraction -->
+            <visualSizeRange>0.3~1.05</visualSizeRange>
         </plant>
-        <extcomps>
+        <!-- extcomps -->
+        <!--
             <li Class="UnificaMagica.ExtComp_PlantTrap_Explosive">
                 <ArmedLabel>Ready to explode</ArmedLabel>
                 <rearmTime>5000</rearmTime>
@@ -224,7 +207,8 @@
                 <damageAmountBase>50</damageAmountBase>
                 <soundExplode>MortarBomb_Explode</soundExplode>
             </li>
-        </extcomps>
+            -->
+        <!-- /extcomps -->
     </ThingDef>
 
 

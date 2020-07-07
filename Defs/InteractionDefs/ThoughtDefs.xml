@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ThoughtDefs>
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
 
   <ThoughtDef>
     <defName>NotWizardUsing</defName>
@@ -11,17 +11,20 @@
     <stages>
       <li>
         <label>non wizard using wizard item</label>
+        <description>You feel uncomfortable having this item.</description>
         <baseMoodEffect>-20</baseMoodEffect>
       </li>
       <li>
         <label>non wizard using wizard items</label>
+        <description>You feel occational shooting pains.</description>
         <baseMoodEffect>-40</baseMoodEffect>
       </li>
       <li>
         <label>wanna be wizard</label>
+        <description>Pain throbs in your temples as this item draws on powers you do not have.</description>
         <baseMoodEffect>-60</baseMoodEffect>
       </li>
     </stages>
   </ThoughtDef>
 
-</ThoughtDefs>
+</Defs>

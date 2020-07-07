@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<WorkTypeDefs>
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
 
-    <WorkTypeDef>
-        <defName>Wizardry</defName>
-        <labelShort>Wizardry</labelShort>
-        <pawnLabel>Wizard</pawnLabel>
-        <gerundLabel>Wizarding</gerundLabel>
-        <description>Study and research into the arcane.</description>
-        <verb>Study at</verb>
-        <naturalPriority>400</naturalPriority>
-        <relevantSkills>
-            <li>Wizardry</li>
-        </relevantSkills>
-        <!-- <requireCapableColonist>true</requireCapableColonist> -->
-        <workTags>
-            <li>Intellectual</li>
-        </workTags>
-    </WorkTypeDef>
+  <WorkTypeDef>
+    <defName>Wizardry</defName>
+    <labelShort>Wizardry</labelShort>
+    <pawnLabel>Wizard</pawnLabel>
+    <gerundLabel>Wizarding</gerundLabel>
+    <description>Study and research into the arcane.</description>
+    <verb>Study at</verb>
+    <naturalPriority>400</naturalPriority>
+    <relevantSkills>
+      <li>Wizardry</li>
+    </relevantSkills>
+    <requireCapableColonist>true</requireCapableColonist>
+    <workTags>
+      <li>Intellectual</li>
+    </workTags>
+  </WorkTypeDef>
 
-</WorkTypeDefs>
+</Defs>

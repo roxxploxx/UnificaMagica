@@ -11,7 +11,7 @@ namespace UnificaMagica {
     {
 
         // copied over to change the GrowthSeasonNow
-        public override Job JobOnCell(Pawn pawn, IntVec3 c)
+        public override Job JobOnCell(Pawn pawn, IntVec3 c, bool forced = false)
         {
             if (c.IsForbidden(pawn))
             {
@@ -58,7 +58,7 @@ namespace UnificaMagica {
                     //Log.Message("   Too hot or too cold");
                     return null;
                 }
-            } else { if (!GenPlant.GrowthSeasonNow(c, pawn.Map)) { return null; } }
+            } else { if (!PlantUtility.GrowthSeasonNow(c, pawn.Map)) { return null; } }
 
             Plant plant = c.GetPlant(pawn.Map);
 //            Log.Message("WorkGiver_GrowerSow plant is "+plant+ " from plantdef "+WorkGiver_Grower.wantedPlantDef);
@@ -72,7 +72,7 @@ namespace UnificaMagica {
             }
             else
             {
-                Thing thing2 = GenPlant.AdjacentSowBlocker(WorkGiver_Grower.wantedPlantDef, c, pawn.Map);
+                Thing thing2 = PlantUtility.AdjacentSowBlocker(WorkGiver_Grower.wantedPlantDef, c, pawn.Map);
                 if (thing2 != null)
                 {
                     Plant plant2 = thing2 as Plant;
@@ -86,7 +86,7 @@ namespace UnificaMagica {
                     }
                     return null;
                 }
-                if (WorkGiver_Grower.wantedPlantDef.plant.sowMinSkill > 0 && pawn.skills != null && pawn.skills.GetSkill(SkillDefOf.Growing).Level < WorkGiver_Grower.wantedPlantDef.plant.sowMinSkill)
+                if (WorkGiver_Grower.wantedPlantDef.plant.sowMinSkill > 0 && pawn.skills != null && pawn.skills.GetSkill(SkillDefOf.Plants).Level < WorkGiver_Grower.wantedPlantDef.plant.sowMinSkill)
                 {
                     return null;
                 }
@@ -94,7 +94,7 @@ namespace UnificaMagica {
                 while (j < thingList.Count)
                 {
                     Thing thing3 = thingList[j];
-                    if (thing3.def.BlockPlanting)
+                    if (thing3.def.BlocksPlanting())
                     {
                         if (!pawn.CanReserve(thing3, 1))
                         {

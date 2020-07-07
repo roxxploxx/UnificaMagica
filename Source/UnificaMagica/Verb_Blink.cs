@@ -49,7 +49,7 @@ namespace UnificaMagica
 
             this.burstShotsLeft = 0;
 //            Log.Message("  abilty : "+this.ability);
-            ability.TicksUntilCasting = (int)this.UseAbilityProps.SecondsToRecharge * GenTicks.TicksPerRealSecond;
+            this.Ability.CooldownTicksLeft = (int)this.UseAbilityProps.SecondsToRecharge * GenTicks.TicksPerRealSecond;
 
             return result;
         }

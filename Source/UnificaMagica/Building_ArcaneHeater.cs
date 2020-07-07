@@ -15,16 +15,35 @@ namespace UnificaMagica
 		{
 			base.SpawnSetup(map,respawningAfterLoad);
 			this.compRefuelable = base.GetComp<CompRefuelable>();
-			//delete this.compPower; this.compPower = null;
-			//			PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.GrowingFood, KnowledgeAmount.Total
 		}
 
-		public override void TickRare()
+		public override void Tick()
 		{
-//			this.GetRoom().Temperature += 10.0f;
-//			return;
 			if (this.compRefuelable.HasFuel)
 			{
+				/*float appliedenergy = compTempControl.Props.energyPerSecond * 1.0f; //  * 4.16666651f;
+				float tempchange = GenTemperature.ControlTemperatureTempChange(base.PositionHeld, base.MapHeld, appliedenergy, compTempControl.targetTemperature);
+				Log.Message("Controlling TemperatureChange " + compTempControl.targetTemperature + " " + base.PositionHeld + "," + base.Position + " " + tempchange);
+				base.PositionHeld.GetRoomGroup(base.MapHeld).Temperature += tempchange;
+				*/
+
+				float ambientTemperature = base.AmbientTemperature;
+				float num = (ambientTemperature < 20f) ? 1f : ((!(ambientTemperature > 120f)) ? Mathf.InverseLerp(120f, 20f, ambientTemperature) : 0f);
+				float energyLimit = compTempControl.Props.energyPerSecond * num; //  * 4.16666651f;
+				float num2 = GenTemperature.ControlTemperatureTempChange(base.Position, base.Map, energyLimit, compTempControl.targetTemperature);
+				bool flag = !Mathf.Approximately(num2, 0f);
+				// CompProperties_Power props = compPowerTrader.Props;
+				if (flag)
+				{
+					this.GetRoomGroup().Temperature += num2;
+					// compPowerTrader.PowerOutput = 0f - props.basePowerConsumption;
+				}
+				else
+				{
+					//compPowerTrader.PowerOutput = (0f - props.basePowerConsumption) * compTempControl.Props.lowPowerConsumptionFactor;
+				}
+				compTempControl.operatingAtHighPower = flag;
+				/*
 				float temperature = base.Position.GetTemperature(base.Map);
 				float num;
 				if (temperature < 20f)
@@ -52,7 +71,7 @@ namespace UnificaMagica
 				{
 					//this.compPowerTrader.PowerOutput = -props.basePowerConsumption * this.compTempControl.Props.lowPowerConsumptionFactor;
 				}
-				this.compTempControl.operatingAtHighPower = flag;
+				this.compTempControl.operatingAtHighPower = flag;*/
 			}
 		}
 	}

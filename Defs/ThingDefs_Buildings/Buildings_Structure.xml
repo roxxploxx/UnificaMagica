@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Buildings>
+<Defs>
 
     <ThingDef ParentName="BuildingBase" Name="WizardWall">
         <defName>ArcaneWall</defName>
@@ -27,9 +27,6 @@
                 <edgeRight>Damage/Edge</edgeRight>
             </damageData>
         </graphicData>
-        <blueprintGraphicData>
-            <texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
-        </blueprintGraphicData>
         <uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
         <statBases>
             <MaxHitPoints>550</MaxHitPoints>
@@ -64,7 +61,10 @@
         </costList>
         <building>
             <isInert>true</isInert>
-            <ignoreNeedsPower>true</ignoreNeedsPower>
+            <!-- ignoreNeedsPower>true</ignoreNeedsPower -->
+            <blueprintGraphicData>
+                <texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+            </blueprintGraphicData>
         </building>
         <damageMultipliers>
             <li>
@@ -82,11 +82,11 @@
     <ThingDef ParentName="DoorBase">
         <defName>ArcaneAutodoor</defName>
         <label>arcane autodoor</label>
-        <!-- thingClass>UnificaMagica.Building_ArcaneDoor</thingClass -->
-        <thingClass>Building_Door</thingClass>
         <description>An arcane door divides rooms. Powered operation allows people to move through the door without slowing down.</description>
+        <thingClass>UnificaMagica.Building_ArcaneDoor</thingClass>
+        <!-- thingClass>Building_Door</thingClass -->
         <statBases>
-            <WorkToBuild>1100</WorkToBuild>
+            <WorkToBuild>2500</WorkToBuild>
         </statBases>
         <graphicData>
             <texPath>Things/Building/Door/ArcaneAutodoor_Mover</texPath>
@@ -100,7 +100,7 @@
         <uiIconPath>Things/Building/Door/Autodoor_MenuIcon</uiIconPath>
         <costList>
             <Steel>40</Steel>
-            <Component>2</Component>
+            <ComponentIndustrial>2</ComponentIndustrial>
             <PowerRune>2</PowerRune>
             <BindingRune>3</BindingRune>
             <ControlRune>1</ControlRune>
@@ -117,21 +117,24 @@
                 <basePowerConsumption>-1</basePowerConsumption>
                 <transmitsPower>true</transmitsPower>
             </li>
-            <!-- li Class="CompProperties_Refuelable">
+            <li Class="CompProperties_Refuelable">
                 <fuelConsumptionRate>0.01</fuelConsumptionRate>
-                <fuelCapacity>1.0</fuelCapacity>
+                <fuelCapacity>3.0</fuelCapacity>
                 <fuelFilter>
                     <thingDefs>
                         <li>PowerRune</li>
                     </thingDefs>
                 </fuelFilter>
-            </li -->
+                <initialFuelPercent>.5</initialFuelPercent>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
         </comps>
         <designationHotKey>Misc2</designationHotKey>
         <researchPrerequisites>
             <li>Autodoors</li>
             <li>InanimateImbuement</li>
         </researchPrerequisites>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
     </ThingDef>
 
-</Buildings>
+</Defs>

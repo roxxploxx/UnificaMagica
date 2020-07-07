@@ -1,59 +1,60 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
 
+  <ThingDef ParentName="BuildingBase">
+    <defName>DruidEnvironmentMark</defName>
+    <label>druid environment mark</label>
+    <description>A mark on the ground that empowers plants around it to live in inhospitable climates.</description>
+    <thingCategories>
+      <li>BuildingsTemperature</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Druid/EnvironmentMark</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shadowData>
+        <volume>(0.08,0.3,0.08)</volume>
+        <offset>(0,0,-0.18)</offset>
+      </shadowData>
+      <damageData>
+        <rect>(0.3,0.3,0.4,0.4)</rect>
+      </damageData>
+    </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <statBases>
+      <MaxHitPoints>75</MaxHitPoints>
+      <WorkToBuild>150</WorkToBuild>
+      <Mass>3</Mass>
+      <Flammability>0.0</Flammability>
+    </statBases>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <building></building>
+    <costStuffCount>15</costStuffCount>
+    <pathCost>10</pathCost>
+    <designationCategory>UnificaMagicaDesignation</designationCategory>
+    <designationHotKey>Misc1</designationHotKey>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <PlantWorkSpeed>0.5</PlantWorkSpeed>
+          <PlantMinTemp>-20</PlantMinTemp>
+          <PlantMaxTemp>20</PlantMaxTemp>
+          <PlantMinOptimalTemp>-10</PlantMinOptimalTemp>
+          <PlantMaxOptimalTemp>10</PlantMaxOptimalTemp>
+        </statOffsets>
+        <maxSimultaneous>9</maxSimultaneous>
+        <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>UnificaMagica.UMPlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+  </ThingDef>
 
-    <ThingDef ParentName="BuildingBase">
-        <defName>DruidEnvironmentMark</defName>
-        <label>druid environment mark</label>
-        <description>A mark on the ground that empowers plants around it to live in inhospitable climates.</description>
-        <graphicData>
-            <texPath>Things/Druid/EnvironmentMark</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <shadowData>
-                <volume>(0.08,0.3,0.08)</volume>
-                <offset>(0,0,-0.18)</offset>
-            </shadowData>
-            <damageData>
-                <rect>(0.3,0.3,0.4,0.4)</rect>
-            </damageData>
-        </graphicData>
-        <minifiedDef>MinifiedFurniture</minifiedDef>
-        <altitudeLayer>Building</altitudeLayer>
-        <rotatable>false</rotatable>
-        <socialPropernessMatters>true</socialPropernessMatters>
-        <statBases>
-            <MaxHitPoints>75</MaxHitPoints>
-            <WorkToBuild>150</WorkToBuild>
-            <Mass>3</Mass>
-            <Flammability>0.0</Flammability>
-        </statBases>
-        <stuffCategories>
-            <li>Metallic</li>
-            <li>Woody</li>
-            <li>Stony</li>
-        </stuffCategories>
-        <building>
-        </building>
-        <costStuffCount>15</costStuffCount>
-        <pathCost>10</pathCost>
-        <designationCategory>UnificaMagicaDesignation</designationCategory>
-        <designationHotKey>Misc1</designationHotKey>
-        <comps>
-            <li Class="CompProperties_Facility">
-                <statOffsets>
-                    <PlantWorkSpeed>0.5</PlantWorkSpeed>
-                    <PlantMinTemp>-20</PlantMinTemp>
-                    <PlantMaxTemp>20</PlantMaxTemp>
-                    <PlantMinOptimalTemp>-10</PlantMinOptimalTemp>
-                    <PlantMaxOptimalTemp>10</PlantMaxOptimalTemp>
-                </statOffsets>
-                <maxSimultaneous>9</maxSimultaneous>
-                <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
-            </li>
-        </comps>
-        <placeWorkers>
-			<li>UnificaMagica.UMPlaceWorker_ShowFacilitiesConnections</li>
-		</placeWorkers>
-    </ThingDef>
-
-</ThingDefs>
+</Defs>

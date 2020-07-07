@@ -61,7 +61,8 @@ namespace UnificaMagica
 			{
 				foreach (Plant current in this.PlantsOnMe)
 				{
-					DamageInfo dinfo = new DamageInfo(DamageDefOf.Rotting, 4, -1f, null, null, null);
+					DamageInfo dinfo = new DamageInfo(DamageDefOf.Rotting, 4, -1f); //, null, null, null);
+
 					current.TakeDamage(dinfo);
 				}
 			}

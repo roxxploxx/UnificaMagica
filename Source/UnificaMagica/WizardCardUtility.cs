@@ -1,11 +1,16 @@
-using Harmony;
+// using Harmony;
 using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+//using UnityEngine.Input;
 using Verse;
+using Verse.Steam;
+using RimWorld.IO;
+
 
 namespace UnificaMagica
 {
@@ -46,17 +51,18 @@ namespace UnificaMagica
 
         public static bool isfirst = true;
 
-//        public static List<AbilityDef> lvl1Wizard = null;
-//        public static List<AbilityDef> lvl2Wizard = null;
-//        public static List<AbilityDef> lvl3Wizard = null;
+        //        public static List<AbilityDef> lvl1Wizard = null;
+        //        public static List<AbilityDef> lvl2Wizard = null;
+        //        public static List<AbilityDef> lvl3Wizard = null;
 
+        // OK, think I got this compiling, now run it
 
-        // RimWorld.CharacterCardUtility
-        public static void DrawCard(Rect rect, ThingWithComps selectedThing, ref int curShownLevel )
-        {
+        public static void DrawCard(Rect _rect, Pawn _pawn, ref int curShownLevel) {
+            Rect rect = new Rect(17f, 17f, WizardCardUtility.CardSize.x, WizardCardUtility.CardSize.y);
             GUI.BeginGroup(rect);
 
-            CompAbilityUserWizard compWizard = selectedThing.GetComp<CompAbilityUserWizard>();
+            // TODO: because PawnToShowInfoAbout is private, need to make a ITab_Pawn_UM and then this class inherits from nothing
+            CompAbilityUserWizard compWizard = _pawn.GetComp<CompAbilityUserWizard>();
 
             if ( compWizard != null)
             {
@@ -112,6 +118,7 @@ namespace UnificaMagica
             }
 
             GUI.EndGroup();
+            
         }
 
     }

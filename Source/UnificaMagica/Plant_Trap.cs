@@ -132,12 +132,11 @@ namespace UnificaMagica
         {
             //            Log.Message("PlantTrap.Spring! ");
             SoundDef.Named("PlantTrapSpring").PlayOneShot(new TargetInfo(base.Position, base.Map, false));
-            if (p.Faction != null)
+            /* if (p.Faction != null)
             {
                 p.Faction.TacticalMemory.TrapRevealed(base.Position, base.Map);
-            }
+            } */
             _ptp.SpringPlantTrap(p,this);
-
         }
 
         public override void Tick ()
@@ -241,13 +240,10 @@ namespace UnificaMagica
                 if (p.Faction == Faction.OfPlayer || p.HostFaction == Faction.OfPlayer) {
                     //Letter let = new Letter ("LetterFriendlyTrapSprungLabel".Translate (new object[] { p.NameStringShort }), "LetterFriendlyTrapSprung".Translate (new object[] { p.NameStringShort }), LetterType.BadNonUrgent, new TargetInfo (base.Position, base.Map, false));
                     //Find.LetterStack.ReceiveLetter (let, null);
-                    Find.LetterStack.ReceiveLetter("LetterFriendlyTrapSprungLabel".Translate(new object[]
-					{
-						p.NameStringShort
-					}), "LetterFriendlyTrapSprung".Translate(new object[]
-					{
-						p.NameStringShort
-					}), LetterDefOf.BadNonUrgent, new TargetInfo(base.Position, base.Map, false), null);
+                    Find.LetterStack.ReceiveLetter(
+                        Translator.Translate("LetterFriendlyTrapSprungLabel"),
+                        Translator.Translate("LetterFriendlyTrapSprung"),
+                        LetterDefOf.ThreatSmall, new TargetInfo(base.Position, base.Map, false), null);
                 }
             }
             return retval;
@@ -284,183 +280,179 @@ namespace UnificaMagica
             Faction f = this.thepot.Faction;
             //            Log.Message("PlantTrap.KnowsOfTrap 0 : is faction null "+(f == null));
 
-            bool retval = (p.Faction != null && !p.Faction.HostileTo(f)) || (p.Faction == null && p.RaceProps.Animal && !p.InAggroMentalState) || (p.guest != null && p.guest.released);
-            return (p.Faction != null && !p.Faction.HostileTo(f)) || (p.Faction == null && p.RaceProps.Animal && !p.InAggroMentalState) || (p.guest != null && p.guest.released);
+            bool retval = (p.Faction != null && !p.Faction.HostileTo(f)) || (p.Faction == null && p.RaceProps.Animal && !p.InAggroMentalState) || (p.guest != null && p.guest.Released);
+            return (p.Faction != null && !p.Faction.HostileTo(f)) || (p.Faction == null && p.RaceProps.Animal && !p.InAggroMentalState) || (p.guest != null && p.guest.Released);
         }
 
 
         public override string GetInspectString()
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            //            stringBuilder.Append(base.GetInspectString());
-            if (this.LifeStage == PlantLifeStage.Growing)
+          StringBuilder stringBuilder = new StringBuilder();
+          //            stringBuilder.Append(base.GetInspectString());
+          if (this.LifeStage == PlantLifeStage.Growing)
+          {
+            stringBuilder.AppendLine(Verse.TranslatorFormattedStringExtensions.Translate("PercentGrowth: {0}", this.GrowthPercentString));
+            stringBuilder.AppendLine(Verse.TranslatorFormattedStringExtensions.Translate("GrowthRate   : {0}", this.GrowthRate.ToStringPercent()));
+            if (this.Resting)
             {
-                stringBuilder.AppendLine("PercentGrowth".Translate(new object[]
-                {
-                    this.GrowthPercentString
-                    }));
-                    stringBuilder.AppendLine("GrowthRate".Translate() + ": " + this.GrowthRate.ToStringPercent());
-                    if (this.Resting)
-                    {
-                        stringBuilder.AppendLine("PlantResting".Translate());
-                    }
-                    if (!this.HasEnoughLightToGrow)
-                    {
-                        stringBuilder.AppendLine("PlantNeedsLightLevel".Translate() + ": " + this.def.plant.growMinGlow.ToStringPercent());
-                    }
-                    float growthRateFactor_Temperature = this.GrowthRateFactor_Temperature;
-                    if (growthRateFactor_Temperature < 0.99f)
-                    {
-                        if (growthRateFactor_Temperature < 0.01f)
-                        {
-                            stringBuilder.AppendLine("OutOfIdealTemperatureRangeNotGrowing".Translate());
-                        }
-                        else
-                        {
-                            stringBuilder.AppendLine("OutOfIdealTemperatureRange".Translate(new object[]
-                            {
-                                Mathf.RoundToInt(growthRateFactor_Temperature * 100f).ToString()
-                                }));
-                            }
-                        }
-                    }
-                    else if (this.LifeStage == PlantLifeStage.Mature)
-                    {
-                        if (this.def.plant.Harvestable)
-                        {
-                            stringBuilder.AppendLine("ReadyToHarvest".Translate());
-                        }
-                        else
-                        {
-                            stringBuilder.AppendLine("Mature".Translate());
-                        }
-                    }
+              stringBuilder.AppendLine("PlantResting".Translate());
+            }
+            if (!this.HasEnoughLightToGrow)
+            {
+              stringBuilder.AppendLine("PlantNeedsLightLevel".Translate() + ": " + this.def.plant.growMinGlow.ToStringPercent());
+            }
+            float growthRateFactor_Temperature = this.GrowthRateFactor_Temperature;
+            if (growthRateFactor_Temperature < 0.99f)
+            {
+              if (growthRateFactor_Temperature < 0.01f)
+              {
+                stringBuilder.AppendLine("OutOfIdealTemperatureRangeNotGrowing".Translate());
+              }
+              else
+              {
+                stringBuilder.AppendLine(
+                    "OutOfIdealTemeratureRange".Translate(
+                      Mathf.RoundToInt(
+                        growthRateFactor_Temperature * 100f).ToString()));
+              }
+            }
+          }
+          else if (this.LifeStage == PlantLifeStage.Mature) {
+            if (this.def.plant.Harvestable)
+            {
+              stringBuilder.AppendLine("ReadyToHarvest".Translate());
+            }
+            else
+            {
+              stringBuilder.AppendLine("Mature".Translate());
+            }
+          }
 
-                    //Log.Message("PlantExtended.GetInspectString()");
+          //Log.Message("PlantExtended.GetInspectString()");
 
-                    //if ( this.def.ExtComps.Count != 0 )
-                    if (this.LifeStage == PlantLifeStage.Growing)
-                    {
-                        stringBuilder.AppendLine("Druid Plant is not mature");
-                    } else if (this.LifeStage == PlantLifeStage.Mature) {
-                        bool fl = false;
+          //if ( this.def.ExtComps.Count != 0 )
+          if (this.LifeStage == PlantLifeStage.Growing)
+          {
+            stringBuilder.AppendLine("Druid Plant is not mature");
+          } else if (this.LifeStage == PlantLifeStage.Mature) {
+            bool fl = false;
 
-                        foreach ( ExtInstComp ptp2 in this.ExtComps ) {
-                            ExtInstComp_PlantTrap ptp = ptp2 as ExtInstComp_PlantTrap;
-                            if ( ptp != null ) {
-                                if ( ptp.Armed ) { stringBuilder.AppendLine( ptp.Props.ArmedLabel );  fl = true; }
-                                else {
-                                    stringBuilder.AppendLine( ptp.Props.ArmedLabel + " in " + ptp.rearmAt + " ticks");
-                                }
-                            }
-                        }
-                        if ( fl == false ) { stringBuilder.AppendLine("No armed traps"); }
-                    }
-
-                    return stringBuilder.ToString();
+            foreach ( ExtInstComp ptp2 in this.ExtComps ) {
+              ExtInstComp_PlantTrap ptp = ptp2 as ExtInstComp_PlantTrap;
+              if ( ptp != null ) {
+                if ( ptp.Armed ) { stringBuilder.AppendLine( ptp.Props.ArmedLabel );  fl = true; }
+                else {
+                  stringBuilder.AppendLine( ptp.Props.ArmedLabel + " in " + ptp.rearmAt + " ticks");
                 }
+              }
+            }
+            if ( fl == false ) { stringBuilder.AppendLine("No armed traps"); }
+          }
 
-
-
-                public override float GrowthRate
-                {
-                    get
-                    {
-                        Log.Message("GrowthRate");
-                        return this.GrowthRateFactor_Fertility * this.GrowthRateFactor_Temperature * this.GrowthRateFactor_Light;
-                    }
-                }
-
-
-                protected override float LeaflessTemperatureThresh
-                {
-                    get
-                    {
-//                        Log.Message("Horribly inefficient");
-                        float num = 8f;
-                        float basetemp = 0f;
-//                        Log.Message("LeaflessTemperatureThresh 1");
-                        if ( this.thepot != null ) {
-//                            Log.Message("LeaflessTemperatureThresh 1.1");
-//                            this.thepot.RecalcTemps();
-                            basetemp = this.thepot.MinGrowthTemperature; //nt_mg;
-                        } else {
-                            Log.Message("LeaflessTemperatureThresh 1.2 - should never reach because thepot should be defined at spawn or something");
-                            this.initPot();
-                            basetemp = this.thepot.MinGrowthTemperature;//nt_mg;
-                        }
-//                        Log.Message("LeaflessTemperatureThresh 2 "+basetemp);
-                        return (float)this.HashOffset() * 0.01f % num - num + -2f + basetemp ;
-                    }
-                }
-
-
-                // cached values for facilities' impact on temperature... recalc on TimeLong()
-                /*
-                protected int nt_facs  = 0;
-                protected float nt_mg  = PlantExtended.MinGrowthTemperature;
-                protected float nt_mog = PlantExtended.MinOptimalGrowthTemperature;
-                protected float nt_Mog = PlantExtended.MaxOptimalGrowthTemperature;
-                protected float nt_Mg  = PlantExtended.MaxGrowthTemperature;
-                protected virtual void RecalcTemps() {
-                float temp_opt = 10f;
-                float temp_extreme = 20f;
-                this.nt_facs = 0;
-                if ( this.thepot != null ) {
-                CompAffectedByFacilities cc = this.thepot.GetComp<CompAffectedByFacilities>();
-                this.nt_facs = cc.LinkedFacilitiesListForReading.Count;
-                this.nt_mg  = PlantExtended.MinGrowthTemperature -        (this.nt_facs*temp_extreme);
-                this.nt_mog = PlantExtended.MinOptimalGrowthTemperature - (this.nt_facs*temp_opt);
-                this.nt_Mog = PlantExtended.MaxOptimalGrowthTemperature + (this.nt_facs*temp_opt);
-                this.nt_Mg  = PlantExtended.MaxGrowthTemperature +        (this.nt_facs*temp_extreme);
-            } // counf the facilities
+          return stringBuilder.ToString();
         }
-        */
 
-        public new float GrowthRateFactor_Temperature
-        {
+
+
+          public override float GrowthRate
+          {
             get
             {
-                float num;
-                /*
-                int tmod = 0;
-                if ( this.thepot != null ) {
-                CompAffectedByFacilities cc = this.thepot.GetComp<CompAffectedByFacilities>();
-                tmod = cc.LinkedFacilitiesListForReading.Count;
-            } // counf the facilities
-            float nt_mg  = PlantExtended.MinGrowthTemperature -        (tmod*temp_extreme);
-            float nt_mog = PlantExtended.MinOptimalGrowthTemperature - (tmod*temp_opt);
-            float nt_Mog = PlantExtended.MaxOptimalGrowthTemperature + (tmod*temp_opt);
-            float nt_Mg  = PlantExtended.MaxGrowthTemperature +        (tmod*temp_extreme);
-            */
-            float retval = 1f;
-            float nt_mg  = (this.thepot == null ? PlantExtended.MinGrowthTemperature:        this.thepot.MinGrowthTemperature);
-            float nt_mog = (this.thepot == null ? PlantExtended.MinOptimalGrowthTemperature: this.thepot.MinOptimalGrowthTemperature);
-            float nt_Mog = (this.thepot == null ? PlantExtended.MaxOptimalGrowthTemperature: this.thepot.MaxOptimalGrowthTemperature);
-            float nt_Mg  = (this.thepot == null ? PlantExtended.MaxGrowthTemperature:        this.thepot.MaxGrowthTemperature);
+              Log.Message("GrowthRate");
+              return this.GrowthRateFactor_Fertility * this.GrowthRateFactor_Temperature * this.GrowthRateFactor_Light;
+            }
+          }
 
-//            Log.Message("the pot "+(this.thepot == null)+" "+ nt_mg +" " + PlantExtended.MinGrowthTemperature);
 
-            if (!GenTemperature.TryGetTemperatureForCell(base.Position, base.Map, out num))
+          protected override float LeaflessTemperatureThresh
+          {
+            get
             {
+              //                        Log.Message("Horribly inefficient");
+              float num = 8f;
+              float basetemp = 0f;
+              //                        Log.Message("LeaflessTemperatureThresh 1");
+              if ( this.thepot != null ) {
+                //                            Log.Message("LeaflessTemperatureThresh 1.1");
+                //                            this.thepot.RecalcTemps();
+                basetemp = this.thepot.MinGrowthTemperature; //nt_mg;
+              } else {
+                Log.Message("LeaflessTemperatureThresh 1.2 - should never reach because thepot should be defined at spawn or something");
+                this.initPot();
+                basetemp = this.thepot.MinGrowthTemperature;//nt_mg;
+              }
+              //                        Log.Message("LeaflessTemperatureThresh 2 "+basetemp);
+              return (float)this.HashOffset() * 0.01f % num - num + -2f + basetemp ;
+            }
+          }
+
+
+          // cached values for facilities' impact on temperature... recalc on TimeLong()
+          /*
+             protected int nt_facs  = 0;
+             protected float nt_mg  = PlantExtended.MinGrowthTemperature;
+             protected float nt_mog = PlantExtended.MinOptimalGrowthTemperature;
+             protected float nt_Mog = PlantExtended.MaxOptimalGrowthTemperature;
+             protected float nt_Mg  = PlantExtended.MaxGrowthTemperature;
+             protected virtual void RecalcTemps() {
+             float temp_opt = 10f;
+             float temp_extreme = 20f;
+             this.nt_facs = 0;
+             if ( this.thepot != null ) {
+             CompAffectedByFacilities cc = this.thepot.GetComp<CompAffectedByFacilities>();
+             this.nt_facs = cc.LinkedFacilitiesListForReading.Count;
+             this.nt_mg  = PlantExtended.MinGrowthTemperature -        (this.nt_facs*temp_extreme);
+             this.nt_mog = PlantExtended.MinOptimalGrowthTemperature - (this.nt_facs*temp_opt);
+             this.nt_Mog = PlantExtended.MaxOptimalGrowthTemperature + (this.nt_facs*temp_opt);
+             this.nt_Mg  = PlantExtended.MaxGrowthTemperature +        (this.nt_facs*temp_extreme);
+             } // counf the facilities
+             }
+             */
+
+          public new float GrowthRateFactor_Temperature
+          {
+            get
+            {
+              float num;
+              /*
+                 int tmod = 0;
+                 if ( this.thepot != null ) {
+                 CompAffectedByFacilities cc = this.thepot.GetComp<CompAffectedByFacilities>();
+                 tmod = cc.LinkedFacilitiesListForReading.Count;
+                 } // counf the facilities
+                 float nt_mg  = PlantExtended.MinGrowthTemperature -        (tmod*temp_extreme);
+                 float nt_mog = PlantExtended.MinOptimalGrowthTemperature - (tmod*temp_opt);
+                 float nt_Mog = PlantExtended.MaxOptimalGrowthTemperature + (tmod*temp_opt);
+                 float nt_Mg  = PlantExtended.MaxGrowthTemperature +        (tmod*temp_extreme);
+                 */
+              float retval = 1f;
+              float nt_mg  = (this.thepot == null ? PlantExtended.MinGrowthTemperature:        this.thepot.MinGrowthTemperature);
+              float nt_mog = (this.thepot == null ? PlantExtended.MinOptimalGrowthTemperature: this.thepot.MinOptimalGrowthTemperature);
+              float nt_Mog = (this.thepot == null ? PlantExtended.MaxOptimalGrowthTemperature: this.thepot.MaxOptimalGrowthTemperature);
+              float nt_Mg  = (this.thepot == null ? PlantExtended.MaxGrowthTemperature:        this.thepot.MaxGrowthTemperature);
+
+              //            Log.Message("the pot "+(this.thepot == null)+" "+ nt_mg +" " + PlantExtended.MinGrowthTemperature);
+
+              if (!GenTemperature.TryGetTemperatureForCell(base.Position, base.Map, out num))
+              {
                 retval = 1f;
-            } else {
+              } else {
                 if (num < nt_mog )
                 {
-                    retval = Mathf.InverseLerp(nt_mg,nt_mog,num);
+                  retval = Mathf.InverseLerp(nt_mg,nt_mog,num);
                 }
                 else if (num > nt_Mog )
                 {
-                    retval = Mathf.InverseLerp(nt_Mg,nt_Mog,num);
+                  retval = Mathf.InverseLerp(nt_Mg,nt_Mog,num);
                 }
                 else retval = 1f;
-//                Log.Message("GrowthRateFactor is tmod "+nt_mg+"<"+nt_mog+"<>"+nt_Mog+">"+nt_Mg + "  from "+num +" returning "+retval);
+                //                Log.Message("GrowthRateFactor is tmod "+nt_mg+"<"+nt_mog+"<>"+nt_Mog+">"+nt_Mg + "  from "+num +" returning "+retval);
                 // probably not working because not calling this GrowRateFactor_Temperature but the parent's
+              }
+
+              return retval;
             }
+          }
 
-            return retval;
         }
-    }
-
-}
 }

@@ -1,54 +1,54 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<WorkGivers>
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
 
-    <WorkGiverDef>
-        <defName>DoBillsUseWizardAlcove</defName>
-        <label>do bills at wizard alcove</label>
-        <giverClass>WorkGiver_DoBill</giverClass>
-        <workType>Wizardry</workType>
-        <priorityInType>100</priorityInType>
-        <fixedBillGiverDefs>
-            <li>TableArcaneAlcove</li>
-        </fixedBillGiverDefs>
-        <verb>study</verb>
-        <gerund>study at</gerund>
-        <requiredCapacities>
-            <li>Manipulation</li>
-        </requiredCapacities>
-        <prioritizeSustains>true</prioritizeSustains>
-    </WorkGiverDef>
+  <WorkGiverDef>
+    <defName>DoBillsUseWizardAlcove</defName>
+    <label>do bills at wizard alcove</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Wizardry</workType>
+    <priorityInType>100</priorityInType>
+    <fixedBillGiverDefs>
+      <li>TableArcaneAlcove</li>
+    </fixedBillGiverDefs>
+    <verb>study</verb>
+    <gerund>study at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
 
-    <WorkGiverDef>
-        <defName>DoBillsUseArcaneBench</defName>
-        <label>do bills at arcane bench</label>
-        <giverClass>WorkGiver_DoBill</giverClass>
-        <workType>Wizardry</workType>
-        <priorityInType>100</priorityInType>
-        <fixedBillGiverDefs>
-            <li>TableArcaneWorkbench</li>
-        </fixedBillGiverDefs>
-        <verb>craft</verb>
-        <gerund>craft</gerund>
-        <requiredCapacities>
-            <li>Manipulation</li>
-        </requiredCapacities>
-        <prioritizeSustains>true</prioritizeSustains>
-    </WorkGiverDef>
+  <WorkGiverDef>
+    <defName>DoBillsUseArcaneBench</defName>
+    <label>do bills at arcane bench</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Wizardry</workType>
+    <priorityInType>100</priorityInType>
+    <fixedBillGiverDefs>
+      <li>TableArcaneWorkbench</li>
+    </fixedBillGiverDefs>
+    <verb>craft</verb>
+    <gerund>craft</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
 
 
-    <WorkGiverDef>
-        <defName>GrowerSow</defName>
-        <label>sow crops</label>
-        <giverClass>UnificaMagica.UMWorkGiver_GrowerSow</giverClass>
-        <workType>Growing</workType>
-        <priorityInType>50</priorityInType>
-        <verb>sow</verb>
-        <gerund>sowing</gerund>
-        <scanThings>false</scanThings>
-        <scanCells>true</scanCells>
-        <requiredCapacities>
-            <li>Manipulation</li>
-        </requiredCapacities>
-    </WorkGiverDef>
+  <WorkGiverDef>
+    <defName>GrowerSow</defName>
+    <label>sow crops</label>
+    <giverClass>UnificaMagica.UMWorkGiver_GrowerSow</giverClass>
+    <workType>Growing</workType>
+    <priorityInType>50</priorityInType>
+    <verb>sow</verb>
+    <gerund>sowing</gerund>
+    <scanThings>false</scanThings>
+    <scanCells>true</scanCells>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
 
-</WorkGivers>
+</Defs>

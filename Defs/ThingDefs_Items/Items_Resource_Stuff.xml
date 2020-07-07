@@ -19,6 +19,7 @@
             <Mass>0.075</Mass>
             <Flammability>1.0</Flammability>
             <DeteriorationRate>10</DeteriorationRate>
+            <Nutrition>0.10</Nutrition>
         </statBases>
         <thingCategories>
             <li>Foods</li>
@@ -26,7 +27,6 @@
         <ingestible>
             <preferability>DesperateOnly</preferability>
             <foodType>Processed</foodType>
-            <nutrition>0.10</nutrition>
             <joy>0.10</joy>
             <joyKind>Gluttonous</joyKind>
             <maxNumToIngestAtOnce>4</maxNumToIngestAtOnce>
@@ -36,8 +36,8 @@
             <WoodLog>1</WoodLog>
         </costList>
         <recipeMaker>
-            <workSpeedStat>SmithingSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Smith</soundWorking>
             <recipeUsers>
@@ -47,10 +47,7 @@
                 <li>FueledSmithy</li>
             </recipeUsers>
             <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>1</minLevel>
-                </li>
+              <Intellectual>1</Intellectual>
             </skillRequirements>
         </recipeMaker>
     </ThingDef>
@@ -84,8 +81,8 @@
             <Cloth>1</Cloth>
         </costList>
         <recipeMaker>
-            <workSpeedStat>SmithingSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            < workSkill>Wizardry</workSkill>
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Smith</soundWorking>
             <recipeUsers>
@@ -94,7 +91,7 @@
             <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
             <skillRequirements>
                 <li>
-                    <skill>Wizardry</skill>
+                    < skill>Wizardry</skill>
                     <minLevel>1</minLevel>
                 </li>
             </skillRequirements>
@@ -131,7 +128,7 @@
             <ArcaneScript>3</ArcaneScript>
         </costList>
         <recipeMaker>
-            <workSpeedStat>SmithingSpeed</workSpeedStat>
+            <workSpeedStat>GeneralLaborSpeedSpeed</workSpeedStat>
             <workSkill>Wizardry</workSkill>
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Smith</soundWorking>

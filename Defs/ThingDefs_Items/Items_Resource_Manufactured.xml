@@ -7,8 +7,9 @@
         <description>A pack of white powder, with silvery flecks, that glows slightly. When spread on a wound, the body heals and regenerates.</description>
         <thingClass>Medicine</thingClass>
         <graphicData>
-            <texPath>Things/Item/Resource/MedicineHerbal</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Item/Resource/Medicine/MedicineHerbal</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+            <drawSize>0.85</drawSize>
         </graphicData>
         <soundInteract>Standard_Drop</soundInteract>
         <soundDrop>Standard_Drop</soundDrop>
@@ -34,8 +35,8 @@
             <li>InanimateImbuement</li>
         </researchPrerequisites>
         <recipeMaker>
-            <workSpeedStat>SmithingSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Medicine</workSkill>
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Smith</soundWorking>
             <recipeUsers>
@@ -43,10 +44,7 @@
             </recipeUsers>
             <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
             <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>1</minLevel>
-                </li>
+              <Medicine>1</Medicine>
             </skillRequirements>
             <unfinishedThingDef>UnfinishedPowder</unfinishedThingDef>
         </recipeMaker>

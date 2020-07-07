@@ -1,16 +1,19 @@
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Linq;
-using System.Text;
 using Verse;
-using Verse.AI;
 using AbilityUser;
+using UnityEngine;
+
 
 namespace UnificaMagica
 {
-
-    public class CompAbilityUserWizard : CompAbilityUser
+    [CompilerGenerated]
+    [Serializable]
+    [StaticConstructorOnStartup]
+    public class CompAbilityUserWizard : AbilityUser.CompAbilityUser
     {
         public string LabelKey = "UM_Wizard";
 /*
@@ -25,7 +28,16 @@ namespace UnificaMagica
 
         public override void CompTick() {
             base.CompTick();
-            if ( IsInitialized ) {
+            
+        }
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+            if (respawningAfterLoad)
+            {
+                // Log.Message("CompAblityUserWizard PostSpawnSetup " + respawningAfterLoad);
+                this.Initialize();
             }
         }
 
@@ -37,8 +49,8 @@ namespace UnificaMagica
 
         public int NumSelectedInLevel(int lvl) {
             int retval = 0;
-            foreach ( PawnAbility pa in this.Powers ) {
-                UMAbilityDef wad = pa.powerdef as UMAbilityDef;
+            foreach ( PawnAbility pa in this.AbilityData.Powers ) {
+                UMAbilityDef wad = pa.Def as UMAbilityDef;
                 if ( wad != null && wad.abilityLevel == lvl ) { retval ++; }
             }
             return retval;
@@ -84,30 +96,42 @@ namespace UnificaMagica
 
         public int GetNumOfAbility(UMAbilityDef ab) {
             int retval = 0;
-            foreach (PawnAbility pa in this.Powers ) { if ( pa.powerdef == ab ) retval++; }
+            foreach (PawnAbility pa in this.AbilityData.Powers ) { if ( pa.Def == ab ) retval++; }
             return retval;
         }
 
         // Reduces one power's cooldown by their level. if lvl is not provided, look it up
         public bool StudyForATick(int lvl = -1) {
             bool retval = false;
-            if ( lvl == -1 ) lvl = this.AbilityUser.skills.GetSkill(UnificaMagicaDefOf.Wizardry).Level;
+            Log.Message("styd for a tick 1");
+            if (lvl == -1) {
+                Log.Message("styd for a tick 1.1");
+                lvl = this.AbilityUser.skills.GetSkill(UnificaMagicaDefOf.Wizardry).Level;
+                Log.Message("styd for a tick 1.2");
+            }
+            Log.Message("styd for a tick 2");
 
-            foreach ( AbilityUser.PawnAbility pa in this.Powers ) {
-                if ( pa.TicksUntilCasting > 0 ) {
-                    pa.TicksUntilCasting -= lvl;
+            foreach ( AbilityUser.PawnAbility pa in this.AbilityData.Powers ) {
+                Log.Message("styd for a tick 2.1 - " + pa);
+                if ( pa.CooldownTicksLeft > 0 ) {
+                    Log.Message("styd for a tick 2.1.1");
+                    pa.CooldownTicksLeft -= lvl;
                     retval = true;
                     break;
                 } // only do 1
+                Log.Message("styd for a tick 2.2");
             }
+            Log.Message("styd for a tick 3");
             return retval;
         }
 
 
         // Ordered by level, list of all abilities
-        public static List<UMAbilityDef> WizardAbilities= null;
+        public static List<UMAbilityDef> WizardAbilities= null;   // static for class
+
         // Ordered by level, list of all abilities, of a certain level
-        protected static List<UMAbilityDef>[] wizardAbilitiesByLevel = null;
+        protected static List<UMAbilityDef>[] wizardAbilitiesByLevel = null; // static for class
+
         public static int MaxWizardSpellLevel = 3;
 
         public static List<UMAbilityDef> GetWizardAbilitiesOfLevel(int lvl) {
@@ -128,22 +152,82 @@ namespace UnificaMagica
             }
             return retval;
         }
-        //this.AddPawnAbility(UnificaMagicaDefOf.UM_WizardBolt);
-        //this.AddPawnAbility(UnificaMagicaDefOf.UM_FearPerson);
-        //this.AddPawnAbility(UnificaMagicaDefOf.UM_FearBomb);
 
-        // adds spells to wizard at initilization
+
+        // adds spells to wizard at initialization
         protected static void InitWizardAbility(UMAbilityDef spell) {
             CompAbilityUserWizard.WizardAbilities.Add( spell );
             CompAbilityUserWizard.wizardAbilitiesByLevel[ spell.abilityLevel-1 ].Add(spell);
         }
 
+        public bool IsWizard
+        {
+            get
+            {
+                bool retval = false;
+
+                if (base.AbilityUser != null && base.AbilityUser.story != null &&
+                    base.AbilityUser.story.traits.HasTrait(UnificaMagicaDefOf.WizardInclined) ) {
+                    retval = true;
+                }
+                return retval;
+            }
+        }
+        public override void PostDraw()
+        {
+            if (this.IsWizard)
+            {
+                if (base.AbilityUser.IsColonist && this.IsWizard)
+                {
+                    DrawWizardMark();
+                }
+            }
+        }
+
+        // From TMMagic mostly
+        public void DrawWizardMark()
+        {
+            float num = Mathf.Lerp(1.2f, 1.55f, 1f);
+            Vector3 vector = this.AbilityUser.Drawer.DrawPos;
+            vector.x = vector.x + .45f;
+            vector.z = vector.z + .45f;
+            vector.y = Altitudes.AltitudeFor(AltitudeLayer.MoteOverhead);
+            float angle = 0f;
+            Vector3 s = new Vector3(.28f, 1f, .28f);
+            Matrix4x4 matrix = default(Matrix4x4);
+            matrix.SetTRS(vector, Quaternion.AngleAxis(angle, Vector3.up), s);
+            Graphics.DrawMesh(MeshPool.plane10, matrix, wizardMarkMat, 0);
+        }
+        public static readonly Material wizardMarkMat = MaterialPool.MatFrom("Other/WizardMark", ShaderDatabase.Transparent, Color.blue);
+
         public override void PostInitialize() {
             base.PostInitialize();
 
-            // populate this at start
-            //            Log.Message("CompAbilityUserWizard.PostInitialize 1");
-            if ( CompAbilityUserWizard.WizardAbilities == null ) {
+            // Log.Message("PostInitialize 1");
+            if (base.AbilityUser != null)
+            {
+                // Log.Message("PostInitialize 1.1");
+                if (base.AbilityUser.Spawned)
+                {
+                    // Log.Message("PostInitialize 1.1.1");
+                    if (base.AbilityUser.story != null && this.IsWizard )
+                    {
+                        // Log.Message("Hit resolve");
+                        // this.Initialize();
+                        this.ResolveTab();
+                        this.ResolveWizardAbilities();
+                        this.UpdateAbilities();
+                    }
+                    // Log.Message("PostInitialize 1.1.2");
+                }
+                // Log.Message("PostInitialize 1.2");
+            }
+            // Log.Message("PostInitialize 2");
+        }
+
+        public void ResolveWizardAbilities() {
+            // populate this the first time a wizard needs to be inited
+            if ( CompAbilityUserWizard.wizardAbilitiesByLevel == null ) {
                 CompAbilityUserWizard.WizardAbilities = new List<UMAbilityDef>();
                 CompAbilityUserWizard.wizardAbilitiesByLevel = new List<UMAbilityDef>[CompAbilityUserWizard.MaxWizardSpellLevel];
                 for(int i =0;i<CompAbilityUserWizard.MaxWizardSpellLevel;i++) {
@@ -160,18 +244,51 @@ namespace UnificaMagica
 
                 // Level 3
                 CompAbilityUserWizard.InitWizardAbility( UnificaMagicaDefOf.UM_FearBomb );
+
+                // First pass
+                
             }
+
             this.UpdateAbilities();
+        }
+
+        public void ResolveTab()
+        {
+            // Log.Message("ResolveTab");
+            // From TMMagic
+            InspectTabBase inspectTabsx = base.AbilityUser.GetInspectTabs().FirstOrDefault((InspectTabBase x) => x.labelKey == "UM_TabToggleDef");
+            IEnumerable<InspectTabBase> inspectTabs = base.AbilityUser.GetInspectTabs();
+            bool flag = inspectTabs != null && inspectTabs.Count<InspectTabBase>() > 0;
+            if (flag)
+            {
+                if (inspectTabsx == null)
+                {
+                    try
+                    {
+                        base.AbilityUser.def.inspectorTabsResolved.Add(InspectTabManager.GetSharedInstance(typeof(ITab_Pawn_Wizard)));
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(string.Concat(new object[]
+                        {
+                            "Could not instantiate inspector tab of type ",
+                            typeof(ITab_Pawn_Wizard),
+                            ": ",
+                            ex
+                        }));
+                    }
+                }
+            }
         }
 
         public override bool TryTransformPawn() {
             Pawn p = this.AbilityUser;
-            //            Log.Message("CompAblityUserWizard.TryTransformPawn "+p.ThingID+" "+(p.Name != null ? p.Name.ToStringFull:" unnamed"));
+            // Log.Message("CompAblityUserWizard.TryTransformPawn "+p.ThingID+" "+(p.Name != null ? p.Name.ToStringFull:" unnamed"));
             bool retval = false;
 
             if ( p.story != null && p.story.traits != null) {
                 if (p.story.traits.HasTrait(UnificaMagicaDefOf.WizardInclined)) {
-                    //                    Log.Message("CompAblityUserWizard.TryTransformPawn true");
+                    Log.Message("CompAblityUserWizard.TryTransformPawn true");
                     retval = true;
                 }
             }

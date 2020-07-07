@@ -1,11 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Unifica Magica</name>
+  <name>Unifica Magica: Beta</name>
   <author>Roxxploxx</author>
-  <url></url>
-  <targetVersion>0.17.0</targetVersion>
-  <description>Unifica Magica adds several types of magic (eventually) as a pathway to advance and sustain a Rimworld colony, in competition with the current technological approach in Rimworld. Each magical path will have it’s own feel and in order to advance in that path, your strategy and base will evolve in support of that path.
+  <packageId>roxxploxx.UnificaMagica.Full</packageId>
+  <url>https://ludeon.com/forums/index.php?topic=31826.0</url>
+  <description>Unifica Magica adds an alternative to technology. It builds on RimWorld of Magic's classes and items, and fleshes out all the other aspects of running a colony... with Magic!
 
-      REQUIRES: HugsLib (load it before this mod)
+    It may even add its own classes.
+
+      More info here: https://ludeon.com/forums/index.php?topic=31826.0
   </description>
+  <supportedVersions><li>1.1</li></supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>UnlimitedHugs.HugsLib</packageId>
+      <displayName>HugsLib</displayName>
+      <downloadUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=818773962</downloadUrl>
+    </li>
+    <li>
+      <packageId>jecrell.jecstools</packageId>
+      <displayName>JecsTools</displayName>
+      <downloadUrl>https://github.com/jecrell/JecsTools</downloadUrl>
+    </li>
+    <li>
+      <packageId>Torann.ARimworldOfMagic</packageId>
+      <displayName>A RimWorld of Magic</displayName>
+      <downloadUrl></downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>jecrell.jecstools</li>
+    <li>Torann.ARimworldOfMagic</li>
+  </loadAfter>
 </ModMetaData>

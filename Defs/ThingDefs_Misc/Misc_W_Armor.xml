@@ -1,507 +1,491 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
+  <ThingDef Name="WizardArmorMakeableBase" ParentName="ApparelBase" Abstract="True">
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableArcaneWorkbench</li>
+      </recipeUsers>
+      <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>1</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
 
 
+  <!-- Pants of Speed -->
+  <ThingDef ParentName="WizardArmorMakeableBase">
+    <defName>UM_Pants_of_Speed</defName>
+    <label>pants of speed</label>
+    <description>Your pants have some get-up-and-go!</description>
+    <recipeMaker>
+      <researchPrerequisite>EnchantingI</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/Pants/Pants</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <costList>
+      <PowerRune>5</PowerRune>
+    </costList>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <statBases>
+      <Mass>0.5</Mass>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToMake>10000</WorkToMake>
+      <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
+      <Insulation_Cold>3</Insulation_Cold>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>1.2</MoveSpeed>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>Outlander</li>
+        <li>Spacer</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+  </ThingDef>
 
 
-    <ThingDef Name="WizardArmorMakeableBase" ParentName="ApparelBase" Abstract="True">
-        <recipeMaker>
-            <workSpeedStat>WizardSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
-            <effectWorking>Smith</effectWorking>
-            <soundWorking>Recipe_Smith</soundWorking>
-            <recipeUsers>
-                <li>TableArcaneWorkbench</li>
-            </recipeUsers>
-            <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>1</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
-        </recipeMaker>
-    </ThingDef>
+  <!-- WizardRobes -->
+  <ThingDef ParentName="WizardArmorMakeableBase">
+    <defName>Apparel_ArcaneWizardRobe</defName>
+    <label>arcane wizard robe</label>
+    <description>Infused with arcane energy, these robes provide some protection from the environment and attacks.</description>
+    <costStuffCount>100</costStuffCount>
+    <comps>
+      <li Class="UnificaMagica.CompProperties_WizardTech" />
+    </comps>
+    <stuffCategories>
+      <li>Fabric</li>
+    </stuffCategories>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <WorkToMake>15000</WorkToMake>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Mass>5</Mass>
+      <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.10</ArmorRating_Heat>
+      <Insulation_Cold>15</Insulation_Cold>
+      <Insulation_Heat>0</Insulation_Heat>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>0.0</MoveSpeed>
+      <WorkSpeedGlobal>0.0</WorkSpeedGlobal>
+    </equippedStatOffsets>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <PowerRune>2</PowerRune>
+      <BindingRune>2</BindingRune>
+      <ControlRune>1</ControlRune>
+    </costList>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</wornGraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+    </apparel>
+    <recipeMaker>
+      <researchPrerequisite>EnchantingI</researchPrerequisite>
+    </recipeMaker>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.33,0.33,0.33,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.65,0.65,0.65,1)</only>
+        </li>
+        <li>
+          <weight>6</weight>
+          <min>RGBA(0.3,0.3,0.3,1)</min>
+          <max>RGBA(0.5,0.5,0.5,1)</max>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.9,0.9,0.9,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
 
 
-    <!-- Pants of Speed -->
-    <ThingDef ParentName="WizardArmorMakeableBase">
-        <defName>UM_Pants_of_Speed</defName>
-        <label>pants of speed</label>
-        <description>Your pants have some get-up-and-go!</description>
-        <recipeMaker>
-            <researchPrerequisite>EnchantingI</researchPrerequisite>
-        </recipeMaker>
-        <graphicData>
-            <texPath>Things/Pawn/Humanlike/Apparel/Various/Pants_OnMap</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <costStuffCount>50</costStuffCount>
-        <stuffCategories>
-            <li>Fabric</li>
-            <li>Leathery</li>
-        </stuffCategories>
-        <costList>
-            <PowerRune>5</PowerRune>
-        </costList>
-        <thingCategories>
-            <li>Apparel</li>
-        </thingCategories>
-        <statBases>
-            <MaxHitPoints>200</MaxHitPoints>
-            <WorkToMake>10000</WorkToMake>
-            <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
-            <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
-            <Insulation_Cold>-3</Insulation_Cold>
-        </statBases>
-        <equippedStatOffsets>
-            <MoveSpeed>1.2</MoveSpeed>
-        </equippedStatOffsets>
-        <apparel>
-            <bodyPartGroups>
-                <li>Legs</li>
-            </bodyPartGroups>
-            <layers>
-                <li>OnSkin</li>
-            </layers>
-            <tags>
-                <li>Outlander</li>
-                <li>Spacer</li>
-            </tags>
-            <defaultOutfitTags>
-                <li>Worker</li>
-                <li>Soldier</li>
-            </defaultOutfitTags>
-        </apparel>
-        <colorGenerator Class="ColorGenerator_StandardApparel" />
-    </ThingDef>
+  <!-- WizardRobes -->
+  <ThingDef ParentName="WizardArmorMakeableBase">
+    <defName>Apparel_WizardBracers</defName>
+    <label>wizard bracers</label>
+    <description>Infused with arcane energy, these bracers provide some protection from attacks.</description>
+    <techLevel>Neolithic</techLevel>
+    <costStuffCount>25</costStuffCount>
+    <comps>
+      <li Class="UnificaMagica.CompProperties_WizardTech" />
+    </comps>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/Wizardry/Bracers</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <WorkToMake>10000</WorkToMake>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Mass>1</Mass>
+      <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.0</ArmorRating_Heat>
+      <Insulation_Cold>0</Insulation_Cold>
+    </statBases>
+    <equippedStatOffsets />
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <costList>
+      <PowerRune>2</PowerRune>
+      <BindingRune>3</BindingRune>
+    </costList>
+    <apparel>
+      <bodyPartGroups>
+        <li>Arms</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</wornGraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+    </apparel>
+    <recipeMaker>
+      <researchPrerequisite>EnchantingI</researchPrerequisite>
+    </recipeMaker>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.33,0.33,0.33,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.65,0.65,0.65,1)</only>
+        </li>
+        <li>
+          <weight>6</weight>
+          <min>RGBA(0.3,0.3,0.3,1)</min>
+          <max>RGBA(0.5,0.5,0.5,1)</max>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.9,0.9,0.9,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
 
 
-    <!-- WizardRobes -->
-    <ThingDef ParentName="WizardArmorMakeableBase">
-        <defName>Apparel_ArcaneWizardRobe</defName>
-        <label>arcane wizard robe</label>
-        <description>Infused with arcane energy, these robes provide some protection from the environment and attacks.</description>
-        <costStuffCount>100</costStuffCount>
-        <comps>
-            <li Class="UnificaMagica.CompProperties_WizardTech"/>
-        </comps>
-        <stuffCategories>
-            <li>Fabric</li>
-        </stuffCategories>
-        <graphicData>
-            <texPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <statBases>
-            <WorkToMake>15000</WorkToMake>
-            <MaxHitPoints>200</MaxHitPoints>
-            <Mass>5</Mass>
-            <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
-            <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
-            <ArmorRating_Heat>0.10</ArmorRating_Heat>
-            <Insulation_Cold>-15</Insulation_Cold>
-            <Insulation_Heat>0</Insulation_Heat>
-        </statBases>
-        <equippedStatOffsets>
-            <MoveSpeed>0.0</MoveSpeed>
-            <WorkSpeedGlobal>0.0</WorkSpeedGlobal>
-        </equippedStatOffsets>
-        <thingCategories>
-            <li>Apparel</li>
-        </thingCategories>
-        <costList>
-            <Steel>15</Steel>
-            <Component>1</Component>
-            <PowerRune>2</PowerRune>
-            <BindingRune>2</BindingRune>
-            <ControlRune>1</ControlRune>
-        </costList>
-        <apparel>
-            <bodyPartGroups>
-                <li>Torso</li>
-                <li>Shoulders</li>
-                <li>Legs</li>
-            </bodyPartGroups>
-            <worngraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</worngraphicPath>
-            <layers>
-                <li>Shell</li>
-            </layers>
-        </apparel>
-        <recipeMaker>
-            <researchPrerequisite>EnchantingI</researchPrerequisite>
-        </recipeMaker>
-        <colorGenerator Class="ColorGenerator_Options">
-            <options>
-                <li>
-                    <weight>10</weight>
-                    <only>RGBA(0.33,0.33,0.33,1)</only>
-                </li>
-                <li>
-                    <weight>10</weight>
-                    <only>RGBA(0.65,0.65,0.65,1)</only>
-                </li>
-                <li>
-                    <weight>6</weight>
-                    <min>RGBA(0.3,0.3,0.3,1)</min>
-                    <max>RGBA(0.5,0.5,0.5,1)</max>
-                </li>
-                <li>
-                    <weight>10</weight>
-                    <only>RGBA(0.9,0.9,0.9,1)</only>
-                </li>
-            </options>
-        </colorGenerator>
-    </ThingDef>
+  <ThingDef ParentName="ApparelBase">
+    <thingClass>UnificaMagica.WizardShield</thingClass>
+    <defName>Apparel_OldMagicShielding</defName>
+    <label>wizard shield simple</label>
+    <description>You shape old magic into a fragile protective energy around you. It will attempt to stop any rapidly-moving projectile or energy attack that comes from a distance. It does nothing against melee attacks or shots from point-blank range.</description>
+    <comps>
+      <li Class="UnificaMagica.CompProperties_WizardTech" />
+    </comps>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToMake>25000</WorkToMake>
+      <MarketValue>1000</MarketValue>
+      <Mass>3</Mass>
+      <EnergyShieldRechargeRate>0.1</EnergyShieldRechargeRate>
+      <EnergyShieldEnergyMax>0.1</EnergyShieldEnergyMax>
+    </statBases>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <apparel>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <bodyPartGroups>
+        <li>Torso</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>ShieldBelt</li>
+      </tags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.33,0.33,0.33,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.65,0.65,0.65,1)</only>
+        </li>
+        <li>
+          <weight>6</weight>
+          <min>RGBA(0.3,0.3,0.3,1)</min>
+          <max>RGBA(0.5,0.5,0.5,1)</max>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.9,0.9,0.9,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <costList>
+      <Steel>15</Steel>
+      <Plasteel>50</Plasteel>
+      <Gold>3</Gold>
+      <PowerRune>7</PowerRune>
+      <BindingRune>8</BindingRune>
+      <PulsingRune>2</PulsingRune>
+      <ControlRune>5</ControlRune>
+      <OldMagicRune>6</OldMagicRune>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Intellectual</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableArcaneWorkbench</li>
+      </recipeUsers>
+      <researchPrerequisite>OldMagicArtificer</researchPrerequisite>
+      <skillRequirements>
+        <Intellectual>10</Intellectual>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWizardShield</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
 
 
+  <!-- Ring of Warmth-->
+  <ThingDef Name="Apparel_RingOfWarmth" Abstract="True" ParentName="WizardArmorMakeableBase">
+    <!--<thingClass>UnificaMagica.RingThing</thingClass>-->
+    <selectable>true</selectable>
+    <description>Infused with arcane energy, this ring radiates a warmth throughouth your body.</description>
+    <techLevel>Neolithic</techLevel>
+    <recipeMaker>
+      <skillRequirements>
+        <Intellectual>3</Intellectual>
+      </skillRequirements>
+      <researchPrerequisite>Elementalism</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/Wizardry/Ring</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>0.01</Mass>
+      <WorkToMake>3000</WorkToMake>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Insulation_Cold>25</Insulation_Cold>
+    </statBases>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <inspectorTabs>
+      <li>CompToggleDef.ITab_ToggleDef</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompToggleDef.CompProperties_ToggleDef">
+        <labelKey>UM_Tab_ToggleDef_Rings</labelKey>
+      </li>
+      <li Class="CompSlotLoadable.CompProperties_SlotLoadable">
+        <slots>
+          <li>SlotTest</li>
+        </slots>
+      </li>
+    </comps>
+    <costList>
+      <Gold>10</Gold>
+      <PowerRune>1</PowerRune>
+      <BindingRune>2</BindingRune>
+      <ControlRune>1</ControlRune>
+    </costList>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</wornGraphicPath>
+      <layers>
+        <li>Belt</li>
+      </layers>
+    </apparel>
+  </ThingDef>
+  <ThingDef ParentName="Apparel_RingOfWarmth">
+    <defName>Apparel_RingOfWarmth_TOGGLEDEF_RP</defName>
+    <label>ring of warmth (RPinky)</label>
+    <apparel>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <bodyPartGroups>
+        <li>RightHandPinky</li>
+      </bodyPartGroups>
+    </apparel>
+  </ThingDef>
+  <ThingDef ParentName="Apparel_RingOfWarmth">
+    <defName>Apparel_RingOfWarmth_TOGGLEDEF_RR</defName>
+    <label>ring of warmth (RRing)</label>
+    <apparel>
+      <bodyPartGroups>
+        <li>RightHandRingFinger</li>
+      </bodyPartGroups>
+    </apparel>
+  </ThingDef>
+  <ThingDef ParentName="Apparel_RingOfWarmth">
+    <defName>Apparel_RingOfWarmth_TOGGLEDEF_RM</defName>
+    <label>ring of warmth (RMiddle)</label>
+    <apparel>
+      <bodyPartGroups>
+        <li>RightHandMiddleFinger</li>
+      </bodyPartGroups>
+    </apparel>
+  </ThingDef>
+  <ThingDef ParentName="Apparel_RingOfWarmth">
+    <defName>Apparel_RingOfWarmth_TOGGLEDEF_RI</defName>
+    <label>ring of warmth (RIndex)</label>
+    <apparel>
+      <bodyPartGroups>
+        <li>RightHandIndexFinger</li>
+      </bodyPartGroups>
+    </apparel>
+  </ThingDef>
+  <ThingDef ParentName="Apparel_RingOfWarmth">
+    <defName>Apparel_RingOfWarmth_TOGGLEDEF_LP</defName>
+    <label>ring of warmth (LPinky)</label>
+    <apparel>
+      <bodyPartGroups>
+        <li>LeftHandPinky</li>
+      </bodyPartGroups>
+    </apparel>
+  </ThingDef>
+  <ThingDef ParentName="Apparel_RingOfWarmth">
+    <defName>Apparel_RingOfWarmth_TOGGLEDEF_LR</defName>
+    <label>ring of warmth (LRing)</label>
+    <apparel>
+      <bodyPartGroups>
+        <li>LeftHandRingFinger</li>
+      </bodyPartGroups>
+    </apparel>
+  </ThingDef>
+  <ThingDef ParentName="Apparel_RingOfWarmth">
+    <defName>Apparel_RingOfWarmth_TOGGLEDEF_LM</defName>
+    <label>ring of warmth (LMiddle)</label>
+    <apparel>
+      <bodyPartGroups>
+        <li>LeftHandMiddleFinger</li>
+      </bodyPartGroups>
+    </apparel>
+  </ThingDef>
+  <ThingDef ParentName="Apparel_RingOfWarmth">
+    <defName>Apparel_RingOfWarmth_TOGGLEDEF_LI</defName>
+    <label>ring of warmth (LIndex)</label>
+    <apparel>
+      <bodyPartGroups>
+        <li>LeftHandIndexFinger</li>
+      </bodyPartGroups>
+    </apparel>
+  </ThingDef>
 
-    <!-- WizardRobes -->
-    <ThingDef ParentName="WizardArmorMakeableBase">
-        <defName>Apparel_WizardBracers</defName>
-        <label>wizard bracers</label>
-        <description>Infused with arcane energy, these bracers provide some protection from attacks.</description>
-        <techLevel>Neolithic</techLevel>
-        <costStuffCount>25</costStuffCount>
-        <comps>
-            <li Class="UnificaMagica.CompProperties_WizardTech"/>
-        </comps>
-        <stuffCategories>
-            <li>Metallic</li>
-        </stuffCategories>
-        <graphicData>
-            <texPath>Things/Pawn/Humanlike/Apparel/Wizardry/Bracers</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <statBases>
-            <WorkToMake>10000</WorkToMake>
-            <MaxHitPoints>200</MaxHitPoints>
-            <Mass>1</Mass>
-            <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
-            <ArmorRating_Sharp>0.5</ArmorRating_Sharp>
-            <ArmorRating_Heat>0.0</ArmorRating_Heat>
-            <Insulation_Cold>0</Insulation_Cold>
-        </statBases>
-        <equippedStatOffsets />
-        <thingCategories>
-            <li>Apparel</li>
-        </thingCategories>
-        <costList>
-            <PowerRune>2</PowerRune>
-            <BindingRune>3</BindingRune>
-        </costList>
-        <apparel>
-            <bodyPartGroups>
-                <li>Arms</li>
-            </bodyPartGroups>
-            <worngraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</worngraphicPath>
-            <layers>
-                <li>Shell</li>
-            </layers>
-        </apparel>
-        <recipeMaker>
-            <researchPrerequisite>EnchantingI</researchPrerequisite>
-        </recipeMaker>
-        <colorGenerator Class="ColorGenerator_Options">
-            <options>
-                <li>
-                    <weight>10</weight>
-                    <only>RGBA(0.33,0.33,0.33,1)</only>
-                </li>
-                <li>
-                    <weight>10</weight>
-                    <only>RGBA(0.65,0.65,0.65,1)</only>
-                </li>
-                <li>
-                    <weight>6</weight>
-                    <min>RGBA(0.3,0.3,0.3,1)</min>
-                    <max>RGBA(0.5,0.5,0.5,1)</max>
-                </li>
-                <li>
-                    <weight>10</weight>
-                    <only>RGBA(0.9,0.9,0.9,1)</only>
-                </li>
-            </options>
-        </colorGenerator>
-    </ThingDef>
+  <!-- Ring of Cooling-->
+  <ThingDef Name="Apparel_RingOfCooling" Abstract="True" ParentName="WizardArmorMakeableBase">
+    <description>Infused with arcane energy, this ring radiates a coolness throughouth your body.</description>
+    <techLevel>Neolithic</techLevel>
+    <recipeMaker>
+      <skillRequirements>
+        <Intellectual>3</Intellectual>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedRing</unfinishedThingDef>
+      <researchPrerequisite>Elementalism</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/Wizardry/Ring</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>0.01</Mass>
+      <WorkToMake>3000</WorkToMake>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Insulation_Heat>25</Insulation_Heat>
+    </statBases>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <costList>
+      <Gold>10</Gold>
+      <PowerRune>1</PowerRune>
+      <BindingRune>2</BindingRune>
+      <ControlRune>1</ControlRune>
+    </costList>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</wornGraphicPath>
+      <layers>
+        <li>Belt</li>
+      </layers>
+    </apparel>
+  </ThingDef>
+  <ThingDef ParentName="Apparel_RingOfCooling">
+    <defName>Apparel_RingOfCoolingR</defName>
+    <!-- <thingClass>UnificaMagica.RingThing</thingClass> -->
+    <label>ring of cooling (R)</label>
+    <apparel>
+      <bodyPartGroups>
+        <li>RightHand</li>
+      </bodyPartGroups>
+    </apparel>
+  </ThingDef>
+  <ThingDef ParentName="Apparel_RingOfCooling">
+    <defName>Apparel_RingOfCoolingL</defName>
+    <!--<thingClass>UnificaMagica.RingThing</thingClass>-->
+    <label>ring of cooling (L)</label>
+    <apparel>
+      <bodyPartGroups>
+        <li>LeftHand</li>
+      </bodyPartGroups>
+    </apparel>
+  </ThingDef>
 
-
-    <ThingDef ParentName="ApparelBase">
-        <thingClass>UnificaMagica.WizardShield</thingClass>
-        <defName>Apparel_OldMagicShielding</defName>
-        <label>wizard shield simple</label>
-        <description>You shape old magic into a fragile protective energy around you. It will attempt to stop any rapidly-moving projectile or energy attack that comes from a distance. It does nothing against melee attacks or shots from point-blank range.</description>
-        <comps>
-            <li Class="UnificaMagica.CompProperties_WizardTech"/>
-        </comps>
-        <graphicData>
-            <texPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <tickerType>Normal</tickerType>
-        <statBases>
-            <WorkToMake>25000</WorkToMake>
-            <MarketValue>1000</MarketValue>
-            <Mass>3</Mass>
-            <EnergyShieldRechargeRate>0.1</EnergyShieldRechargeRate>
-            <EnergyShieldEnergyMax>0.1</EnergyShieldEnergyMax>
-        </statBases>
-        <thingCategories>
-            <li>Apparel</li>
-        </thingCategories>
-        <apparel>
-            <careIfWornByCorpse>false</careIfWornByCorpse>
-            <bodyPartGroups>
-                <li>Torso</li>
-            </bodyPartGroups>
-            <layers>
-                <li>Belt</li>
-            </layers>
-            <tags>
-                <li>ShieldBelt</li>
-            </tags>
-        </apparel>
-        <colorGenerator Class="ColorGenerator_Options">
-            <options>
-                <li>
-                    <weight>10</weight>
-                    <only>RGBA(0.33,0.33,0.33,1)</only>
-                </li>
-                <li>
-                    <weight>10</weight>
-                    <only>RGBA(0.65,0.65,0.65,1)</only>
-                </li>
-                <li>
-                    <weight>6</weight>
-                    <min>RGBA(0.3,0.3,0.3,1)</min>
-                    <max>RGBA(0.5,0.5,0.5,1)</max>
-                </li>
-                <li>
-                    <weight>10</weight>
-                    <only>RGBA(0.9,0.9,0.9,1)</only>
-                </li>
-            </options>
-        </colorGenerator>
-        <costList>
-            <Steel>15</Steel>
-            <Plasteel>50</Plasteel>
-            <Gold>3</Gold>
-            <PowerRune>7</PowerRune>
-            <BindingRune>8</BindingRune>
-            <PulsingRune>2</PulsingRune>
-            <ControlRune>5</ControlRune>
-            <OldMagicRune>6</OldMagicRune>
-        </costList>
-        <recipeMaker>
-            <workSpeedStat>WizardSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
-            <effectWorking>Smith</effectWorking>
-            <soundWorking>Recipe_Smith</soundWorking>
-            <recipeUsers>
-                <li>TableArcaneWorkbench</li>
-            </recipeUsers>
-            <researchPrerequisite>OldMagicArtificer</researchPrerequisite>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>10</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedWizardShield</unfinishedThingDef>
-        </recipeMaker>
-    </ThingDef>
-
-
-
-    <!-- Ring of Warmth-->
-    <ThingDef Name="Apparel_RingOfWarmth" Abstract="True" ParentName="WizardArmorMakeableBase">
-        <!--<thingClass>UnificaMagica.RingThing</thingClass>-->
-        <selectable>true</selectable>
-        <description>Infused with arcane energy, this ring radiates a warmth throughouth your body.</description>
-        <techLevel>Neolithic</techLevel>
-        <recipeMaker>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>3</minLevel>
-                </li>
-            </skillRequirements>
-            <researchPrerequisite>Elementalism</researchPrerequisite>
-        </recipeMaker>
-        <graphicData>
-            <texPath>Things/Pawn/Humanlike/Apparel/Wizardry/Ring</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <statBases>
-            <WorkToMake>3000</WorkToMake>
-            <MaxHitPoints>100</MaxHitPoints>
-            <Insulation_Cold>-25</Insulation_Cold>
-        </statBases>
-        <thingCategories>
-            <li>Apparel</li>
-        </thingCategories>
-        <inspectorTabs>
-            <li>CompToggleDef.ITab_ToggleDef</li>
-        </inspectorTabs>
-        <comps>
-            <li Class="CompToggleDef.CompProperties_ToggleDef">
-                <labelKey>UM_Tab_ToggleDef_Rings</labelKey>
-            </li>
-            <li Class="CompSlotLoadable.CompProperties_SlotLoadable">
-                <slots>
-                    <li>SlotTest</li>
-                </slots>
-            </li>
-        </comps>
-        <costList>
-            <Gold>10</Gold>
-            <PowerRune>1</PowerRune>
-            <BindingRune>2</BindingRune>
-            <ControlRune>1</ControlRune>
-        </costList>
-        <apparel>
-            <worngraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</worngraphicPath>
-            <layers>
-                <li>Belt</li>
-            </layers>
-        </apparel>
-    </ThingDef>
-    <ThingDef ParentName="Apparel_RingOfWarmth">
-        <defName>Apparel_RingOfWarmth_TOGGLEDEF_RP</defName>
-        <label>ring of warmth (RPinky)</label>
-        <apparel>
-            <layers>
-                <li>Belt</li>
-            </layers>
-            <bodyPartGroups>
-                <li>RightHandPinky</li>
-            </bodyPartGroups>
-        </apparel>
-    </ThingDef>
-    <ThingDef ParentName="Apparel_RingOfWarmth">
-        <defName>Apparel_RingOfWarmth_TOGGLEDEF_RR</defName>
-        <label>ring of warmth (RRing)</label>
-        <apparel>
-            <bodyPartGroups>
-                <li>RightHandRingFinger</li>
-            </bodyPartGroups>
-        </apparel>
-    </ThingDef>
-    <ThingDef ParentName="Apparel_RingOfWarmth">
-        <defName>Apparel_RingOfWarmth_TOGGLEDEF_RM</defName>
-        <label>ring of warmth (RMiddle)</label>
-        <apparel>
-            <bodyPartGroups>
-                <li>RightHandMiddleFinger</li>
-            </bodyPartGroups>
-        </apparel>
-    </ThingDef>
-    <ThingDef ParentName="Apparel_RingOfWarmth">
-        <defName>Apparel_RingOfWarmth_TOGGLEDEF_RI</defName>
-        <label>ring of warmth (RIndex)</label>
-        <apparel>
-            <bodyPartGroups>
-                <li>RightHandIndexFinger</li>
-            </bodyPartGroups>
-        </apparel>
-    </ThingDef>
-    <ThingDef ParentName="Apparel_RingOfWarmth">
-        <defName>Apparel_RingOfWarmth_TOGGLEDEF_LP</defName>
-        <label>ring of warmth (LPinky)</label>
-        <apparel>
-            <bodyPartGroups>
-                <li>LeftHandPinky</li>
-            </bodyPartGroups>
-        </apparel>
-    </ThingDef>
-    <ThingDef ParentName="Apparel_RingOfWarmth">
-        <defName>Apparel_RingOfWarmth_TOGGLEDEF_LR</defName>
-        <label>ring of warmth (LRing)</label>
-        <apparel>
-            <bodyPartGroups>
-                <li>LeftHandRingFinger</li>
-            </bodyPartGroups>
-        </apparel>
-    </ThingDef>
-    <ThingDef ParentName="Apparel_RingOfWarmth">
-        <defName>Apparel_RingOfWarmth_TOGGLEDEF_LM</defName>
-        <label>ring of warmth (LMiddle)</label>
-        <apparel>
-            <bodyPartGroups>
-                <li>LeftHandMiddleFinger</li>
-            </bodyPartGroups>
-        </apparel>
-    </ThingDef>
-    <ThingDef ParentName="Apparel_RingOfWarmth">
-        <defName>Apparel_RingOfWarmth_TOGGLEDEF_LI</defName>
-        <label>ring of warmth (LIndex)</label>
-        <apparel>
-            <bodyPartGroups>
-                <li>LeftHandIndexFinger</li>
-            </bodyPartGroups>
-        </apparel>
-    </ThingDef>
-
-    <!-- Ring of Cooling-->
-    <ThingDef Name="Apparel_RingOfCooling" Abstract="True" ParentName="WizardArmorMakeableBase">
-        <description>Infused with arcane energy, this ring radiates a coolness throughouth your body.</description>
-        <techLevel>Neolithic</techLevel>
-        <recipeMaker>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>3</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedRing</unfinishedThingDef>
-            <researchPrerequisite>Elementalism</researchPrerequisite>
-        </recipeMaker>
-        <graphicData>
-            <texPath>Things/Pawn/Humanlike/Apparel/Wizardry/Ring</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <statBases>
-            <WorkToMake>3000</WorkToMake>
-            <MaxHitPoints>100</MaxHitPoints>
-            <Insulation_Heat>25</Insulation_Heat>
-        </statBases>
-        <thingCategories>
-            <li>Apparel</li>
-        </thingCategories>
-        <costList>
-            <Gold>10</Gold>
-            <PowerRune>1</PowerRune>
-            <BindingRune>2</BindingRune>
-            <ControlRune>1</ControlRune>
-        </costList>
-        <apparel>
-            <worngraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</worngraphicPath>
-            <layers>
-                <li>Belt</li>
-            </layers>
-        </apparel>
-    </ThingDef>
-    <ThingDef ParentName="Apparel_RingOfCooling">
-        <defName>Apparel_RingOfCoolingR</defName>
-        <!-- <thingClass>UnificaMagica.RingThing</thingClass> -->
-        <label>ring of cooling (R)</label>
-        <apparel>
-            <bodyPartGroups>
-                <li>RightHand</li>
-            </bodyPartGroups>
-        </apparel>
-    </ThingDef>
-    <ThingDef ParentName="Apparel_RingOfCooling">
-        <defName>Apparel_RingOfCoolingL</defName>
-        <!--<thingClass>UnificaMagica.RingThing</thingClass>-->
-        <label>ring of cooling (L)</label>
-        <apparel>
-            <bodyPartGroups>
-                <li>LeftHand</li>
-            </bodyPartGroups>
-        </apparel>
-    </ThingDef>
-
-
-</ThingDefs>
+</Defs>

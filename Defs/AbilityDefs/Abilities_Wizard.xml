@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
 
     <!-- NOTE: TO add new spells, add entry in UnificaMagicaDefOf and
             CompAbilityUserWizard.PostInitialize -->
@@ -30,7 +30,9 @@
     </ThingDef>
 
 
-    <ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility">
+    <!-- ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility" -->
+    <!-- BaseAbility from JecsTools -->
+    <UnificaMagica.UMAbilityDef ParentName="UMBaseAbility">
         <defName>UM_WizardBolt</defName>
         <label>wizard bolt</label>
         <uiIconPath>UI/Zap</uiIconPath>
@@ -38,23 +40,24 @@
         <abilityLevel>1</abilityLevel>
         <MainVerb Class="AbilityUser.VerbProperties_Ability">
             <verbClass>AbilityUser.Verb_UseAbility</verbClass>
+            <AbilityTargetCategory>TargetThing</AbilityTargetCategory>
             <tooltipShowProjectileDamage>true</tooltipShowProjectileDamage>
             <tooltipShowExtraDamages>false</tooltipShowExtraDamages>
             <tooltipShowHediffsToApply>false</tooltipShowHediffsToApply>
             <tooltipShowMentalStatesToApply>false</tooltipShowMentalStatesToApply>
             <hasStandardCommand>true</hasStandardCommand>
-            <projectileDef>Projectile_WizardBolt</projectileDef>
+            <defaultProjectile>Projectile_WizardBolt</defaultProjectile>
             <abilityDef>UM_WizardBolt</abilityDef>
             <warmupTime>1</warmupTime>
             <SecondsToRecharge>180.0</SecondsToRecharge>
             <range>24</range>
             <burstShotCount>1</burstShotCount>
             <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
-            <soundCast>MessageBenefit</soundCast>
+            <soundCast>Pawn_Melee_Punch_HitPawn</soundCast>
             <muzzleFlashScale>20</muzzleFlashScale>
             <isPrimary>false</isPrimary>
         </MainVerb>
-    </ThingDef>
+    </UnificaMagica.UMAbilityDef>
 
     <!-- Wizard Bolt end-->
 
@@ -68,14 +71,14 @@
             <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-        <projectile>
+        <projectile Class="UnificaMagica.ZapProjectileProperties">
             <flyOverhead>false</flyOverhead>
             <damageDef>Bullet</damageDef>
             <damageAmountBase>9</damageAmountBase>
-            <!--DamageSkillModifier>
-                <Skill>Wizardry</Skill>
+            <DamageSkillModifier>
+                <Skill>Intellectual</Skill>
                 <fraction>.333</fraction>
-            </DamageSkillModifier -->
+            </DamageSkillModifier>
             <speed>55</speed>
         </projectile>
         <preFiringInitialIntensity>0</preFiringInitialIntensity>
@@ -89,7 +92,7 @@
     </ThingDef>
 
 
-    <ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility">
+    <UnificaMagica.UMAbilityDef ParentName="UMBaseAbility">
         <defName>UM_WizardSparks</defName>
         <label>sparks</label>
         <uiIconPath>UI/Zap</uiIconPath>
@@ -102,7 +105,7 @@
             <tooltipShowHediffsToApply>false</tooltipShowHediffsToApply>
             <tooltipShowMentalStatesToApply>false</tooltipShowMentalStatesToApply>
             <hasStandardCommand>true</hasStandardCommand>
-            <projectileDef>UMProjectile_WizardSpark</projectileDef>
+            <defaultProjectile>UMProjectile_WizardSpark</defaultProjectile>
             <abilityDef>UM_WizardSparks</abilityDef>
             <warmupTime>1.0</warmupTime>
             <SecondsToRecharge>180.0</SecondsToRecharge>
@@ -111,14 +114,13 @@
             <burstShotCount>120</burstShotCount>
             <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
             <isPrimary>false</isPrimary>
-            <soundCast>ShotMinigun</soundCast>
+            <soundCast>Shot_MachinePistol</soundCast>
             <soundCastTail>GunTail_Medium</soundCastTail>
             <muzzleFlashScale>9</muzzleFlashScale>
             <AlwaysHits>false</AlwaysHits>
         </MainVerb>
-    </ThingDef>
+    </UnificaMagica.UMAbilityDef>
     <!-- Wizard Sparks end-->
-
 
 
     <!-- Blink start -->
@@ -145,7 +147,7 @@
         <StartFireChance>0.000</StartFireChance>
     </ThingDef>
 
-    <ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility">
+    <UnificaMagica.UMAbilityDef ParentName="UMBaseAbility">
         <defName>UM_WizardBlink</defName>
         <label>blink</label>
         <uiIconPath>UI/Zap</uiIconPath>
@@ -154,7 +156,7 @@
         <MainVerb Class="AbilityUser.VerbProperties_Ability">
             <verbClass>UnificaMagica.Verb_Blink</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
-            <projectileDef>UMProjectile_WizardBlink</projectileDef>
+            <defaultProjectile>UMProjectile_WizardBlink</defaultProjectile>
             <abilityDef>UM_WizardBlink</abilityDef>
             <AbilityTargetCategory>TargetLocation</AbilityTargetCategory>
             <targetParams>
@@ -165,18 +167,17 @@
             <range>45</range>
             <burstShotCount>1</burstShotCount>
             <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
-            <soundCast>MessageBenefit</soundCast>
+            <soundCast>Pawn_Melee_Punch_HitPawn</soundCast>
             <muzzleFlashScale>20</muzzleFlashScale>
             <isPrimary>false</isPrimary>
         </MainVerb>
-    </ThingDef>
+    </UnificaMagica.UMAbilityDef>
     <!-- Blink end-->
 
 
     <!-- Fear Person start -->
-
     <ThingDef ParentName="BaseBullet" Class="AbilityUser.ProjectileDef_Ability">
-        <thingClass>AbilityUser.Projectile_Ability</thingClass>
+        <thingClass>AbilityUser.Projectile_AbilityBase</thingClass>
         <defName>Projectile_FearPerson</defName>
         <label>fear person</label>
         <graphicData>
@@ -191,7 +192,7 @@
         </projectile>
     </ThingDef>
 
-    <ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility">
+    <UnificaMagica.UMAbilityDef ParentName="UMBaseAbility">
         <defName>UM_FearPerson</defName>
         <label>fear person</label>
         <uiIconPath>UI/ForceUser/MindTrick</uiIconPath>
@@ -204,12 +205,13 @@
             <tooltipShowHediffsToApply>true</tooltipShowHediffsToApply>
             <tooltipShowMentalStatesToApply>true</tooltipShowMentalStatesToApply>
             <hasStandardCommand>true</hasStandardCommand>
-            <projectileDef>Projectile_FearPerson</projectileDef>
+            <defaultProjectile>Projectile_FearPerson</defaultProjectile>
             <abilityDef>UM_FearPerson</abilityDef>
             <warmupTime>1</warmupTime>
+            <AbilityTargetCategory>TargetThing</AbilityTargetCategory>
             <SecondsToRecharge>180.0</SecondsToRecharge>
             <range>34</range>
-            <soundCast>MessageBenefit</soundCast>
+            <soundCast>Pawn_Melee_Punch_HitPawn</soundCast>
             <muzzleFlashScale>20</muzzleFlashScale>
             <isPrimary>false</isPrimary>
             <isViolent>false</isViolent>
@@ -220,7 +222,7 @@
                 </li>
             </mentalStatesToApply>
         </MainVerb>
-    </ThingDef>
+    </UnificaMagica.UMAbilityDef>
 
     <!-- End Fear Person -->
 
@@ -243,7 +245,7 @@
         </projectile>
     </ThingDef>
 
-    <ThingDef Class="UnificaMagica.UMAbilityDef" ParentName="BaseAbility">
+    <UnificaMagica.UMAbilityDef ParentName="UMBaseAbility">
         <defName>UM_FearBomb</defName>
         <label>fear bomb</label>
         <uiIconPath>UI/ForceUser/MindTrick</uiIconPath>
@@ -256,13 +258,13 @@
             <tooltipShowHediffsToApply>true</tooltipShowHediffsToApply>
             <tooltipShowMentalStatesToApply>true</tooltipShowMentalStatesToApply>
             <hasStandardCommand>true</hasStandardCommand>
-            <projectileDef>Projectile_FearPerson</projectileDef>
+            <defaultProjectile>Projectile_FearPerson</defaultProjectile>
             <abilityDef>UM_FearBomb</abilityDef>
             <warmupTime>1</warmupTime>
             <SecondsToRecharge>180.0</SecondsToRecharge>
             <range>34</range>
             <isViolent>false</isViolent>
-            <soundCast>MessageBenefit</soundCast>
+            <soundCast>Pawn_Melee_Punch_HitPawn</soundCast>
             <muzzleFlashScale>20</muzzleFlashScale>
             <AbilityTargetCategory>TargetAoE</AbilityTargetCategory>
             <TargetAoEProperties>
@@ -284,14 +286,13 @@
             <mentalStatesToApply>
                 <li>
                     <mentalStateDef>WanderConfused</mentalStateDef>
-                    <!-- <mentalStateDef>UM_WizardFear</mentalStateDef> -->
+                    <!-- mentalStateDef>UM_WizardFear</mentalStateDef -->
                     <applyChance>0.6</applyChance>
                 </li>
             </mentalStatesToApply>
         </MainVerb>
-    </ThingDef>
-
+    </UnificaMagica.UMAbilityDef>
     <!-- End Fear Bomb-->
 
 
-</ThingDefs>
+</Defs>

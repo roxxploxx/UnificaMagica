@@ -1,12 +1,13 @@
-﻿using System;
+﻿// using System;
 using RimWorld;
 using Verse;
 
 namespace UnificaMagica
 {
+	        
 	public class Verb_FueledShot : Verb_Shoot
 	{
-
+		
 
 
 		// NOTE: this adds refuelable to a Turret, but could easily create something that for a Pawn, looks for something on them that is refuelable.

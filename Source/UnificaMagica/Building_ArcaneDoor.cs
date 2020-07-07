@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using RimWorld;
 using Verse;
 
@@ -11,18 +11,18 @@ namespace UnificaMagica
 
 		protected CompRefuelable refuelableComp;
 
-		public override void SpawnSetup(Map map)
+		public override void SpawnSetup(Map map, bool _respawnAfterLoad)
 		{
-			base.SpawnSetup(map);
+			base.SpawnSetup(map, _respawnAfterLoad);
 			this.refuelableComp = base.GetComp<RimWorld.CompRefuelable>();
-			this.powerComp = null;//base.GetComp<CompPowerPlant>();
+			// this.powerComp = base.GetComp<CompPowerPlant>();
 		}
 
 		public override void PostMake()
 		{
 			base.PostMake();
             this.refuelableComp = base.GetComp<RimWorld.CompRefuelable>();
-			this.powerComp = null;//base.GetComp<CompPowerPlant>();
+			// this.powerComp = base.GetComp<CompPowerPlant>();
 		}
 
 		public new bool DoorPowerOn
@@ -39,7 +39,7 @@ namespace UnificaMagica
 
 
 }
-*/
+
 
 /*
 using System;

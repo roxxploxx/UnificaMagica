@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<BodyPartGroupDefs>
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
 
     <BodyPartGroupDef>
         <defName>RightHandIndexFinger</defName>
@@ -55,4 +55,4 @@
     </BodyPartGroupDef>
 
 
-</BodyPartGroupDefs>
+</Defs>

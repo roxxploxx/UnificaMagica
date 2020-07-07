@@ -1,10 +1,13 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
 
     <ThingDef ParentName="FurnitureBase">
         <defName>ArcaneChessTable</defName>
         <label>arcane chess table</label>
         <description>The ancient game of wizards. More complicated than traditional chess, with different dimensions and rules. Fun for a few hours here and there, even playing alone.</description>
+        <thingCategories>
+            <li>BuildingsJoy</li>
+        </thingCategories>
         <graphicData>
             <texPath>Things/Building/Joy/ChessTable</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -24,7 +27,7 @@
         <socialPropernessMatters>true</socialPropernessMatters>
         <fillPercent>0.40</fillPercent>
         <building>
-            <isJoySource>true</isJoySource>
+            <joyKind>Gaming_Cerebral</joyKind>
         </building>
         <statBases>
             <MaxHitPoints>100</MaxHitPoints>
@@ -32,7 +35,7 @@
             <Mass>5</Mass>
             <Flammability>1.0</Flammability>
             <Beauty>20</Beauty>
-            <EntertainmentStrengthFactor>2</EntertainmentStrengthFactor>
+            <JoyGainFactor>1.6</JoyGainFactor>
         </statBases>
         <stuffCategories>
             <li>Metallic</li>
@@ -49,15 +52,15 @@
         <passability>PassThroughOnly</passability>
         <designationCategory>UnificaMagicaDesignation</designationCategory>
         <designationHotKey>Misc2</designationHotKey>
-        <comps>
+        <!-- comps>
             <li Class="CompProperties_RoomIdentifier">
                 <roomStat>Impressiveness</roomStat>
             </li>
-        </comps>
+        </comps -->
         <researchPrerequisites>
             <li>EnchantingI</li>
         </researchPrerequisites>
     </ThingDef>
 
 
-</ThingDefs>
+</Defs>

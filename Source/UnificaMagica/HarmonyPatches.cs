@@ -1,10 +1,11 @@
-using Harmony;
+//using Harmony;
 using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Verse;
+
 
 namespace UnificaMagica
 {
@@ -14,33 +15,33 @@ namespace UnificaMagica
         // this static constructor runs to create a HarmonyInstance and install a patch.
         static HarmonyPatches()
         {
-            HarmonyInstance harmony = HarmonyInstance.Create("rimworld.roxxploxx.unificamagica");
+            // HarmonyInstance harmony = HarmonyInstance.Create("rimworld.roxxploxx.unificamagica");
 
             // find the RimWorld.ITab_Pawn_Character class's method of FillTab
-            MethodInfo targetmethod = AccessTools.Method(typeof(RimWorld.ITab_Pawn_Character),"FillTab");
+            // CAW      MethodInfo targetmethod = AccessTools.Method(typeof(RimWorld.ITab_Pawn_Character),"FillTab");
 
             // find the static method to call before (i.e. Prefix) the targetmethod
-            HarmonyMethod prefixmethod = new HarmonyMethod(typeof(UnificaMagica.HarmonyPatches).GetMethod("FillTab_Prefix"));
+            // CAW      HarmonyMethod prefixmethod = new HarmonyMethod(typeof(UnificaMagica.HarmonyPatches).GetMethod("FillTab_Prefix"));
 
             // patch the targetmethod, by calling prefixmethod before it runs, with no postfixmethod
-            harmony.Patch( targetmethod, prefixmethod, null ) ;
+            // CAW      harmony.Patch( targetmethod, prefixmethod, null ) ;
 
 
-/*
-            harmony.Patch(
-                AccessTools.Method(typeof(UnificaMagica.Verb_UseAbility_TrueBurst),"VerbTick"),
-                null,
-                new HarmonyMethod(typeof(UnificaMagica.HarmonyPatches).GetMethod("VerbTick_Postfix"))
-                );
-            harmony.Patch(
-                AccessTools.Method(typeof(Verse.Verb),"Reset"),
-                null,
-                new HarmonyMethod(typeof(UnificaMagica.HarmonyPatches).GetMethod("Verb_Reset_Postfix"))
-                );
-                */
+            /*
+                        harmony.Patch(
+                            AccessTools.Method(typeof(UnificaMagica.Verb_UseAbility_TrueBurst),"VerbTick"),
+                            null,
+                            new HarmonyMethod(typeof(UnificaMagica.HarmonyPatches).GetMethod("VerbTick_Postfix"))
+                            );
+                        harmony.Patch(
+                            AccessTools.Method(typeof(Verse.Verb),"Reset"),
+                            null,
+                            new HarmonyMethod(typeof(UnificaMagica.HarmonyPatches).GetMethod("Verb_Reset_Postfix"))
+                            );
+                            */
 
-
-            HarmonyPatches.AddTab(typeof(ITab_Wizard), def => def.race != null && def.race.Humanlike);
+            // Log.Message("AddTab in HarmonyPatches");
+            // HarmonyPatches.AddTab(typeof(ITab_Wizard), def => def.race != null && def.race.Humanlike);
 
 
         }
@@ -58,10 +59,13 @@ namespace UnificaMagica
         }
         */
 
+        /* CAW
         // So, before the ITab_Pawn_Character is instantiated, reset the height of the dialog window
         public static void FillTab_Prefix() {
-            RimWorld.CharacterCardUtility.PawnCardSize.y = DefDatabase<RimWorld.SkillDef>.AllDefsListForReading.Count * 47.5f;
+            // NOTE: commented out on update to Rimworld 1.1 ? Maybe this is fixed now?
+            // RimWorld.CharacterCardUtility.PawnCardSize.y = DefDatabase<RimWorld.SkillDef>.AllDefsListForReading.Count * 47.5f;
         }
+        */
 
 
         // create the Component AbilityUser
@@ -92,7 +96,7 @@ namespace UnificaMagica
         */
 
 
-
+        
         // From Hospitality Mod ...
         public static void AddTab(Type tabType, Func<ThingDef, bool> qualifier)
         {
@@ -105,11 +109,11 @@ namespace UnificaMagica
                 {
                     def.inspectorTabs.Add(tabType);
                     def.inspectorTabsResolved.Add(InspectTabManager.GetSharedInstance(tabType));
-                    //Log.Message(def.defName+": "+def.inspectorTabsResolved.Select(d=>d.GetType().Name).Aggregate((a,b)=>a+", "+b));
+                    Log.Message(def.defName+": "+def.inspectorTabsResolved.Select(d=>d.GetType().Name).Aggregate((a,b)=>a+", "+b));
                 }
             }
         }
-
+        
 
     }
 }

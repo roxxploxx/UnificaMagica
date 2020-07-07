@@ -1,78 +1,84 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<StatDefs>
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
 
-    <StatDef>
-        <defName>WizardSpeed</defName>
-        <label>wizard speed</label>
-        <description>Speed at which this person researches or crafts wizard items.</description>
-        <category>PawnWork</category>
-        <defaultBaseValue>1</defaultBaseValue>
-        <toStringStyle>PercentZero</toStringStyle>
-        <statFactors>
-            <li>WorkSpeedGlobal</li>
-        </statFactors>
-        <skillNeedFactors>
-            <li Class="SkillNeed_BaseBonus">
-                <skill>Wizardry</skill>
-                <baseFactor>0.1</baseFactor>
-                <bonusFactor>0.15</bonusFactor>
-            </li>
-        </skillNeedFactors>
-        <capacityFactors>
-            <li>
-                <capacity>Consciousness</capacity>
-                <weight>1</weight>
-            </li>
-            <li>
-                <capacity>Sight</capacity>
-                <weight>0.6</weight>
-                <max>1</max>
-            </li>
-            <li>
-                <capacity>Manipulation</capacity>
-                <weight>0.9</weight>
-            </li>
-        </capacityFactors>
-    </StatDef>
+  <StatDef>
+    <!-- Use this in the future. Had to turn off due ot errors. -->
+    <defName>WizardSpeed</defName>
+    <label>wizard speed</label>
+    <description>Speed at which this person researches or crafts wizard items.</description>
+    <category>PawnWork</category>
+    <defaultBaseValue>1</defaultBaseValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <statFactors>
+      <li>WorkSpeedGlobal</li>
+    </statFactors>
+    <skillNeedFactors>
+      <li Class="SkillNeed_BaseBonus">
+        <skill>Intellectual</skill>
+        <baseValue>0.05</baseValue>
+        <bonusPerLevel>0.10</bonusPerLevel>
+      </li>
+      <li Class="SkillNeed_BaseBonus">
+        <skill>Crafting</skill>
+        <baseValue>0.05</baseValue>
+        <bonusPerLevel>0.05</bonusPerLevel>
+      </li>
+    </skillNeedFactors>
+    <capacityFactors>
+      <li>
+        <capacity>Consciousness</capacity>
+        <weight>1</weight>
+      </li>
+      <li>
+        <capacity>Sight</capacity>
+        <weight>0.6</weight>
+        <max>1</max>
+      </li>
+      <li>
+        <capacity>Manipulation</capacity>
+        <weight>0.9</weight>
+      </li>
+    </capacityFactors>
+  </StatDef>
 
 
-    <StatDef>
-        <defName>PlantMinTemp</defName>
-        <label>plant minimum temperature change</label>
-        <description>Modifies the minimum temperature the plant can exist at.</description>
-        <category>BasicsNonPawn</category>
-        <defaultBaseValue>0</defaultBaseValue>
-        <toStringStyle>Integer</toStringStyle>
-        <!--
-        <minValue></minValue>
-        <roundValue>true</roundValue>
-        <roundToFiveOver>200</roundToFiveOver>
-    -->
-</StatDef>
+  <StatDef>
+    <defName>PlantMinTemp</defName>
+    <label>plant minimum temperature change</label>
+    <description>Modifies the minimum temperature the plant can exist at.</description>
+    <category>BasicsNonPawn</category>
+    <defaultBaseValue>0</defaultBaseValue>
+    <toStringStyle>Integer</toStringStyle>
+    <!--
+          <minValue></minValue>
+          <roundValue>true</roundValue>
+          <roundToFiveOver>200</roundToFiveOver>
+        -->
+  </StatDef>
 
-<StatDef>
+  <StatDef>
     <defName>PlantMaxTemp</defName>
     <label>plant max temperature change</label>
     <description>Modifies the maximum temperature the plant can exist at.</description>
     <category>BasicsNonPawn</category>
     <defaultBaseValue>0</defaultBaseValue>
     <toStringStyle>Integer</toStringStyle>
-</StatDef>
-<StatDef>
+  </StatDef>
+  <StatDef>
     <defName>PlantMinOptimalTemp</defName>
     <label>plant min optimal temperature change</label>
     <description>Modifies the minumum optial temperature the plant can exist at.</description>
     <category>BasicsNonPawn</category>
     <defaultBaseValue>0</defaultBaseValue>
     <toStringStyle>Integer</toStringStyle>
-</StatDef>
-<StatDef>
+  </StatDef>
+  <StatDef>
     <defName>PlantMaxOptimalTemp</defName>
     <label>plant max optimal temperature change</label>
     <description>Modifies the maximum optimal temperature the plant can exist at.</description>
     <category>BasicsNonPawn</category>
     <defaultBaseValue>0</defaultBaseValue>
     <toStringStyle>Integer</toStringStyle>
-</StatDef>
+  </StatDef>
 
-</StatDefs>
+</Defs>

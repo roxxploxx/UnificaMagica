@@ -24,12 +24,12 @@ namespace UnificaMagica
 
 	// overrides Explosion Projectiles by including here
 	public class ZapProjectileProperties : Verse.ProjectileProperties {
-		public bool  LightningBolt = false;    // lighting bolt animation
-		public bool  InstantOldInjury = false;
-		public int ExplosionDamageAmountBase = 0;  // damage from explosions
-		public SkillModifierProperties DamageSkillModifier = null;
+		public bool  lightningBolt = false;    // lighting bolt animation
+		public bool  instantOldInjury = false;
+		public int explosionDamageAmountBase = 0;  // damage from explosions
+		public SkillModifierProperties DamageSkillModifier = new SkillModifierProperties();
 //		public BeamProperties Beam = null;
-//		public SkillModifierDef ExplosionSkillModifier = null;
+		public SkillModifierProperties ExplosionSkillModifier = null;
 	}
 
 	public class ZapProjectile : Verse.Projectile // RimWorld.Bullet //Verse.Projectile
@@ -51,21 +51,23 @@ namespace UnificaMagica
 			// damage
 			if (hitThing != null)
 			{
-				int damageAmountBase = pp.damageAmountBase;
+                int v = pp.GetDamageAmount(1.0f);
+				float pen = pp.GetArmorPenetration(1.0f);
+				int ddamageAmountBase = v;
 
-				if ( pp.DamageSkillModifier != null ) {
+                if ( pp.DamageSkillModifier != null ) {
 					Verse.Pawn p = this.launcher as Verse.Pawn;
 					RimWorld.SkillRecord wiz = p.skills.GetSkill(pp.DamageSkillModifier.Skill);
-					damageAmountBase +=  (int) (((float)wiz.Level) * pp.DamageSkillModifier.fraction);
+					ddamageAmountBase +=  (int) (((float)wiz.Level) * pp.DamageSkillModifier.fraction);
 				}
 
 				ThingDef equipmentDef = this.equipmentDef;
-				DamageInfo dinfo = new DamageInfo(this.def.projectile.damageDef, damageAmountBase, this.ExactRotation.eulerAngles.y, this.launcher, null, equipmentDef);
+				DamageInfo dinfo = new DamageInfo(this.def.projectile.damageDef, ddamageAmountBase, pen, this.ExactRotation.eulerAngles.y, this.launcher, null, equipmentDef);
 				hitThing.TakeDamage(dinfo);
 
 
 				// lightning strike!
-				if ( pp.LightningBolt == true ) {
+				if ( pp.lightningBolt == true ) {
 					Verse.Pawn p = this.launcher as Verse.Pawn;
 					MoteMaker.ThrowLightningGlow(hitThing.Position.ToVector3(),map,2.5f);
 					MeshBolt lightning = new MeshBolt(hitThing.Position, p.Position.ToVector3(), MeshBolt.Lightning) ;// MatLoader.LoadMat( pp.Beam.texPath) ); //MeshBolt.Lightning
@@ -78,7 +80,7 @@ namespace UnificaMagica
 			}
 			else
 			{
-				RimWorld.SoundDefOf.BulletImpactGround.PlayOneShot(new TargetInfo(base.Position, map, false));
+				RimWorld.SoundDefOf.BulletImpact_Ground.PlayOneShot(new TargetInfo(base.Position, map, false));
 				RimWorld.MoteMaker.MakeStaticMote(this.ExactPosition, map, RimWorld.ThingDefOf.Mote_ShotHit_Dirt, 1f);
 			}
 
@@ -107,19 +109,28 @@ namespace UnificaMagica
 			Map map = base.Map;
 			this.Destroy (DestroyMode.Vanish);
 			ThingDef preExplosionSpawnThingDef = pp.preExplosionSpawnThingDef;
-			float explosionSpawnChance = pp.explosionSpawnChance;
+			float explosionSpawnChance = pp.postExplosionSpawnChance;
 
-/*
-			pp.damageAmountBase = pp.ExplosionDamageAmountBase; // set to explosion damage now
-			if ( pp.ExplosionSkillModifier != null ) {
+			int expldam = pp.explosionDamageAmountBase;
+			if (pp.ExplosionSkillModifier != null)
+			{
 				Verse.Pawn p = this.launcher as Verse.Pawn;
 				RimWorld.SkillRecord wiz = p.skills.GetSkill(pp.ExplosionSkillModifier.Skill);
-				pp.damageAmountBase +=  (int) (((float)wiz.Level) * pp.ExplosionSkillModifier.fraction);
+				expldam += (int)(((float)wiz.Level) * pp.ExplosionSkillModifier.fraction);
 			}
-			*/
+			/*
+						pp.damageAmountBase = pp.ExplosionDamageAmountBase; // set to explosion damage now
+						if ( pp.ExplosionSkillModifier != null ) {
+							Verse.Pawn p = this.launcher as Verse.Pawn;
+							RimWorld.SkillRecord wiz = p.skills.GetSkill(pp.ExplosionSkillModifier.Skill);
+							pp.damageAmountBase +=  (int) (((float)wiz.Level) * pp.ExplosionSkillModifier.fraction);
+						}
+						*/
 			GenExplosion.DoExplosion (base.Position, map, pp.explosionRadius, DamageDefOf.Bomb, this.launcher,
-					pp.soundExplode, this.def, this.equipmentDef, pp.postExplosionSpawnThingDef,
-					pp.explosionSpawnChance, 1, false, preExplosionSpawnThingDef, explosionSpawnChance, 1);
+				expldam, 1.0f, pp.soundExplode,
+					this.equipmentDef, this.def, // __weapon__, __projectile__,
+					null, pp.postExplosionSpawnThingDef, pp.postExplosionSpawnChance, 1, false,
+					preExplosionSpawnThingDef, explosionSpawnChance, 1);
 		}
 
 		public override void ExposeData ()

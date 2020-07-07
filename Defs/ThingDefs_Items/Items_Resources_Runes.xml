@@ -30,8 +30,8 @@
             <li>Runes</li>
         </thingCategories>
         <recipeMaker>
-            <workSpeedStat>WizardSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Smith</soundWorking>
             <recipeUsers>
@@ -39,10 +39,7 @@
             </recipeUsers>
             <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
             <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>1</minLevel>
-                </li>
+              <Crafting>1</Crafting>
             </skillRequirements>
             <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
         </recipeMaker>
@@ -68,10 +65,7 @@
         <recipeMaker>
             <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
             <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>1</minLevel>
-                </li>
+              <Crafting>1</Crafting>
             </skillRequirements>
             <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
         </recipeMaker>
@@ -98,10 +92,7 @@
         <recipeMaker>
             <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
             <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>2</minLevel>
-                </li>
+              <Crafting>2</Crafting>
             </skillRequirements>
             <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
         </recipeMaker>
@@ -128,10 +119,7 @@
         <recipeMaker>
             <researchPrerequisite>ArcaneArtificer</researchPrerequisite>
             <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>3</minLevel>
-                </li>
+              <Crafting>3</Crafting>
             </skillRequirements>
             <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
         </recipeMaker>
@@ -158,10 +146,7 @@
         <recipeMaker>
             <researchPrerequisite>InanimateImbuement</researchPrerequisite>
             <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>5</minLevel>
-                </li>
+              <Crafting>5</Crafting>
             </skillRequirements>
             <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
         </recipeMaker>
@@ -187,10 +172,7 @@
         <recipeMaker>
             <researchPrerequisite>ArcaneScribe</researchPrerequisite>
             <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>8</minLevel>
-                </li>
+              <Crafting>8</Crafting>
             </skillRequirements>
             <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
         </recipeMaker>
@@ -216,10 +198,7 @@
         <recipeMaker>
             <researchPrerequisite>OldMagic</researchPrerequisite>
             <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>12</minLevel>
-                </li>
+              <Crafting>12</Crafting>
             </skillRequirements>
             <unfinishedThingDef>UnfinishedRune</unfinishedThingDef>
         </recipeMaker>

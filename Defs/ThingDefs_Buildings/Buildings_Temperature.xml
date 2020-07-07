@@ -1,291 +1,309 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ArcaneHeatEmitter</defName>
+    <label>arcane heat emitter</label>
+    <description>An arcane device that converts energy into heat.</description>
+    <category>Building</category>
+    <thingCategories>
+      <li>BuildingsTemperature</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Building/Misc/Campfire</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawRotated>false</drawRotated>
+      <allowFlip>false</allowFlip>
+      <damageData>
+        <rect>(0.2,0,0.6,0.1)</rect>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <constructEffect>ConstructDirt</constructEffect>
+    <drawerType>RealtimeOnly</drawerType>
+    <fillPercent>0.40</fillPercent>
+    <statBases>
+      <Mass>2</Mass>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <selectable>true</selectable>
+    <costList>
+      <WoodLog>10</WoodLog>
+      <PowerRune>2</PowerRune>
+      <BindingRune>3</BindingRune>
+    </costList>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <placeWorkers>
+      <li>PlaceWorker_Heater</li>
+    </placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(255,150,100,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <heatPerSecond>11</heatPerSecond>
+        <heatPushMinTemperature>15</heatPushMinTemperature>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>.1</fuelConsumptionRate>
+        <fuelCapacity>1.0</fuelCapacity>
+        <initialFuelPercent>1</initialFuelPercent>
+        <fuelFilter>
+          <thingDefs>
+            <li>PowerRune</li>
+          </thingDefs>
+        </fuelFilter>
+        <destroyOnNoFuel>true</destroyOnNoFuel>
+      </li>
+    </comps>
+    <designationCategory>UnificaMagicaDesignation</designationCategory>
+    <designationHotKey>Misc2</designationHotKey>
+    <researchPrerequisites>
+      <li>ArcaneWizardry</li>
+    </researchPrerequisites>
+  </ThingDef>
 
 
-    <ThingDef ParentName="BuildingBase">
-        <defName>ArcaneHeatEmitter</defName>
-        <label>arcane heat emitter</label>
-        <description>An arcane device that converts energy into heat.</description>
-        <category>Building</category>
-        <graphicData>
-            <texPath>Things/Building/Misc/Campfire</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawRotated>false</drawRotated>
-            <allowFlip>false</allowFlip>
-            <damageData>
-                <rect>(0.2,0,0.6,0.1)</rect>
-            </damageData>
-        </graphicData>
-        <altitudeLayer>Building</altitudeLayer>
-        <passability>PassThroughOnly</passability>
-        <pathCost>50</pathCost>
-        <constructEffect>ConstructDirt</constructEffect>
-        <tickerType>Normal</tickerType>
-        <drawerType>RealtimeOnly</drawerType>
-        <fillPercent>0.40</fillPercent>
-        <statBases>
-            <MaxHitPoints>80</MaxHitPoints>
-            <WorkToBuild>200</WorkToBuild>
-            <Flammability>0</Flammability>
-        </statBases>
-        <selectable>true</selectable>
-        <costList>
-            <WoodLog>10</WoodLog>
-            <PowerRune>2</PowerRune>
-            <BindingRune>3</BindingRune>
-        </costList>
-        <soundImpactDefault>BulletImpactGround</soundImpactDefault>
-        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-        <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
-        <minifiedDef>MinifiedFurniture</minifiedDef>
-        <placeWorkers>
-            <li>PlaceWorker_Heater</li>
-        </placeWorkers>
-        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-        <comps>
-            <li Class="CompProperties_Glower">
-                <glowRadius>3</glowRadius>
-                <glowColor>(255,150,100,0)</glowColor>
-            </li>
-            <li Class="CompProperties_HeatPusher">
-                <heatPerSecond>11</heatPerSecond>
-                <heatPushMinTemperature>15</heatPushMinTemperature>
-            </li>
-            <li Class="CompProperties_Refuelable">
-                <fuelConsumptionRate>.1</fuelConsumptionRate>
-                <fuelCapacity>1.0</fuelCapacity>
-                <fuelFilter>
-                    <thingDefs>
-                        <li>PowerRune</li>
-                    </thingDefs>
-                </fuelFilter>
-                <destroyOnNoFuel>true</destroyOnNoFuel>
-            </li>
-        </comps>
-        <designationCategory>UnificaMagicaDesignation</designationCategory>
-        <designationHotKey>Misc2</designationHotKey>
-        <researchPrerequisites>
-            <li>ArcaneWizardry</li>
-        </researchPrerequisites>
-    </ThingDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>ArcaneHeater</defName>
+    <label>arcane heater</label>
+    <thingClass>UnificaMagica.Building_ArcaneHeater</thingClass>
+    <description>An arcane device that converts energy into heat. It can automatically turn itself on or off to reach a specific target temperature.</description>
+    <category>Building</category>
+    <thingCategories>
+      <li>BuildingsTemperature</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Building/Misc/TempControl/ArcaneHeater</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawRotated>false</drawRotated>
+      <allowFlip>false</allowFlip>
+      <damageData>
+        <rect>(0.2,0,0.6,0.1)</rect>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <constructEffect>ConstructDirt</constructEffect>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <drawerType>RealtimeOnly</drawerType>
+    <fillPercent>0.40</fillPercent>
+    <statBases>
+      <Mass>8</Mass>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <selectable>true</selectable>
+    <costList>
+      <WoodLog>10</WoodLog>
+      <PowerRune>2</PowerRune>
+      <BindingRune>3</BindingRune>
+      <AwarenessRune>1</AwarenessRune>
+      <ControlRune>1</ControlRune>
+    </costList>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+    <placeWorkers>
+      <li>PlaceWorker_Heater</li>
+    </placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(255,150,100,0)</glowColor>
+      </li>
+      <!-- li Class="CompProperties_HeatPusher">
+          <heatPerSecond>11</heatPerSecond>
+          <heatPushMinTemperature>15</heatPushMinTemperature>
+        </li -->
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_TempControl">
+        <energyPerSecond>21</energyPerSecond>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>.1</fuelConsumptionRate>
+        <fuelCapacity>1.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>PowerRune</li>
+          </thingDefs>
+        </fuelFilter>
+        <initialFuelPercent>1</initialFuelPercent>
+        <destroyOnNoFuel>false</destroyOnNoFuel>
+      </li>
+    </comps>
+    <designationCategory>UnificaMagicaDesignation</designationCategory>
+    <designationHotKey>Misc2</designationHotKey>
+    <researchPrerequisites>
+      <li>Elementalism</li>
+    </researchPrerequisites>
+  </ThingDef>
 
 
-    <ThingDef ParentName="BuildingBase">
-        <defName>ArcaneHeater</defName>
-        <label>arcane heater</label>
-        <thingClass>UnificaMagica.Building_ArcaneHeater</thingClass>
-        <description>An arcane device that converts energy into heat. It can automatically turn itself on or off to reach a specific target temperature.</description>
-        <category>Building</category>
-        <graphicData>
-            <texPath>Things/Building/Misc/TempControl/ArcaneHeater</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawRotated>false</drawRotated>
-            <allowFlip>false</allowFlip>
-            <damageData>
-                <rect>(0.2,0,0.6,0.1)</rect>
-            </damageData>
-        </graphicData>
-        <altitudeLayer>Building</altitudeLayer>
-        <passability>PassThroughOnly</passability>
-        <pathCost>50</pathCost>
-        <constructEffect>ConstructDirt</constructEffect>
-        <minifiedDef>MinifiedFurniture</minifiedDef>
-        <drawerType>RealtimeOnly</drawerType>
-        <fillPercent>0.40</fillPercent>
-        <statBases>
-            <MaxHitPoints>80</MaxHitPoints>
-            <WorkToBuild>200</WorkToBuild>
-            <Flammability>0</Flammability>
-        </statBases>
-        <tickerType>Rare</tickerType>
-        <selectable>true</selectable>
-        <costList>
-            <WoodLog>10</WoodLog>
-            <PowerRune>2</PowerRune>
-            <BindingRune>3</BindingRune>
-            <AwarenessRune>1</AwarenessRune>
-            <ControlRune>1</ControlRune>
-        </costList>
-        <soundImpactDefault>BulletImpactGround</soundImpactDefault>
-        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-        <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
-        <placeWorkers>
-            <li>PlaceWorker_Heater</li>
-        </placeWorkers>
-        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-        <comps>
-            <li Class="CompProperties_Glower">
-                <glowRadius>3</glowRadius>
-                <glowColor>(255,150,100,0)</glowColor>
-            </li>
-            <!-- li Class="CompProperties_HeatPusher">
-                <heatPerSecond>11</heatPerSecond>
-                <heatPushMinTemperature>15</heatPushMinTemperature>
-            </li -->
-            <li Class="CompProperties_Flickable"/>
-            <li Class="CompProperties_TempControl">
-                <energyPerSecond>21</energyPerSecond>
-            </li>
-            <li Class="CompProperties_Refuelable">
-                <fuelConsumptionRate>.1</fuelConsumptionRate>
-                <fuelCapacity>1.0</fuelCapacity>
-                <fuelFilter>
-                    <thingDefs>
-                        <li>PowerRune</li>
-                    </thingDefs>
-                </fuelFilter>
-                <destroyOnNoFuel>true</destroyOnNoFuel>
-            </li>
-        </comps>
-        <designationCategory>UnificaMagicaDesignation</designationCategory>
-        <designationHotKey>Misc2</designationHotKey>
-        <researchPrerequisites>
-            <li>Elementalism</li>
-        </researchPrerequisites>
-    </ThingDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>ArcaneHeatAbsorber</defName>
+    <label>arcane heat absorber</label>
+    <description>An arcane cooling device, frosty to the touch. Heat evaporates around it in some unexplained way.</description>
+    <category>Building</category>
+    <thingCategories>
+      <li>BuildingsTemperature</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Building/Misc/PassiveCooler</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawRotated>false</drawRotated>
+      <allowFlip>false</allowFlip>
+      <damageData>
+        <rect>(0.2,0,0.6,0.1)</rect>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <constructEffect>ConstructDirt</constructEffect>
+    <drawerType>RealtimeOnly</drawerType>
+    <fillPercent>0.40</fillPercent>
+    <statBases>
+      <Mass>2</Mass>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <selectable>true</selectable>
+    <costList>
+      <WoodLog>10</WoodLog>
+      <PowerRune>2</PowerRune>
+      <BindingRune>3</BindingRune>
+    </costList>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+    <placeWorkers>
+      <li>PlaceWorker_CoolerSimple</li>
+    </placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(255,150,100,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <heatPerSecond>-11</heatPerSecond>
+        <heatPushMinTemperature>15</heatPushMinTemperature>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>.1</fuelConsumptionRate>
+        <fuelCapacity>1.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>PowerRune</li>
+          </thingDefs>
+        </fuelFilter>
+        <initialFuelPercent>1</initialFuelPercent>
+        <destroyOnNoFuel>true</destroyOnNoFuel>
+      </li>
+    </comps>
+    <designationCategory>UnificaMagicaDesignation</designationCategory>
+    <designationHotKey>Misc2</designationHotKey>
+    <researchPrerequisites>
+      <li>ArcaneWizardry</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ArcaneCooler</defName>
+    <label>arcane cooler</label>
+    <thingClass>UnificaMagica.Building_ArcaneCooler</thingClass>
+    <description>An arcane device that absorbes heat. It can automatically turn itself on or off to reach a specific target temperature.</description>
+    <category>Building</category>
+    <thingCategories>
+      <li>BuildingsTemperature</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Building/Misc/TempControl/ArcaneCooler</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawRotated>false</drawRotated>
+      <allowFlip>false</allowFlip>
+      <damageData>
+        <rect>(0.2,0,0.6,0.1)</rect>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <constructEffect>ConstructDirt</constructEffect>
+    <drawerType>RealtimeOnly</drawerType>
+    <fillPercent>0.40</fillPercent>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <statBases>
+      <Mass>8</Mass>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <selectable>true</selectable>
+    <costList>
+      <WoodLog>10</WoodLog>
+      <PowerRune>2</PowerRune>
+      <BindingRune>3</BindingRune>
+      <AwarenessRune>1</AwarenessRune>
+      <ControlRune>1</ControlRune>
+    </costList>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+    <placeWorkers>
+      <li>PlaceWorker_CoolerSimple</li>
+    </placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(255,150,100,0)</glowColor>
+      </li>
+      <!-- li Class="CompProperties_HeatPusher">
+          <heatPerSecond>-11</heatPerSecond>
+          <heatPushMinTemperature>15</heatPushMinTemperature>
+        </li -->
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_TempControl">
+        <energyPerSecond>-21</energyPerSecond>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>.1</fuelConsumptionRate>
+        <fuelCapacity>1.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>PowerRune</li>
+          </thingDefs>
+        </fuelFilter>
+        <initialFuelPercent>1</initialFuelPercent>
+        <destroyOnNoFuel>false</destroyOnNoFuel>
+      </li>
+    </comps>
+    <designationCategory>UnificaMagicaDesignation</designationCategory>
+    <designationHotKey>Misc2</designationHotKey>
+    <researchPrerequisites>
+      <li>Elementalism</li>
+    </researchPrerequisites>
+  </ThingDef>
 
 
-    <ThingDef ParentName="BuildingBase">
-        <defName>ArcaneHeatAbsorber</defName>
-        <label>arcane heat absorber</label>
-        <description>An arcane cooling device, frosty to the touch. Heat evaporates around it in some unexplained way.</description>
-        <category>Building</category>
-        <graphicData>
-            <texPath>Things/Building/Misc/PassiveCooler</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawRotated>false</drawRotated>
-            <allowFlip>false</allowFlip>
-            <damageData>
-                <rect>(0.2,0,0.6,0.1)</rect>
-            </damageData>
-        </graphicData>
-        <altitudeLayer>Building</altitudeLayer>
-        <passability>PassThroughOnly</passability>
-        <pathCost>50</pathCost>
-        <constructEffect>ConstructDirt</constructEffect>
-        <tickerType>Normal</tickerType>
-        <drawerType>RealtimeOnly</drawerType>
-        <fillPercent>0.40</fillPercent>
-        <statBases>
-            <MaxHitPoints>80</MaxHitPoints>
-            <WorkToBuild>200</WorkToBuild>
-            <Flammability>0</Flammability>
-        </statBases>
-        <selectable>true</selectable>
-        <costList>
-            <WoodLog>10</WoodLog>
-            <PowerRune>2</PowerRune>
-            <BindingRune>3</BindingRune>
-        </costList>
-        <soundImpactDefault>BulletImpactGround</soundImpactDefault>
-        <minifiedDef>MinifiedFurniture</minifiedDef>
-        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-        <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
-        <placeWorkers>
-            <li>PlaceWorker_CoolerSimple</li>
-        </placeWorkers>
-        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-        <comps>
-            <li Class="CompProperties_Glower">
-                <glowRadius>3</glowRadius>
-                <glowColor>(255,150,100,0)</glowColor>
-            </li>
-            <li Class="CompProperties_HeatPusher">
-                <heatPerSecond>-11</heatPerSecond>
-                <heatPushMinTemperature>15</heatPushMinTemperature>
-            </li>
-            <li Class="CompProperties_Refuelable">
-                <fuelConsumptionRate>.1</fuelConsumptionRate>
-                <fuelCapacity>1.0</fuelCapacity>
-                <fuelFilter>
-                    <thingDefs>
-                        <li>PowerRune</li>
-                    </thingDefs>
-                </fuelFilter>
-                <destroyOnNoFuel>true</destroyOnNoFuel>
-            </li>
-        </comps>
-        <designationCategory>UnificaMagicaDesignation</designationCategory>
-        <designationHotKey>Misc2</designationHotKey>
-        <researchPrerequisites>
-            <li>ArcaneWizardry</li>
-        </researchPrerequisites>
-    </ThingDef>
-
-    <ThingDef ParentName="BuildingBase">
-        <defName>ArcaneCooler</defName>
-        <label>arcane cooler</label>
-        <thingClass>UnificaMagica.Building_ArcaneCooler</thingClass>
-        <description>An arcane device that absorbes heat. It can automatically turn itself on or off to reach a specific target temperature.</description>
-        <category>Building</category>
-        <graphicData>
-            <texPath>Things/Building/Misc/TempControl/ArcaneCooler</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawRotated>false</drawRotated>
-            <allowFlip>false</allowFlip>
-            <damageData>
-                <rect>(0.2,0,0.6,0.1)</rect>
-            </damageData>
-        </graphicData>
-        <altitudeLayer>Building</altitudeLayer>
-        <passability>PassThroughOnly</passability>
-        <pathCost>50</pathCost>
-        <constructEffect>ConstructDirt</constructEffect>
-        <drawerType>RealtimeOnly</drawerType>
-        <fillPercent>0.40</fillPercent>
-        <minifiedDef>MinifiedFurniture</minifiedDef>
-        <statBases>
-            <MaxHitPoints>80</MaxHitPoints>
-            <WorkToBuild>200</WorkToBuild>
-            <Flammability>0</Flammability>
-        </statBases>
-        <tickerType>Rare</tickerType>
-        <selectable>true</selectable>
-        <costList>
-            <WoodLog>10</WoodLog>
-            <PowerRune>2</PowerRune>
-            <BindingRune>3</BindingRune>
-            <AwarenessRune>1</AwarenessRune>
-            <ControlRune>1</ControlRune>
-        </costList>
-        <soundImpactDefault>BulletImpactGround</soundImpactDefault>
-        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-        <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
-        <placeWorkers>
-            <li>PlaceWorker_CoolerSimple</li>
-        </placeWorkers>
-        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-        <comps>
-            <li Class="CompProperties_Glower">
-                <glowRadius>3</glowRadius>
-                <glowColor>(255,150,100,0)</glowColor>
-            </li>
-            <!-- li Class="CompProperties_HeatPusher">
-                <heatPerSecond>11</heatPerSecond>
-                <heatPushMinTemperature>15</heatPushMinTemperature>
-            </li -->
-            <li Class="CompProperties_Flickable"/>
-            <li Class="CompProperties_TempControl">
-                <energyPerSecond>21</energyPerSecond>
-            </li>
-            <li Class="CompProperties_Refuelable">
-                <fuelConsumptionRate>.1</fuelConsumptionRate>
-                <fuelCapacity>1.0</fuelCapacity>
-                <fuelFilter>
-                    <thingDefs>
-                        <li>PowerRune</li>
-                    </thingDefs>
-                </fuelFilter>
-                <destroyOnNoFuel>true</destroyOnNoFuel>
-            </li>
-        </comps>
-        <designationCategory>UnificaMagicaDesignation</designationCategory>
-        <designationHotKey>Misc2</designationHotKey>
-        <researchPrerequisites>
-            <li>Elementalism</li>
-        </researchPrerequisites>
-    </ThingDef>
-
-
-
-</ThingDefs>
+</Defs>

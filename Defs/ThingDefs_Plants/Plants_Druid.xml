@@ -1,84 +1,79 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Plants>
+<Defs>
 
-    <!--
-    Removed druid plants 
     <ThingDef ParentName="PlantWithExtComps" Name="TreeWithExtCompsBase" Abstract="True">
-        <statBases>
-            <MaxHitPoints>300</MaxHitPoints>
-        </statBases>
-        <description>A tree.</description>
-        <altitudeLayer>Building</altitudeLayer>
-        <selectable>true</selectable>
-        <fillPercent>0.43</fillPercent>
-        <graphicData>
-            <shadowData>
-                <volume>(0.3, 0.3, 0.3)</volume>
-            </shadowData>
-        </graphicData>
-        <passability>PassThroughOnly</passability>
-        <pathCost>130</pathCost>
-        <blockWind>true</blockWind>
-        <ingestible>
-            <foodType>Tree</foodType>
-            <preferability>RawBad</preferability>
-            <nutrition>1.50</nutrition>
-        </ingestible>
-        <plant>
-            <fertilityMin>0.3</fertilityMin>
-            <fertilitySensitivity>0.5</fertilitySensitivity>
-            <reproduceRadius>0</reproduceRadius>
-            <soundHarvesting>Harvest_Tree</soundHarvesting>
-            <soundHarvestFinish>Harvest_Tree_Finish</soundHarvestFinish>
-            <sowWork>1500</sowWork>
-            <harvestWork>800</harvestWork>
-            <harvestAfterGrowth>0</harvestAfterGrowth>
-            <harvestedThingDef>WoodLog</harvestedThingDef>
-            <harvestYield>50</harvestYield>
-            <harvestTag>Wood</harvestTag>
-            <harvestMinGrowth>0.40</harvestMinGrowth>
-            <harvestFailable>false</harvestFailable>
-            <blockAdjacentSow>true</blockAdjacentSow>
-            <sowTags>
-                <li>Ground</li>
-            </sowTags>
-            <visualSizeRange>
-                <min>1.3</min>
-                <max>2.0</max>
-            </visualSizeRange>
-            <topWindExposure>0.25</topWindExposure>
-            <wildClusterSizeRange>
-                <min>8</min>
-                <max>30</max>
-            </wildClusterSizeRange>
-            <wildClusterRadius>8</wildClusterRadius>
-        </plant>
+      <statBases>
+        <MaxHitPoints>300</MaxHitPoints>
+        <Nutrition>1.50</Nutrition>
+      </statBases>
+      <description>A tree.</description>
+      <altitudeLayer>Building</altitudeLayer>
+      <selectable>true</selectable>
+      <fillPercent>0.43</fillPercent>
+      <graphicData>
+        <shadowData>
+          <volume>(0.3, 0.3, 0.3)</volume>
+        </shadowData>
+      </graphicData>
+      <passability>PassThroughOnly</passability>
+      <pathCost>130</pathCost>
+      <blockWind>true</blockWind>
+      <ingestible>
+        <foodType>Tree</foodType>
+        <preferability>RawBad</preferability>
+      </ingestible>
+      <plant>
+        <fertilityMin>0.3</fertilityMin>
+        <fertilitySensitivity>0.5</fertilitySensitivity>
+        <soundHarvesting>Harvest_Tree</soundHarvesting>
+        <soundHarvestFinish>Harvest_Tree_Finish</soundHarvestFinish>
+        <sowWork>1500</sowWork>
+        <harvestWork>800</harvestWork>
+        <harvestAfterGrowth>0</harvestAfterGrowth>
+        <harvestedThingDef>WoodLog</harvestedThingDef>
+        <harvestYield>50</harvestYield>
+        <harvestTag>Wood</harvestTag>
+        <harvestMinGrowth>0.40</harvestMinGrowth>
+        <harvestFailable>false</harvestFailable>
+        <blockAdjacentSow>true</blockAdjacentSow>
+        <sowTags>
+          <li>Ground</li>
+        </sowTags>
+        <visualSizeRange>1.3~2.0</visualSizeRange>
+        <topWindExposure>0.25</topWindExposure>
+        <!-- reproduceRadius>0</reproduceRadius>
+        <wildClusterSizeRange>
+          <min>8</min>
+          <max>30</max>
+        </wildClusterSizeRange -->
+        <wildClusterRadius>8</wildClusterRadius>
+        <wildClusterWeight>10</wildClusterWeight>
+      </plant>
     </ThingDef>
 
     <ThingDef ParentName="TreeWithExtCompsBase">
-        <defName>DruidTree</defName>
-        <label>druid tree</label>
-        <description>A study looking tree popular among druids.</description>
-        <tickerType>Never</tickerType>
-        <statBases>
-            <Beauty>7</Beauty>
-        </statBases>
-        <graphicData>
-            <texPath>Things/Plant/TreeOak</texPath>
-            <graphicClass>Graphic_Random</graphicClass>
-        </graphicData>
-        <plant>
-            <growDays>30</growDays>
-            <leaflessGraphicPath>Things/Plant/TreeOak_Leafless</leaflessGraphicPath>
-            <harvestWork>1000</harvestWork>
-            <harvestYield>50</harvestYield>
-            <sowWork>2500</sowWork>
-            <sowTags>
-                <li>Ground</li>
-                <li>SowDruidDefensiveSpot</li>
-            </sowTags>
-        </plant>
+      <defName>DruidTree</defName>
+      <label>druid tree</label>
+      <description>A study looking tree popular among druids.</description>
+      <tickerType>Never</tickerType>
+      <statBases>
+        <Beauty>7</Beauty>
+      </statBases>
+      <graphicData>
+        <texPath>Things/Plant/TreeOak</texPath>
+        <graphicClass>Graphic_Random</graphicClass>
+      </graphicData>
+      <plant>
+        <growDays>30</growDays>
+        <leaflessGraphicPath>Things/Plant/TreeOak_Leafless</leaflessGraphicPath>
+        <harvestWork>1000</harvestWork>
+        <harvestYield>50</harvestYield>
+        <sowWork>2500</sowWork>
+        <sowTags>
+          <li>Ground</li>
+          <li>SowDruidDefensiveSpot</li>
+        </sowTags>
+      </plant>
     </ThingDef>
--->
 
-</Plants>
+</Defs>

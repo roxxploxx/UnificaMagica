@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ThingCategoryDefs>
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
 
-    <ThingCategoryDef>
-        <defName>Runes</defName>
-        <label>runes</label>
-        <parent>Manufactured</parent>
-        <resourceReadoutRoot>true</resourceReadoutRoot>
-        <iconPath>UI/Icons/ThingCategories/Drugs</iconPath>
-    </ThingCategoryDef>
+  <ThingCategoryDef>
+    <defName>Runes</defName>
+    <label>runes</label>
+    <parent>Manufactured</parent>
+    <resourceReadoutRoot>true</resourceReadoutRoot>
+    <iconPath>UI/Icons/ThingCategories/Drugs</iconPath>
+  </ThingCategoryDef>
 
-</ThingCategoryDefs>
+</Defs>

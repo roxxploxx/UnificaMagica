@@ -4,6 +4,7 @@
     <HediffDef ParentName="DiseaseBase">
         <defName>SuperFoodPoisoning</defName>
         <label>super food poisoning</label>
+        <description>You feel aweful.</description>
         <scenarioCanAdd>false</scenarioCanAdd>
         <comps>
             <li Class="HediffCompProperties_Disappears">
@@ -29,6 +30,7 @@
     <HediffDef ParentName="DiseaseBase">
         <defName>EntangledByVine</defName>
         <label>entangled by vine</label>
+        <description>They grab and hold as you struggle to move.</description>
         <scenarioCanAdd>false</scenarioCanAdd>
         <comps>
             <li Class="HediffCompProperties_Disappears">

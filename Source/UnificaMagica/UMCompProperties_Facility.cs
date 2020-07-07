@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Verse;
 using RimWorld;
@@ -53,15 +52,19 @@ namespace UnificaMagica
 
     public class UMPlaceWorker_ShowFacilitiesConnections : PlaceWorker
     {
-        public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
+        public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot, UnityEngine.Color ghostCol, Thing thing = null)
         {
-            if (def.HasComp(typeof(CompAffectedByFacilities)))
+			// defensive check
+			var visibleMap = Verse.Find.CurrentMap;
+			if (visibleMap == null) return;
+
+			if (def.HasComp(typeof(CompAffectedByFacilities)))
             {
-                CompAffectedByFacilities.DrawLinesToPotentialThingsToLinkTo(def, center, rot, base.Map);
+                CompAffectedByFacilities.DrawLinesToPotentialThingsToLinkTo(def, center, rot, visibleMap);
             }
             else
             {
-                UMCompFacility.DrawLinesToPotentialThingsToLinkTo(def, center, rot, base.Map);
+                UMCompFacility.DrawLinesToPotentialThingsToLinkTo(def, center, rot, visibleMap);
             }
         }
     }

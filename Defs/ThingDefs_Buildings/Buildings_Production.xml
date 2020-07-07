@@ -4,7 +4,10 @@
 
     <ThingDef ParentName="BuildingBase">
         <defName>ArcaneResearchCabinet</defName>
-        <label>arcane research cabint</label>
+        <label>arcane research cabinet</label>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
         <graphicData>
             <texPath>Things/Building/Misc/ArcaneResearchCabinet</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -45,7 +48,7 @@
             <AwarenessRune>7</AwarenessRune>
         </costList>
         <designationCategory>UnificaMagicaDesignation</designationCategory>
-        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <minifiedDef>MinifiedThing</minifiedDef>
         <building>
             <ai_chillDestination>false</ai_chillDestination>
         </building>
@@ -58,17 +61,17 @@
                 <mustBePlacedAdjacent>true</mustBePlacedAdjacent>
             </li>
         </comps>
-        <designationHotkey>Misc5</designationHotkey>
+        <designationHotKey>Misc5</designationHotKey>
         <placeWorkers>
             <li>PlaceWorker_ShowFacilitiesConnections</li>
         </placeWorkers>
     </ThingDef>
 
     <ThingDef ParentName="BenchBase">
-        <DefName>TableArcaneAlcove</DefName>
+        <defName>TableArcaneAlcove</defName>
         <label>arcane alcove</label>
-        <ThingClass>UnificaMagica.Building_ArcaneAlcove</ThingClass>
-        <Description>A desk covered in papers and books, used to generate runes for wizards.</Description>
+        <thingClass>UnificaMagica.Building_ArcaneAlcove</thingClass>
+        <description>A desk covered in papers and books, used to generate runes for wizards.</description>
         <graphicData>
             <texPath>Things/Building/Production/TableArcaneAlcove</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
@@ -81,15 +84,15 @@
             </damageData>
         </graphicData>
         <costStuffCount>75</costStuffCount>
-        <CostList>
+        <costList>
             <WoodLog>20</WoodLog>
-        </CostList>
+        </costList>
         <stuffCategories>
             <li>Metallic</li>
             <li>Woody</li>
             <li>Stony</li>
         </stuffCategories>
-        <AltitudeLayer>Building</AltitudeLayer>
+        <altitudeLayer>Building</altitudeLayer>
         <fillPercent>0.5</fillPercent>
         <useHitPoints>True</useHitPoints>
         <statBases>
@@ -98,14 +101,14 @@
             <Flammability>1.0</Flammability>
             <Cleanliness>-5</Cleanliness>
         </statBases>
-        <Size>(3,1)</Size>
+        <size>(3,1)</size>
         <designationCategory>UnificaMagicaDesignation</designationCategory>
-        <Passability>PassThroughOnly</Passability>
+        <passability>PassThroughOnly</passability>
         <pathCost>60</pathCost>
         <hasInteractionCell>True</hasInteractionCell>
         <interactionCellOffset>(0,0,-1)</interactionCellOffset>
         <surfaceType>Item</surfaceType>
-        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <minifiedDef>MinifiedThing</minifiedDef>
         <recipes />
         <inspectorTabs>
             <li>ITab_Bills</li>
@@ -125,10 +128,10 @@
 
 
     <ThingDef ParentName="BenchBase">
-        <DefName>TableArcaneWorkbench</DefName>
+        <defName>TableArcaneWorkbench</defName>
         <label>arcane workbench</label>
-        <ThingClass>Building_WorkTable</ThingClass>
-        <Description>A bench with simple tools of wizardry, capable of producing the simplest of items and artifacts.</Description>
+        <thingClass>Building_WorkTable</thingClass>
+        <description>A bench with simple tools of wizardry, capable of producing the simplest of items and artifacts.</description>
         <graphicData>
             <texPath>Things/Building/Production/TableButcher</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
@@ -141,37 +144,37 @@
             </damageData>
         </graphicData>
         <costStuffCount>75</costStuffCount>
-        <CostList>
+        <costList>
             <WoodLog>20</WoodLog>
             <PowerRune>5</PowerRune>
             <BindingRune>5</BindingRune>
-        </CostList>
+        </costList>
         <stuffCategories>
             <li>Metallic</li>
             <li>Woody</li>
             <li>Stony</li>
         </stuffCategories>
-        <AltitudeLayer>Building</AltitudeLayer>
+        <altitudeLayer>Building</altitudeLayer>
         <fillPercent>0.5</fillPercent>
         <useHitPoints>True</useHitPoints>
-        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <minifiedDef>MinifiedThing</minifiedDef>
         <statBases>
             <WorkToBuild>2000</WorkToBuild>
             <MaxHitPoints>180</MaxHitPoints>
             <Flammability>1.0</Flammability>
             <Cleanliness>-5</Cleanliness>
         </statBases>
-        <Size>(3,1)</Size>
+        <size>(3,1)</size>
         <designationCategory>UnificaMagicaDesignation</designationCategory>
-        <Passability>PassThroughOnly</Passability>
+        <passability>PassThroughOnly</passability>
         <pathCost>60</pathCost>
         <hasInteractionCell>True</hasInteractionCell>
         <interactionCellOffset>(0,0,-1)</interactionCellOffset>
         <surfaceType>Item</surfaceType>
         <recipes>
             <li>ButcherCorpseMechanoid</li>
-            <li>MakeMortarShell</li>
             <!--
+            <li>MakeShellBase</li>
             <li>ConvertRingOfWarmthLToR</li>
             <li>ConvertRingOfWarmthRToL</li>
         -->
@@ -201,9 +204,12 @@
         <label>arcane grow vat</label>
         <description>Grows plants quickly in an artificial nutrient bath and glowing light, enriched by an influx of arcane energy.</description>
         <thingClass>UnificaMagica.Building_ArcaneGrowVat</thingClass>
+        <thingCategories>
+            <li>BuildingsProduction</li>
+        </thingCategories>
         <graphicData>
-            <texPath>Things/Building/Production/HydroponicsBasin</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
+            <texPath>Things/Building/Production/ArcaneGrowVat</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(1,1)</drawSize>
             <damageData>
                 <cornerTL>Damage/Corner</cornerTL>
@@ -218,24 +224,25 @@
         <castEdgeShadows>true</castEdgeShadows>
         <constructEffect>ConstructMetal</constructEffect>
         <fillPercent>0.30</fillPercent>
-        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <minifiedDef>MinifiedThing</minifiedDef>
         <statBases>
             <WorkToBuild>2800</WorkToBuild>
             <MaxHitPoints>180</MaxHitPoints>
             <Flammability>1.0</Flammability>
             <Cleanliness>-3</Cleanliness>
+            <Mass>60</Mass>
         </statBases>
         <size>(1,1)</size>
         <costList>
             <Steel>25</Steel>
-            <Component>1</Component>
+            <ComponentIndustrial>1</ComponentIndustrial>
             <PowerRune>2</PowerRune>
             <BindingRune>2</BindingRune>
             <ControlRune>3</ControlRune>
         </costList>
         <fertility>5.0</fertility>
         <building>
-            <defaultPlantToGrow>PlantPotato</defaultPlantToGrow>
+            <defaultPlantToGrow>Plant_Rice</defaultPlantToGrow>
             <sowTag>Hydroponic</sowTag>
         </building>
         <tickerType>Normal</tickerType>

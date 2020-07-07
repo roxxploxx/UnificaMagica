@@ -6,14 +6,14 @@
         <defName>UM_WizardFear</defName>
         <label>wizard feared</label>
         <stateClass>MentalState_PanicFlee</stateClass>
-        <category>Panic</category>
+        <category>Misc</category>
         <minTicksBeforeRecovery>3500</minTicksBeforeRecovery>
         <recoveryMtbDays>0.2</recoveryMtbDays>
         <blockNormalThoughts>true</blockNormalThoughts>
         <nameColor>(0.65, 0.9, 0.93)</nameColor>
         <beginLetterLabel>flee</beginLetterLabel>
         <beginLetter>{0} is running in terror.</beginLetter>
-        <beginLetterDef>BadNonUrgent</beginLetterDef>
+        <beginLetterDef>NegativeEvent</beginLetterDef>
         <recoveryMessage>{0} is no longer feared.</recoveryMessage>
         <baseInspectLine>Mental state: Wizard Feared</baseInspectLine>
         <unspawnedCanDo>true</unspawnedCanDo>

@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<TraitDefs>
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
 
-    <TraitDef>
-        <defName>WizardInclined</defName>
-        <commonality>0.2</commonality>
-        <degreeDatas>
-            <li>
-                <label>wizard inclined</label>
-                <description>NAME has a gift for the arcane.</description>
-                <statOffsets>
-                    <MoveSpeed>-.40</MoveSpeed>
-                    <MedicalTendSpeed>.2</MedicalTendSpeed>
-                    <ImmunityGainSpeed>.2</ImmunityGainSpeed>
-                </statOffsets>
-            </li>
-        </degreeDatas>
-    </TraitDef>
+  <TraitDef>
+    <defName>WizardInclined</defName>
+    <commonality>0.2</commonality>
+    <degreeDatas>
+      <li>
+        <label>wizardly</label>
+        <description>[PAWN_nameDef] has a gift for the arcane.</description>
+        <statOffsets>
+          <MoveSpeed>-.40</MoveSpeed>
+          <MedicalTendSpeed>.2</MedicalTendSpeed>
+          <ImmunityGainSpeed>.2</ImmunityGainSpeed>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
 
-</TraitDefs>
+</Defs>

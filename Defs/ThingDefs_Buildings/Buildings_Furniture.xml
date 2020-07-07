@@ -4,16 +4,17 @@
     <ThingDef Abstract="True" Name="WizardLampBase" ParentName="BuildingBase">
         <thingClass>Building</thingClass>
         <category>Building</category>
-        <minifiedDef>MinifiedFurniture</minifiedDef>
+        <minifiedDef>MinifiedThing</minifiedDef>
         <altitudeLayer>Building</altitudeLayer>
         <passability>PassThroughOnly</passability>
         <selectable>true</selectable>
         <fillPercent>0.20</fillPercent>
         <pathCost>8</pathCost>
         <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-        <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+        <soundImpactDefault>MetalHitImportant</soundImpactDefault>
         <designationCategory>UnificaMagicaDesignation</designationCategory>
         <rotatable>false</rotatable>
+        <tickerType>Normal</tickerType>
         <graphicData>
             <graphicClass>Graphic_Single</graphicClass>
             <shadowData>
@@ -39,6 +40,9 @@
         <defName>WizardLamp</defName>
         <label>wizard lamp</label>
         <description>Oh my gosh. I can’t believe I didn’t figure out how to turn up the power. This is a much better lamp.</description>
+        <thingCategories>
+            <li>BuildingsFurniture</li>
+        </thingCategories>
         <graphicData>
             <texPath>Things/Building/Furniture/WizardLamp</texPath>
         </graphicData>
@@ -76,6 +80,9 @@
         <defName>SmallWizardLamp</defName>
         <label>small wizard lamp</label>
         <description>The wizard lamp glows and lights the area through an arcane power source.</description>
+        <thingCategories>
+            <li>BuildingsFurniture</li>
+        </thingCategories>
         <graphicData>
             <texPath>Things/Building/Furniture/SmallWizardLamp</texPath>
         </graphicData>
@@ -114,7 +121,11 @@
     <ThingDef ParentName="BuildingBase">
         <defName>UM_CrylstalBall</defName>
         <label>crystal ball</label>
+        <minifiedDef>MinifiedThing</minifiedDef>
         <thingClass>Building_CommsConsole</thingClass>
+        <thingCategories>
+            <li>BuildingsFurniture</li>
+        </thingCategories>
         <graphicData>
             <texPath>Things/Building/Misc/CrystalBall</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -127,6 +138,7 @@
         <fillPercent>1</fillPercent>
         <canOverlapZones>false</canOverlapZones>
         <statBases>
+            <Mass>14</Mass>
             <MaxHitPoints>50</MaxHitPoints>
             <WorkToBuild>2200</WorkToBuild>
             <Flammability>1.0</Flammability>
@@ -135,7 +147,7 @@
         <size>(1,1)</size>
         <costList>
             <WoodLog>10</WoodLog>
-            <Component>4</Component>
+            <ComponentIndustrial>4</ComponentIndustrial>
             <PowerRune>6</PowerRune>
             <ControlRune>6</ControlRune>
             <AwarenessRune>8</AwarenessRune>
@@ -146,6 +158,7 @@
         <building>
             <ai_chillDestination>false</ai_chillDestination>
         </building>
+        <tickerType>Normal</tickerType>
         <comps>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerPlant</compClass>
@@ -163,14 +176,12 @@
             </li>
         </comps>
         <staticSunShadowHeight>0.5</staticSunShadowHeight>
-        <designationHotkey>Misc3</designationHotkey>
+        <designationHotKey>Misc3</designationHotKey>
         <designationCategory>UnificaMagicaDesignation</designationCategory>
         <researchPrerequisites>
             <li>InanimateImbuement</li>
         </researchPrerequisites>
     </ThingDef>
-
-
 
 
 </Defs>

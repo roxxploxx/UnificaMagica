@@ -1,717 +1,705 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
+
+  <!-- Zaps -->
+
+  <ThingDef Name="BaseZap" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>UnificaMagica.ZapProjectile</thingClass>
+    <label>zap</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+    <projectile Class="UnificaMagica.ZapProjectileProperties"></projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseZap">
+    <defName>Zap_NoviceWand</defName>
+    <label>wand novice zap</label>
+    <graphicData>
+      <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="UnificaMagica.ZapProjectileProperties">
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>4</damageAmountBase>
+      <DamageSkillModifier>
+        <Skill>Intellectual</Skill>
+        <fraction>.333</fraction>
+        <!--
+        <li>
+          <Skill>Intellectual</Skill>
+          <fraction>.222</fraction>
+        </li>
+        <li>
+          <Skill>Crafting</Skill>
+          <fraction>.111</fraction>
+        </li>
+      -->
+      </DamageSkillModifier>
+      <speed>45</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseZap">
+    <defName>Zap_ArcaneWand</defName>
+    <label>wand arcane zap</label>
+    <graphicData>
+      <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="UnificaMagica.ZapProjectileProperties">
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>5</damageAmountBase>
+      <DamageSkillModifier>
+        <Skill>Intellectual</Skill>
+        <fraction>.5</fraction>
+      </DamageSkillModifier>
+      <speed>55</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseZap">
+    <defName>Zap_OldMagicWand</defName>
+    <label>wand old magic zap</label>
+    <graphicData>
+      <texPath>Things/Projectile/Zap_OldMagicWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="UnificaMagica.ZapProjectileProperties">
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>1</damageAmountBase>
+      <DamageSkillModifier>
+        <Skill>Intellectual</Skill>
+        <fraction>1</fraction>
+      </DamageSkillModifier>
+      <explosionRadius>.5</explosionRadius>
+      <explosionDamageAmountBase>5</explosionDamageAmountBase>
+      <explosionDelay>2</explosionDelay>
+      <speed>1000</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseZap">
+    <defName>Zap_LightningWand</defName>
+    <label>wand lighntning zap</label>
+    <graphicData>
+      <texPath>Things/Projectile/Zap_OldMagicWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="UnificaMagica.ZapProjectileProperties">
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>1</damageAmountBase>
+      <DamageSkillModifier>
+        <Skill>Intellectual</Skill>
+        <fraction>4</fraction>
+      </DamageSkillModifier>
+      <speed>1000</speed>
+      <lightningBolt>true</lightningBolt>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseZap">
+    <defName>Zap_DisintegrateWand</defName>
+    <label>wand disintegrate zap</label>
+    <graphicData>
+      <!--texPath>Weather/BeamBolt</texPath -->
+      <texPath>Things/Projectile/Zap_BeamWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="UnificaMagica.ZapProjectileProperties">
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>1</damageAmountBase>
+      <DamageSkillModifier>
+        <Skill>Intellectual</Skill>
+        <fraction>4</fraction>
+      </DamageSkillModifier>
+      <speed>70</speed>
+      <!--
+          <Beam>
+          <texPath>Weather/BeamBolt</texPath>
+          </Beam>
+        -->
+    </projectile>
+  </ThingDef>
 
 
-    <!-- Zaps -->
-
-    <ThingDef Name="BaseZap" Abstract="True">
-        <category>Projectile</category>
-        <tickerType>Normal</tickerType>
-        <altitudeLayer>Projectile</altitudeLayer>
-        <thingClass>UnificaMagica.ZapProjectile</thingClass>
-        <label>zap</label>
-        <useHitPoints>False</useHitPoints>
-        <neverMultiSelect>True</neverMultiSelect>
-        <graphicData>
-            <shaderType>Transparent</shaderType>
-        </graphicData>
-        <projectile Class="UnificaMagica.ZapProjectileProperties">
-        </projectile>
-    </ThingDef>
-
-    <ThingDef ParentName="BaseZap">
-        <defName>Zap_NoviceWand</defName>
-        <label>wand novice zap</label>
-        <graphicData>
-            <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <projectile>
-            <flyOverhead>false</flyOverhead>
-            <damageDef>Bullet</damageDef>
-            <DamageAmountBase>4</DamageAmountBase>
-            <DamageSkillModifier>
-                <Skill>Wizardry</Skill>
-                <fraction>.333</fraction>
-            </DamageSkillModifier>
-            <Speed>45</Speed>
-        </projectile>
-    </ThingDef>
-
-    <ThingDef ParentName="BaseZap">
-        <defName>Zap_ArcaneWand</defName>
-        <label>wand arcane zap</label>
-        <graphicData>
-            <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <projectile>
-            <flyOverhead>false</flyOverhead>
-            <damageDef>Bullet</damageDef>
-            <DamageAmountBase>5</DamageAmountBase>
-            <DamageSkillModifier>
-                <Skill>Wizardry</Skill>
-                <fraction>.5</fraction>
-            </DamageSkillModifier>
-            <Speed>55</Speed>
-        </projectile>
-    </ThingDef>
-
-    <ThingDef ParentName="BaseZap">
-        <defName>Zap_OldMagicWand</defName>
-        <label>wand old magic zap</label>
-        <graphicData>
-            <texPath>Things/Projectile/Zap_OldMagicWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <projectile>
-            <flyOverhead>false</flyOverhead>
-            <damageDef>Bullet</damageDef>
-            <DamageAmountBase>1</DamageAmountBase>
-            <DamageSkillModifier>
-                <Skill>Wizardry</Skill>
-                <fraction>1</fraction>
-            </DamageSkillModifier>
-            <ExplosionRadius>.5</ExplosionRadius>
-            <ExplosionDamageAmountBase>5</ExplosionDamageAmountBase>
-            <explosionDelay>2</explosionDelay>
-            <Speed>1000</Speed>
-        </projectile>
-    </ThingDef>
-
-    <ThingDef ParentName="BaseZap">
-        <defName>Zap_LightningWand</defName>
-        <label>wand lighntning zap</label>
-        <graphicData>
-            <texPath>Things/Projectile/Zap_OldMagicWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <projectile>
-            <flyOverhead>false</flyOverhead>
-            <damageDef>Bullet</damageDef>
-            <DamageAmountBase>1</DamageAmountBase>
-            <DamageSkillModifier>
-                <Skill>Wizardry</Skill>
-                <fraction>4</fraction>
-            </DamageSkillModifier>
-            <Speed>1000</Speed>
-            <LightningBolt>true</LightningBolt>
-        </projectile>
-    </ThingDef>
-
-    <ThingDef ParentName="BaseZap">
-        <defName>Zap_DisintegrateWand</defName>
-        <label>wand disintegrate zap</label>
-        <graphicData>
-            <!--texPath>Weather/BeamBolt</texPath -->
-            <texPath>Things/Projectile/Zap_BeamWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <projectile>
-            <flyOverhead>false</flyOverhead>
-            <damageDef>Bullet</damageDef>
-            <DamageAmountBase>1</DamageAmountBase>
-            <DamageSkillModifier>
-                <Skill>Wizardry</Skill>
-                <fraction>4</fraction>
-            </DamageSkillModifier>
-            <Speed>70</Speed>
-            <!--
-            <Beam>
-                <texPath>Weather/BeamBolt</texPath>
-            </Beam>
-            -->
-        </projectile>
-    </ThingDef>
+  <ThingDef ParentName="BaseZap">
+    <defName>Zap_CripplingWand</defName>
+    <label>wand crippling zap</label>
+    <graphicData>
+      <texPath>Things/Projectile/Zap_OldMagicWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="UnificaMagica.ZapProjectileProperties">
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Crippling</damageDef>
+      <damageAmountBase>1</damageAmountBase>
+      <DamageSkillModifier>
+        <Skill>Intellectual</Skill>
+        <fraction>.5</fraction>
+      </DamageSkillModifier>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
 
 
-    <ThingDef ParentName="BaseZap">
-        <defName>Zap_CripplingWand</defName>
-        <label>wand crippling zap</label>
-        <graphicData>
-            <texPath>Things/Projectile/Zap_OldMagicWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <projectile>
-            <flyOverhead>false</flyOverhead>
-            <damageDef>Crippling</damageDef>
-            <DamageAmountBase>1</DamageAmountBase>
-            <DamageSkillModifier>
-                <Skill>Wizardry</Skill>
-                <fraction>.5</fraction>
-            </DamageSkillModifier>
-            <Speed>80</Speed>
-        </projectile>
-    </ThingDef>
+  <ThingDef ParentName="BaseZap">
+    <defName>Zap_ExplosiveWand</defName>
+    <label>wand explosive zap</label>
+    <graphicData>
+      <texPath>Things/Projectile/Zap_OldMagicWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <!-- thingClass>Projectile_Explosive</thingClass -->
+    <projectile Class="UnificaMagica.ZapProjectileProperties">
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <DamageSkillModifier>
+        <Skill>Intellectual</Skill>
+        <fraction>1</fraction>
+      </DamageSkillModifier>
+      <explosionRadius>2.9</explosionRadius>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseZap">
+    <defName>Zap_ScatterWand</defName>
+    <label>wand scatter zap</label>
+    <graphicData>
+      <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile Class="UnificaMagica.ZapProjectileProperties">
+      <damageDef>Bullet</damageDef>
+      <flyOverhead>false</flyOverhead>
+      <damageAmountBase>8</damageAmountBase>
+      <DamageSkillModifier>
+        <Skill>Intellectual</Skill>
+        <fraction>.5</fraction>
+      </DamageSkillModifier>
+      <explosionRadius>.9</explosionRadius>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
 
 
+  <!-- Wands -->
 
-    <ThingDef ParentName="BaseZap">
-        <defName>Zap_ExplosiveWand</defName>
-        <label>wand explosive zap</label>
-        <graphicData>
-            <texPath>Things/Projectile/Zap_OldMagicWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <shaderType>TransparentPostLight</shaderType>
-        </graphicData>
-        <!-- thingClass>Projectile_Explosive</thingClass -->
-        <projectile>
-            <damageDef>Bomb</damageDef>
-            <DamageAmountBase>20</DamageAmountBase>
-            <DamageSkillModifier>
-                <Skill>Wizardry</Skill>
-                <fraction>1</fraction>
-            </DamageSkillModifier>
-            <explosionRadius>2.9</explosionRadius>
-            <Speed>75</Speed>
-        </projectile>
-    </ThingDef>
-
-    <ThingDef ParentName="BaseZap">
-        <defName>Zap_ScatterWand</defName>
-        <label>wand scatter zap</label>
-        <graphicData>
-            <texPath>Things/Projectile/Zap_ArcaneWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <projectile>
-            <flyOverhead>false</flyOverhead>
-            <damageDef>Bullet</damageDef>
-            <DamageAmountBase>8</DamageAmountBase>
-            <DamageSkillModifier>
-                <Skill>Wizardry</Skill>
-                <fraction>.5</fraction>
-            </DamageSkillModifier>
-            <Speed>80</Speed>
-        </projectile>
-    </ThingDef>
+  <ThingDef Name="BaseWand" Abstract="True" ParentName="BaseWeapon">
+    <techLevel>Neolithic</techLevel>
+    <smeltable>true</smeltable>
+    <thingCategories>
+      <li>WeaponsRanged</li>
+    </thingCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="UnificaMagica.CompProperties_WizardTech" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+  </ThingDef>
 
 
+  <!-- Wand Arcane -->
+  <ThingDef ParentName="BaseWand">
+    <defName>NoviceWand</defName>
+    <label>novice wand</label>
+    <description>A novice wand. It focuses your budding Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/ArcaneWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>5000</WorkToMake>
+      <Mass>1.2</Mass>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.50</AccuracyMedium>
+      <AccuracyLong>0.40</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <WoodLog>30</WoodLog>
+      <Steel>5</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <PowerRune>2</PowerRune>
+      <BindingRune>2</BindingRune>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Zap_NoviceWand</defaultProjectile>
+        <warmupTime>0.3</warmupTime>
+        <range>24</range>
+        <soundCast>Shot_Revolver</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableArcaneWorkbench</li>
+      </recipeUsers>
+      <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>1</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
 
 
-    <!-- Wands -->
+  <!-- Wand Arcane -->
+  <ThingDef ParentName="BaseWand">
+    <defName>ArcaneWand</defName>
+    <label>arcane wand</label>
+    <description>An arcane imbued wand. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/ArcaneWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>15000</WorkToMake>
+      <Mass>1.2</Mass>
+      <AccuracyTouch>0.95</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.60</AccuracyMedium>
+      <AccuracyLong>0.42</AccuracyLong>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <WoodLog>30</WoodLog>
+      <Steel>5</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <PowerRune>2</PowerRune>
+      <BindingRune>2</BindingRune>
+      <PulsingRune>2</PulsingRune>
+      <ControlRune>1</ControlRune>
+      <AwarenessRune>1</AwarenessRune>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Zap_ArcaneWand</defaultProjectile>
+        <warmupTime>0.3</warmupTime>
+        <range>24</range>
+        <soundCast>Shot_Revolver</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableArcaneWorkbench</li>
+      </recipeUsers>
+      <researchPrerequisite>ArcaneArtificer</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>1</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
 
-    <ThingDef Name="BaseWand" Abstract="True" ParentName="BaseWeapon">
-        <techLevel>Neolithic</techLevel>
-        <smeltable>true</smeltable>
-        <thingCategories>
-            <li>WeaponsRanged</li>
-        </thingCategories>
-        <inspectorTabs>
-            <li>ITab_Art</li>
-        </inspectorTabs>
-        <comps>
-            <li Class="UnificaMagica.CompProperties_WizardTech"/>
-            <li>
-                <compClass>CompQuality</compClass>
-            </li>
-            <li Class="CompProperties_Art">
-                <nameMaker>ArtName_WeaponGun</nameMaker>
-                <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-                <minQualityForArtistic>Excellent</minQualityForArtistic>
-            </li>
-        </comps>
-    </ThingDef>
-
-
-    <!-- Wand Arcane -->
-    <ThingDef ParentName="BaseWand">
-        <defName>NoviceWand</defName>
-        <label>novice wand</label>
-        <description>A novice wand. It focuses your budding Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
-        <graphicData>
-            <texPath>Things/Item/Equipment/WeaponRanged/ArcaneWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <soundInteract>InteractPistol</soundInteract>
-        <statBases>
-            <WorkToMake>5000</WorkToMake>
-            <Mass>1.2</Mass>
-            <AccuracyTouch>0.90</AccuracyTouch>
-            <AccuracyShort>0.70</AccuracyShort>
-            <AccuracyMedium>0.50</AccuracyMedium>
-            <AccuracyLong>0.40</AccuracyLong>
-            <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
-        </statBases>
-        <costList>
-            <WoodLog>30</WoodLog>
-            <Steel>5</Steel>
-            <Component>1</Component>
-            <PowerRune>2</PowerRune>
-            <BindingRune>2</BindingRune>
-        </costList>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <projectileDef>Zap_NoviceWand</projectileDef>
-                <warmupTime>0.3</warmupTime>
-                <range>24</range>
-                <soundCast>ShotPistol</soundCast>
-                <soundCastTail>GunTail_Light</soundCastTail>
-                <muzzleFlashScale>9</muzzleFlashScale>
-            </li>
-        </verbs>
-        <recipeMaker>
-            <workSpeedStat>WizardSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
-            <effectWorking>Smith</effectWorking>
-            <soundWorking>Recipe_Smith</soundWorking>
-            <recipeUsers>
-                <li>TableArcaneWorkbench</li>
-            </recipeUsers>
-            <researchPrerequisite>ArcaneWizardry</researchPrerequisite>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>1</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
-        </recipeMaker>
-    </ThingDef>
-
-
-    <!-- Wand Arcane -->
-    <ThingDef ParentName="BaseWand">
-        <defName>ArcaneWand</defName>
-        <label>arcane wand</label>
-        <description>An arcane imbued wand. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
-        <graphicData>
-            <texPath>Things/Item/Equipment/WeaponRanged/ArcaneWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <soundInteract>InteractPistol</soundInteract>
-        <statBases>
-            <WorkToMake>15000</WorkToMake>
-            <Mass>1.2</Mass>
-            <AccuracyTouch>0.95</AccuracyTouch>
-            <AccuracyShort>0.75</AccuracyShort>
-            <AccuracyMedium>0.60</AccuracyMedium>
-            <AccuracyLong>0.42</AccuracyLong>
-            <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
-        </statBases>
-        <costList>
-            <WoodLog>30</WoodLog>
-            <Steel>5</Steel>
-            <Component>1</Component>
-            <PowerRune>2</PowerRune>
-            <BindingRune>2</BindingRune>
-            <PulsingRune>2</PulsingRune>
-            <ControlRune>1</ControlRune>
-            <AwarenessRune>1</AwarenessRune>
-        </costList>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <projectileDef>Zap_ArcaneWand</projectileDef>
-                <warmupTime>0.3</warmupTime>
-                <range>24</range>
-                <soundCast>ShotPistol</soundCast>
-                <soundCastTail>GunTail_Light</soundCastTail>
-                <muzzleFlashScale>9</muzzleFlashScale>
-            </li>
-        </verbs>
-        <recipeMaker>
-            <workSpeedStat>WizardSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
-            <effectWorking>Smith</effectWorking>
-            <soundWorking>Recipe_Smith</soundWorking>
-            <recipeUsers>
-                <li>TableArcaneWorkbench</li>
-            </recipeUsers>
-            <researchPrerequisite>ArcaneArtificer</researchPrerequisite>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>1</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
-        </recipeMaker>
-    </ThingDef>
-
-    <!-- Wand Old Magic -->
-    <ThingDef ParentName="BaseWand">
-        <defName>OldMagicWand</defName>
-        <label>old magic wand</label>
-        <description>An old magic imbued wand. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
-        <graphicData>
-            <texPath>Things/Item/Equipment/WeaponRanged/OldMagicWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <soundInteract>InteractPistol</soundInteract>
-        <statBases>
-            <WorkToMake>35000</WorkToMake>
-            <Mass>1.2</Mass>
-            <AccuracyTouch>0.99</AccuracyTouch>
-            <AccuracyShort>0.95</AccuracyShort>
-            <AccuracyMedium>0.85</AccuracyMedium>
-            <AccuracyLong>0.75</AccuracyLong>
-            <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
-        </statBases>
-        <costList>
-            <WoodLog>30</WoodLog>
-            <Steel>5</Steel>
-            <Component>1</Component>
-            <PowerRune>20</PowerRune>
-            <BindingRune>4</BindingRune>
-            <PulsingRune>6</PulsingRune>
-            <ControlRune>4</ControlRune>
-            <AwarenessRune>1</AwarenessRune>
-            <OldMagicRune>2</OldMagicRune>
-        </costList>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <projectileDef>Zap_OldMagicWand</projectileDef>
-                <warmupTime>0.3</warmupTime>
-                <range>32</range>
-                <soundCast>ShotPistol</soundCast>
-                <soundCastTail>GunTail_Light</soundCastTail>
-                <muzzleFlashScale>9</muzzleFlashScale>
-                <burstShotCount>3</burstShotCount>
-                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
-            </li>
-        </verbs>
-        <recipeMaker>
-            <workSpeedStat>WizardSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
-            <effectWorking>Smith</effectWorking>
-            <soundWorking>Recipe_Smith</soundWorking>
-            <recipeUsers>
-                <li>TableArcaneWorkbench</li>
-            </recipeUsers>
-            <researchPrerequisite>OldMagic</researchPrerequisite>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>10</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
-        </recipeMaker>
-    </ThingDef>
+  <!-- Wand Old Magic -->
+  <ThingDef ParentName="BaseWand">
+    <defName>OldMagicWand</defName>
+    <label>old magic wand</label>
+    <description>An old magic imbued wand. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/OldMagicWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>35000</WorkToMake>
+      <Mass>1.2</Mass>
+      <AccuracyTouch>0.99</AccuracyTouch>
+      <AccuracyShort>0.95</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
+      <AccuracyLong>0.75</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <WoodLog>30</WoodLog>
+      <Steel>5</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <PowerRune>20</PowerRune>
+      <BindingRune>4</BindingRune>
+      <PulsingRune>6</PulsingRune>
+      <ControlRune>4</ControlRune>
+      <AwarenessRune>1</AwarenessRune>
+      <OldMagicRune>2</OldMagicRune>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Zap_OldMagicWand</defaultProjectile>
+        <warmupTime>0.3</warmupTime>
+        <range>32</range>
+        <soundCast>Shot_Revolver</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableArcaneWorkbench</li>
+      </recipeUsers>
+      <researchPrerequisite>OldMagic</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+        <Intellectual>5</Intellectual>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
 
 
-
-    <!-- Wand Explosive -->
-    <ThingDef ParentName="BaseWand">
-        <defName>ExplosiveWand</defName>
-        <label>explosive wand</label>
-        <description>An explosive wand. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
-        <graphicData>
-            <texPath>Things/Item/Equipment/WeaponRanged/OldMagicWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <soundInteract>InteractPistol</soundInteract>
-        <statBases>
-            <WorkToMake>35000</WorkToMake>
-            <Mass>1.2</Mass>
-            <AccuracyTouch>0.99</AccuracyTouch>
-            <AccuracyShort>0.95</AccuracyShort>
-            <AccuracyMedium>0.85</AccuracyMedium>
-            <AccuracyLong>0.75</AccuracyLong>
-            <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
-        </statBases>
-        <costList>
-            <WoodLog>30</WoodLog>
-            <Steel>5</Steel>
-            <Component>1</Component>
-            <PowerRune>20</PowerRune>
-            <BindingRune>2</BindingRune>
-            <PulsingRune>8</PulsingRune>
-            <ControlRune>1</ControlRune>
-            <AwarenessRune>1</AwarenessRune>
-            <OldMagicRune>2</OldMagicRune>
-        </costList>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <projectileDef>Zap_ExplosiveWand</projectileDef>
-                <warmupTime>0.3</warmupTime>
-                <range>32</range>
-                <soundCast>ShotPistol</soundCast>
-                <soundCastTail>GunTail_Light</soundCastTail>
-                <muzzleFlashScale>9</muzzleFlashScale>
-                <burstShotCount>1</burstShotCount>
-                <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
-            </li>
-        </verbs>
-        <recipeMaker>
-            <workSpeedStat>WizardSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
-            <effectWorking>Smith</effectWorking>
-            <soundWorking>Recipe_Smith</soundWorking>
-            <recipeUsers>
-                <li>TableArcaneWorkbench</li>
-            </recipeUsers>
-            <researchPrerequisite>OldMagicArtificer</researchPrerequisite>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>10</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
-        </recipeMaker>
-    </ThingDef>
-
-    <!-- Wand Lightning -->
-    <ThingDef ParentName="BaseWand">
-        <defName>LightningWand</defName>
-        <label>lightning wand</label>
-        <description>A lightning wand. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
-        <graphicData>
-            <texPath>Things/Item/Equipment/WeaponRanged/OldMagicWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <soundInteract>InteractPistol</soundInteract>
-        <statBases>
-            <WorkToMake>35000</WorkToMake>
-            <Mass>1.2</Mass>
-            <AccuracyTouch>0.99</AccuracyTouch>
-            <AccuracyShort>0.95</AccuracyShort>
-            <AccuracyMedium>0.85</AccuracyMedium>
-            <AccuracyLong>0.75</AccuracyLong>
-            <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
-        </statBases>
-        <costList>
-            <WoodLog>30</WoodLog>
-            <Steel>5</Steel>
-            <Component>1</Component>
-            <PowerRune>20</PowerRune>
-            <BindingRune>2</BindingRune>
-            <PulsingRune>8</PulsingRune>
-            <ControlRune>2</ControlRune>
-            <AwarenessRune>1</AwarenessRune>
-            <OldMagicRune>2</OldMagicRune>
-        </costList>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <projectileDef>Zap_LightningWand</projectileDef>
-                <warmupTime>0.3</warmupTime>
-                <range>32</range>
-                <soundCast>ShotPistol</soundCast>
-                <soundCastTail>GunTail_Light</soundCastTail>
-                <muzzleFlashScale>9</muzzleFlashScale>
-                <burstShotCount>1</burstShotCount>
-                <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
-            </li>
-        </verbs>
-        <recipeMaker>
-            <workSpeedStat>WizardSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
-            <effectWorking>Smith</effectWorking>
-            <soundWorking>Recipe_Smith</soundWorking>
-            <recipeUsers>
-                <li>TableArcaneWorkbench</li>
-            </recipeUsers>
-            <researchPrerequisite>ArcaneChanneling</researchPrerequisite>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>10</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
-        </recipeMaker>
-    </ThingDef>
+  <!-- Wand Lightning -->
+  <ThingDef ParentName="BaseWand">
+    <defName>LightningWand</defName>
+    <label>lightning wand</label>
+    <description>A lightning wand. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/OldMagicWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>35000</WorkToMake>
+      <Mass>1.2</Mass>
+      <AccuracyTouch>0.99</AccuracyTouch>
+      <AccuracyShort>0.95</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
+      <AccuracyLong>0.75</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <WoodLog>30</WoodLog>
+      <Steel>5</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <PowerRune>20</PowerRune>
+      <BindingRune>2</BindingRune>
+      <PulsingRune>8</PulsingRune>
+      <ControlRune>2</ControlRune>
+      <AwarenessRune>1</AwarenessRune>
+      <OldMagicRune>2</OldMagicRune>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Zap_LightningWand</defaultProjectile>
+        <warmupTime>0.3</warmupTime>
+        <range>32</range>
+        <soundCast>Shot_Revolver</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableArcaneWorkbench</li>
+      </recipeUsers>
+      <researchPrerequisite>ArcaneChanneling</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
 
 
-    <!-- Wand Beam -->
-    <ThingDef ParentName="BaseWand">
-        <defName>DisitegrateWand</defName>
-        <label>disitegrate wand</label>
-        <description>A disitegration wand which harms armor as well as damage (not working). It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
-        <graphicData>
-            <texPath>Things/Item/Equipment/WeaponRanged/OldMagicWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <soundInteract>InteractPistol</soundInteract>
-        <statBases>
-            <WorkToMake>35000</WorkToMake>
-            <Mass>1.2</Mass>
-            <AccuracyTouch>0.99</AccuracyTouch>
-            <AccuracyShort>0.95</AccuracyShort>
-            <AccuracyMedium>0.85</AccuracyMedium>
-            <AccuracyLong>0.75</AccuracyLong>
-            <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
-        </statBases>
-        <costList>
-            <WoodLog>30</WoodLog>
-            <Steel>5</Steel>
-            <Component>1</Component>
-            <PowerRune>10</PowerRune>
-            <BindingRune>2</BindingRune>
-            <PulsingRune>6</PulsingRune>
-            <ControlRune>4</ControlRune>
-            <AwarenessRune>2</AwarenessRune>
-            <OldMagicRune>2</OldMagicRune>
-        </costList>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <projectileDef>Zap_DisintegrateWand</projectileDef>
-                <warmupTime>0.3</warmupTime>
-                <range>40</range>
-                <soundCast>ShotPistol</soundCast>
-                <soundCastTail>GunTail_Light</soundCastTail>
-                <muzzleFlashScale>9</muzzleFlashScale>
-                <burstShotCount>1</burstShotCount>
-                <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
-            </li>
-        </verbs>
-        <recipeMaker>
-            <workSpeedStat>WizardSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
-            <effectWorking>Smith</effectWorking>
-            <soundWorking>Recipe_Smith</soundWorking>
-            <recipeUsers>
-                <li>TableArcaneWorkbench</li>
-            </recipeUsers>
-            <researchPrerequisite>OldMagicArtificer</researchPrerequisite>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>10</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
-        </recipeMaker>
-    </ThingDef>
+  <!-- Wand Beam -->
+  <ThingDef ParentName="BaseWand">
+    <defName>DisitegrateWand</defName>
+    <label>disitegrate wand</label>
+    <description>A disitegration wand which harms armor as well as damage (not working). It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/OldMagicWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>35000</WorkToMake>
+      <Mass>1.2</Mass>
+      <AccuracyTouch>0.99</AccuracyTouch>
+      <AccuracyShort>0.95</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
+      <AccuracyLong>0.75</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <WoodLog>30</WoodLog>
+      <Steel>5</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <PowerRune>10</PowerRune>
+      <BindingRune>2</BindingRune>
+      <PulsingRune>6</PulsingRune>
+      <ControlRune>4</ControlRune>
+      <AwarenessRune>2</AwarenessRune>
+      <OldMagicRune>2</OldMagicRune>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Zap_DisintegrateWand</defaultProjectile>
+        <warmupTime>0.3</warmupTime>
+        <range>40</range>
+        <soundCast>Shot_Revolver</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableArcaneWorkbench</li>
+      </recipeUsers>
+      <researchPrerequisite>OldMagicArtificer</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
 
 
-    <!-- Wand Crippling -->
-    <ThingDef ParentName="BaseWand">
-        <defName>CripplingWand</defName>
-        <label>crippling wand</label>
-        <description>A crippling wand to slow enemies. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
-        <graphicData>
-            <texPath>Things/Item/Equipment/WeaponRanged/OldMagicWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <soundInteract>InteractPistol</soundInteract>
-        <statBases>
-            <WorkToMake>35000</WorkToMake>
-            <Mass>1.2</Mass>
-            <AccuracyTouch>0.99</AccuracyTouch>
-            <AccuracyShort>0.95</AccuracyShort>
-            <AccuracyMedium>0.85</AccuracyMedium>
-            <AccuracyLong>0.75</AccuracyLong>
-            <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
-        </statBases>
-        <costList>
-            <WoodLog>30</WoodLog>
-            <Steel>5</Steel>
-            <Component>1</Component>
-            <PowerRune>5</PowerRune>
-            <BindingRune>2</BindingRune>
-            <PulsingRune>2</PulsingRune>
-            <ControlRune>2</ControlRune>
-            <AwarenessRune>1</AwarenessRune>
-            <OldMagicRune>5</OldMagicRune>
-        </costList>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <projectileDef>Zap_CripplingWand</projectileDef>
-                <warmupTime>0.3</warmupTime>
-                <range>40</range>
-                <soundCast>ShotPistol</soundCast>
-                <soundCastTail>GunTail_Light</soundCastTail>
-                <muzzleFlashScale>9</muzzleFlashScale>
-                <burstShotCount>1</burstShotCount>
-                <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
-            </li>
-        </verbs>
-        <recipeMaker>
-            <workSpeedStat>WizardSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
-            <effectWorking>Smith</effectWorking>
-            <soundWorking>Recipe_Smith</soundWorking>
-            <recipeUsers>
-                <li>TableArcaneWorkbench</li>
-            </recipeUsers>
-            <researchPrerequisite>OldMagicArtificer</researchPrerequisite>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>10</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
-        </recipeMaker>
-    </ThingDef>
+  <!-- Wand Crippling -->
+  <ThingDef ParentName="BaseWand">
+    <defName>CripplingWand</defName>
+    <label>crippling wand</label>
+    <description>A crippling wand to slow enemies. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/OldMagicWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>35000</WorkToMake>
+      <Mass>1.2</Mass>
+      <AccuracyTouch>0.99</AccuracyTouch>
+      <AccuracyShort>0.95</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
+      <AccuracyLong>0.75</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <WoodLog>30</WoodLog>
+      <Steel>5</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <PowerRune>5</PowerRune>
+      <BindingRune>2</BindingRune>
+      <PulsingRune>2</PulsingRune>
+      <ControlRune>2</ControlRune>
+      <AwarenessRune>1</AwarenessRune>
+      <OldMagicRune>5</OldMagicRune>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Zap_CripplingWand</defaultProjectile>
+        <warmupTime>0.3</warmupTime>
+        <range>40</range>
+        <soundCast>Shot_Autopistol</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableArcaneWorkbench</li>
+      </recipeUsers>
+      <researchPrerequisite>OldMagicArtificer</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
 
-    <!-- Wand Arcane -->
-    <ThingDef ParentName="BaseWand">
-        <defName>ScatterWand</defName>
-        <label>scatter wand</label>
-        <description>An arcane imbued wand that fires multiple shots. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
-        <graphicData>
-            <texPath>Things/Item/Equipment/WeaponRanged/ArcaneWand</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <soundInteract>InteractPistol</soundInteract>
-        <statBases>
-            <WorkToMake>35000</WorkToMake>
-            <Mass>1.2</Mass>
-            <AccuracyTouch>0.99</AccuracyTouch>
-            <AccuracyShort>0.95</AccuracyShort>
-            <AccuracyMedium>0.85</AccuracyMedium>
-            <AccuracyLong>0.75</AccuracyLong>
-            <RangedWeapon_Cooldown>.0</RangedWeapon_Cooldown>
-        </statBases>
-        <costList>
-            <WoodLog>30</WoodLog>
-            <Steel>5</Steel>
-            <Component>1</Component>
-            <PowerRune>130</PowerRune>
-            <BindingRune>3</BindingRune>
-            <PulsingRune>8</PulsingRune>
-            <AwarenessRune>1</AwarenessRune>
-            <OldMagicRune>2</OldMagicRune>
-        </costList>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <projectileDef>Zap_ScatterWand</projectileDef>
-                <forcedMissRadius>1.9</forcedMissRadius>
-                <warmupTime>1.0</warmupTime>
-                <range>24</range>
-                <soundCast>ShotMinigun</soundCast>
-                <soundCastTail>GunTail_Medium</soundCastTail>
-                <muzzleFlashScale>9</muzzleFlashScale>
-                <burstShotCount>30</burstShotCount>
-                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
-            </li>
-        </verbs>
-        <recipeMaker>
-            <workSpeedStat>WizardSpeed</workSpeedStat>
-            <workSkill>Wizardry</workSkill>
-            <effectWorking>Smith</effectWorking>
-            <soundWorking>Recipe_Smith</soundWorking>
-            <recipeUsers>
-                <li>TableArcaneWorkbench</li>
-            </recipeUsers>
-            <researchPrerequisite>ArcaneControl</researchPrerequisite>
-            <skillRequirements>
-                <li>
-                    <skill>Wizardry</skill>
-                    <minLevel>12</minLevel>
-                </li>
-            </skillRequirements>
-            <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
-        </recipeMaker>
-    </ThingDef>
 
-</ThingDefs>
+	<!-- Wand Explosive -->
+	<ThingDef ParentName="BaseWand">
+		<defName>ExplosiveWand</defName>
+		<label>explosive wand</label>
+		<description>An explosive wand. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/OldMagicWand</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>35000</WorkToMake>
+			<Mass>1.2</Mass>
+			<AccuracyTouch>0.99</AccuracyTouch>
+			<AccuracyShort>0.95</AccuracyShort>
+			<AccuracyMedium>0.85</AccuracyMedium>
+			<AccuracyLong>0.75</AccuracyLong>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<WoodLog>30</WoodLog>
+			<Steel>5</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+			<PowerRune>20</PowerRune>
+			<BindingRune>2</BindingRune>
+			<PulsingRune>8</PulsingRune>
+			<ControlRune>1</ControlRune>
+			<AwarenessRune>1</AwarenessRune>
+			<OldMagicRune>2</OldMagicRune>
+		</costList>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Zap_ExplosiveWand</defaultProjectile>
+				<warmupTime>0.3</warmupTime>
+				<range>32</range>
+				<soundCast>Shot_Revolver</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<burstShotCount>1</burstShotCount>
+				<ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+			</li>
+		</verbs>
+		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<recipeUsers>
+				<li>TableArcaneWorkbench</li>
+			</recipeUsers>
+			<researchPrerequisite>OldMagicArtificer</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>10</Crafting>
+			</skillRequirements>
+			<unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
+		</recipeMaker>
+  </ThingDef>
+
+
+  <!-- Wand Scatter -->
+  <ThingDef ParentName="BaseWand">
+    <defName>ScatterWand</defName>
+    <label>scatter wand</label>
+    <description>An arcane imbued wand that fires multiple shots. It focuses your arcane Wizard power into a damaging bolt. The more powerful your Wizardry, the more damage done.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/ArcaneWand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>35000</WorkToMake>
+      <Mass>1.2</Mass>
+      <AccuracyTouch>0.99</AccuracyTouch>
+      <AccuracyShort>0.95</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
+      <AccuracyLong>0.75</AccuracyLong>
+      <RangedWeapon_Cooldown>.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <WoodLog>30</WoodLog>
+      <Steel>5</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <PowerRune>130</PowerRune>
+      <BindingRune>3</BindingRune>
+      <PulsingRune>8</PulsingRune>
+      <AwarenessRune>1</AwarenessRune>
+      <OldMagicRune>2</OldMagicRune>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Zap_ScatterWand</defaultProjectile>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <warmupTime>1.0</warmupTime>
+        <range>24</range>
+        <soundCast>Shot_Autopistol</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <burstShotCount>30</burstShotCount>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableArcaneWorkbench</li>
+      </recipeUsers>
+      <researchPrerequisite>ArcaneControl</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>12</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWand</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
+
+</Defs>
